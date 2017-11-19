@@ -84,6 +84,21 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/rengen/CLionProjects/ft_printf/ft_printf.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/home/rengen/CLionProjects/ft_printf/libft/ft_putchar.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/home/rengen/CLionProjects/ft_printf/libft/ft_putendl.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/home/rengen/CLionProjects/ft_printf/libft/ft_putnbr.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/home/rengen/CLionProjects/ft_printf/libft/ft_putstr.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/home/rengen/CLionProjects/ft_printf/main.c">
 			<Option target="ft_printf"/>
 		</Unit>

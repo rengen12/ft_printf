@@ -123,6 +123,141 @@ ft_printf/fast:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/build
 .PHONY : ft_printf/fast
 
+ft_printf.o: ft_printf.c.o
+
+.PHONY : ft_printf.o
+
+# target to build an object file
+ft_printf.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_printf.c.o
+.PHONY : ft_printf.c.o
+
+ft_printf.i: ft_printf.c.i
+
+.PHONY : ft_printf.i
+
+# target to preprocess a source file
+ft_printf.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_printf.c.i
+.PHONY : ft_printf.c.i
+
+ft_printf.s: ft_printf.c.s
+
+.PHONY : ft_printf.s
+
+# target to generate assembly for a file
+ft_printf.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_printf.c.s
+.PHONY : ft_printf.c.s
+
+libft/ft_putchar.o: libft/ft_putchar.c.o
+
+.PHONY : libft/ft_putchar.o
+
+# target to build an object file
+libft/ft_putchar.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o
+.PHONY : libft/ft_putchar.c.o
+
+libft/ft_putchar.i: libft/ft_putchar.c.i
+
+.PHONY : libft/ft_putchar.i
+
+# target to preprocess a source file
+libft/ft_putchar.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar.c.i
+.PHONY : libft/ft_putchar.c.i
+
+libft/ft_putchar.s: libft/ft_putchar.c.s
+
+.PHONY : libft/ft_putchar.s
+
+# target to generate assembly for a file
+libft/ft_putchar.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar.c.s
+.PHONY : libft/ft_putchar.c.s
+
+libft/ft_putendl.o: libft/ft_putendl.c.o
+
+.PHONY : libft/ft_putendl.o
+
+# target to build an object file
+libft/ft_putendl.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o
+.PHONY : libft/ft_putendl.c.o
+
+libft/ft_putendl.i: libft/ft_putendl.c.i
+
+.PHONY : libft/ft_putendl.i
+
+# target to preprocess a source file
+libft/ft_putendl.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putendl.c.i
+.PHONY : libft/ft_putendl.c.i
+
+libft/ft_putendl.s: libft/ft_putendl.c.s
+
+.PHONY : libft/ft_putendl.s
+
+# target to generate assembly for a file
+libft/ft_putendl.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putendl.c.s
+.PHONY : libft/ft_putendl.c.s
+
+libft/ft_putnbr.o: libft/ft_putnbr.c.o
+
+.PHONY : libft/ft_putnbr.o
+
+# target to build an object file
+libft/ft_putnbr.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o
+.PHONY : libft/ft_putnbr.c.o
+
+libft/ft_putnbr.i: libft/ft_putnbr.c.i
+
+.PHONY : libft/ft_putnbr.i
+
+# target to preprocess a source file
+libft/ft_putnbr.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.i
+.PHONY : libft/ft_putnbr.c.i
+
+libft/ft_putnbr.s: libft/ft_putnbr.c.s
+
+.PHONY : libft/ft_putnbr.s
+
+# target to generate assembly for a file
+libft/ft_putnbr.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.s
+.PHONY : libft/ft_putnbr.c.s
+
+libft/ft_putstr.o: libft/ft_putstr.c.o
+
+.PHONY : libft/ft_putstr.o
+
+# target to build an object file
+libft/ft_putstr.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o
+.PHONY : libft/ft_putstr.c.o
+
+libft/ft_putstr.i: libft/ft_putstr.c.i
+
+.PHONY : libft/ft_putstr.i
+
+# target to preprocess a source file
+libft/ft_putstr.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putstr.c.i
+.PHONY : libft/ft_putstr.c.i
+
+libft/ft_putstr.s: libft/ft_putstr.c.s
+
+.PHONY : libft/ft_putstr.s
+
+# target to generate assembly for a file
+libft/ft_putstr.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putstr.c.s
+.PHONY : libft/ft_putstr.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -159,6 +294,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ft_printf"
+	@echo "... ft_printf.o"
+	@echo "... ft_printf.i"
+	@echo "... ft_printf.s"
+	@echo "... libft/ft_putchar.o"
+	@echo "... libft/ft_putchar.i"
+	@echo "... libft/ft_putchar.s"
+	@echo "... libft/ft_putendl.o"
+	@echo "... libft/ft_putendl.i"
+	@echo "... libft/ft_putendl.s"
+	@echo "... libft/ft_putnbr.o"
+	@echo "... libft/ft_putnbr.i"
+	@echo "... libft/ft_putnbr.s"
+	@echo "... libft/ft_putstr.o"
+	@echo "... libft/ft_putstr.i"
+	@echo "... libft/ft_putstr.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

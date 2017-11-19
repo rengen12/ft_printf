@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/rengen/CLionProjects/ft_printf/ft_printf.c
+stdarg.h
+-
+libft/libft.h
+/home/rengen/CLionProjects/ft_printf/libft/libft.h
+
+/home/rengen/CLionProjects/ft_printf/libft/ft_putchar.c
+libft.h
+/home/rengen/CLionProjects/ft_printf/libft/libft.h
+
+/home/rengen/CLionProjects/ft_printf/libft/ft_putendl.c
+libft.h
+/home/rengen/CLionProjects/ft_printf/libft/libft.h
+
+/home/rengen/CLionProjects/ft_printf/libft/ft_putnbr.c
+libft.h
+/home/rengen/CLionProjects/ft_printf/libft/libft.h
+
+/home/rengen/CLionProjects/ft_printf/libft/ft_putstr.c
+libft.h
+/home/rengen/CLionProjects/ft_printf/libft/libft.h
+
+/home/rengen/CLionProjects/ft_printf/libft/libft.h
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+
+/home/rengen/CLionProjects/ft_printf/main.c
+stdio.h
+-
+

@@ -1,6 +1,4 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/rengen/CLionProjects/ft_printf/ft_printf
-CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
-  CMake 3.8 or higher is required.  You are running version 3.7.2
-
-
--- Configuring incomplete, errors occurred!
+/home/rengen/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/rengen/CLionProjects/ft_printf
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/rengen/CLionProjects/ft_printf/cmake-build-debug

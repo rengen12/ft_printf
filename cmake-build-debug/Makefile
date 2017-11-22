@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/rengen/Downloads/clion-2017.2.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/rengen/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rengen/CLionProjects/ft_printf
+CMAKE_SOURCE_DIR = /Users/amichak/CLionProjects/ft_printf
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rengen/CLionProjects/ft_printf/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/amichak/CLionProjects/ft_printf/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/rengen/CLionProjects/ft_printf/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/rengen/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/rengen/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles /home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles /Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,114 +150,6 @@ ft_printf.c.s:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_printf.c.s
 .PHONY : ft_printf.c.s
 
-libft/ft_putchar.o: libft/ft_putchar.c.o
-
-.PHONY : libft/ft_putchar.o
-
-# target to build an object file
-libft/ft_putchar.c.o:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o
-.PHONY : libft/ft_putchar.c.o
-
-libft/ft_putchar.i: libft/ft_putchar.c.i
-
-.PHONY : libft/ft_putchar.i
-
-# target to preprocess a source file
-libft/ft_putchar.c.i:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar.c.i
-.PHONY : libft/ft_putchar.c.i
-
-libft/ft_putchar.s: libft/ft_putchar.c.s
-
-.PHONY : libft/ft_putchar.s
-
-# target to generate assembly for a file
-libft/ft_putchar.c.s:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar.c.s
-.PHONY : libft/ft_putchar.c.s
-
-libft/ft_putendl.o: libft/ft_putendl.c.o
-
-.PHONY : libft/ft_putendl.o
-
-# target to build an object file
-libft/ft_putendl.c.o:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o
-.PHONY : libft/ft_putendl.c.o
-
-libft/ft_putendl.i: libft/ft_putendl.c.i
-
-.PHONY : libft/ft_putendl.i
-
-# target to preprocess a source file
-libft/ft_putendl.c.i:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putendl.c.i
-.PHONY : libft/ft_putendl.c.i
-
-libft/ft_putendl.s: libft/ft_putendl.c.s
-
-.PHONY : libft/ft_putendl.s
-
-# target to generate assembly for a file
-libft/ft_putendl.c.s:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putendl.c.s
-.PHONY : libft/ft_putendl.c.s
-
-libft/ft_putnbr.o: libft/ft_putnbr.c.o
-
-.PHONY : libft/ft_putnbr.o
-
-# target to build an object file
-libft/ft_putnbr.c.o:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o
-.PHONY : libft/ft_putnbr.c.o
-
-libft/ft_putnbr.i: libft/ft_putnbr.c.i
-
-.PHONY : libft/ft_putnbr.i
-
-# target to preprocess a source file
-libft/ft_putnbr.c.i:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.i
-.PHONY : libft/ft_putnbr.c.i
-
-libft/ft_putnbr.s: libft/ft_putnbr.c.s
-
-.PHONY : libft/ft_putnbr.s
-
-# target to generate assembly for a file
-libft/ft_putnbr.c.s:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.s
-.PHONY : libft/ft_putnbr.c.s
-
-libft/ft_putstr.o: libft/ft_putstr.c.o
-
-.PHONY : libft/ft_putstr.o
-
-# target to build an object file
-libft/ft_putstr.c.o:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o
-.PHONY : libft/ft_putstr.c.o
-
-libft/ft_putstr.i: libft/ft_putstr.c.i
-
-.PHONY : libft/ft_putstr.i
-
-# target to preprocess a source file
-libft/ft_putstr.c.i:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putstr.c.i
-.PHONY : libft/ft_putstr.c.i
-
-libft/ft_putstr.s: libft/ft_putstr.c.s
-
-.PHONY : libft/ft_putstr.s
-
-# target to generate assembly for a file
-libft/ft_putstr.c.s:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putstr.c.s
-.PHONY : libft/ft_putstr.c.s
-
 main.o: main.c.o
 
 .PHONY : main.o
@@ -297,18 +189,6 @@ help:
 	@echo "... ft_printf.o"
 	@echo "... ft_printf.i"
 	@echo "... ft_printf.s"
-	@echo "... libft/ft_putchar.o"
-	@echo "... libft/ft_putchar.i"
-	@echo "... libft/ft_putchar.s"
-	@echo "... libft/ft_putendl.o"
-	@echo "... libft/ft_putendl.i"
-	@echo "... libft/ft_putendl.s"
-	@echo "... libft/ft_putnbr.o"
-	@echo "... libft/ft_putnbr.i"
-	@echo "... libft/ft_putnbr.s"
-	@echo "... libft/ft_putstr.o"
-	@echo "... libft/ft_putstr.i"
-	@echo "... libft/ft_putstr.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

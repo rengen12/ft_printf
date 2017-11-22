@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/rengen/Downloads/clion-2017.2.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/rengen/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rengen/CLionProjects/ft_printf
+CMAKE_SOURCE_DIR = /Users/amichak/CLionProjects/ft_printf
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rengen/CLionProjects/ft_printf/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/amichak/CLionProjects/ft_printf/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ft_printf.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/ft_printf.dir/flags.make
 
 CMakeFiles/ft_printf.dir/main.c.o: CMakeFiles/ft_printf.dir/flags.make
 CMakeFiles/ft_printf.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ft_printf.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/main.c.o   -c /home/rengen/CLionProjects/ft_printf/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ft_printf.dir/main.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/main.c.o   -c /Users/amichak/CLionProjects/ft_printf/main.c
 
 CMakeFiles/ft_printf.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rengen/CLionProjects/ft_printf/main.c > CMakeFiles/ft_printf.dir/main.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/amichak/CLionProjects/ft_printf/main.c > CMakeFiles/ft_printf.dir/main.c.i
 
 CMakeFiles/ft_printf.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rengen/CLionProjects/ft_printf/main.c -o CMakeFiles/ft_printf.dir/main.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/amichak/CLionProjects/ft_printf/main.c -o CMakeFiles/ft_printf.dir/main.c.s
 
 CMakeFiles/ft_printf.dir/main.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/ft_printf.dir/main.c.o.provides.build: CMakeFiles/ft_printf.dir/main.
 
 CMakeFiles/ft_printf.dir/ft_printf.c.o: CMakeFiles/ft_printf.dir/flags.make
 CMakeFiles/ft_printf.dir/ft_printf.c.o: ../ft_printf.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ft_printf.dir/ft_printf.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/ft_printf.c.o   -c /home/rengen/CLionProjects/ft_printf/ft_printf.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ft_printf.dir/ft_printf.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/ft_printf.c.o   -c /Users/amichak/CLionProjects/ft_printf/ft_printf.c
 
 CMakeFiles/ft_printf.dir/ft_printf.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/ft_printf.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rengen/CLionProjects/ft_printf/ft_printf.c > CMakeFiles/ft_printf.dir/ft_printf.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/amichak/CLionProjects/ft_printf/ft_printf.c > CMakeFiles/ft_printf.dir/ft_printf.c.i
 
 CMakeFiles/ft_printf.dir/ft_printf.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/ft_printf.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rengen/CLionProjects/ft_printf/ft_printf.c -o CMakeFiles/ft_printf.dir/ft_printf.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/amichak/CLionProjects/ft_printf/ft_printf.c -o CMakeFiles/ft_printf.dir/ft_printf.c.s
 
 CMakeFiles/ft_printf.dir/ft_printf.c.o.requires:
 
@@ -105,123 +105,19 @@ CMakeFiles/ft_printf.dir/ft_printf.c.o.provides: CMakeFiles/ft_printf.dir/ft_pri
 CMakeFiles/ft_printf.dir/ft_printf.c.o.provides.build: CMakeFiles/ft_printf.dir/ft_printf.c.o
 
 
-CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o: CMakeFiles/ft_printf.dir/flags.make
-CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o: ../libft/ft_putstr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o   -c /home/rengen/CLionProjects/ft_printf/libft/ft_putstr.c
-
-CMakeFiles/ft_printf.dir/libft/ft_putstr.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/libft/ft_putstr.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rengen/CLionProjects/ft_printf/libft/ft_putstr.c > CMakeFiles/ft_printf.dir/libft/ft_putstr.c.i
-
-CMakeFiles/ft_printf.dir/libft/ft_putstr.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/libft/ft_putstr.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rengen/CLionProjects/ft_printf/libft/ft_putstr.c -o CMakeFiles/ft_printf.dir/libft/ft_putstr.c.s
-
-CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o.requires:
-
-.PHONY : CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o.requires
-
-CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o.provides: CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o.requires
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o.provides.build
-.PHONY : CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o.provides
-
-CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o.provides.build: CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o
-
-
-CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o: CMakeFiles/ft_printf.dir/flags.make
-CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o: ../libft/ft_putchar.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o   -c /home/rengen/CLionProjects/ft_printf/libft/ft_putchar.c
-
-CMakeFiles/ft_printf.dir/libft/ft_putchar.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/libft/ft_putchar.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rengen/CLionProjects/ft_printf/libft/ft_putchar.c > CMakeFiles/ft_printf.dir/libft/ft_putchar.c.i
-
-CMakeFiles/ft_printf.dir/libft/ft_putchar.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/libft/ft_putchar.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rengen/CLionProjects/ft_printf/libft/ft_putchar.c -o CMakeFiles/ft_printf.dir/libft/ft_putchar.c.s
-
-CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o.requires:
-
-.PHONY : CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o.requires
-
-CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o.provides: CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o.requires
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o.provides.build
-.PHONY : CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o.provides
-
-CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o.provides.build: CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o
-
-
-CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o: CMakeFiles/ft_printf.dir/flags.make
-CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o: ../libft/ft_putnbr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o   -c /home/rengen/CLionProjects/ft_printf/libft/ft_putnbr.c
-
-CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rengen/CLionProjects/ft_printf/libft/ft_putnbr.c > CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.i
-
-CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rengen/CLionProjects/ft_printf/libft/ft_putnbr.c -o CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.s
-
-CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o.requires:
-
-.PHONY : CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o.requires
-
-CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o.provides: CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o.requires
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o.provides.build
-.PHONY : CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o.provides
-
-CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o.provides.build: CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o
-
-
-CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o: CMakeFiles/ft_printf.dir/flags.make
-CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o: ../libft/ft_putendl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o   -c /home/rengen/CLionProjects/ft_printf/libft/ft_putendl.c
-
-CMakeFiles/ft_printf.dir/libft/ft_putendl.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/libft/ft_putendl.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rengen/CLionProjects/ft_printf/libft/ft_putendl.c > CMakeFiles/ft_printf.dir/libft/ft_putendl.c.i
-
-CMakeFiles/ft_printf.dir/libft/ft_putendl.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/libft/ft_putendl.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rengen/CLionProjects/ft_printf/libft/ft_putendl.c -o CMakeFiles/ft_printf.dir/libft/ft_putendl.c.s
-
-CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o.requires:
-
-.PHONY : CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o.requires
-
-CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o.provides: CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o.requires
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o.provides.build
-.PHONY : CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o.provides
-
-CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o.provides.build: CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o
-
-
 # Object files for target ft_printf
 ft_printf_OBJECTS = \
 "CMakeFiles/ft_printf.dir/main.c.o" \
-"CMakeFiles/ft_printf.dir/ft_printf.c.o" \
-"CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o" \
-"CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o" \
-"CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o" \
-"CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o"
+"CMakeFiles/ft_printf.dir/ft_printf.c.o"
 
 # External object files for target ft_printf
 ft_printf_EXTERNAL_OBJECTS =
 
 ft_printf: CMakeFiles/ft_printf.dir/main.c.o
 ft_printf: CMakeFiles/ft_printf.dir/ft_printf.c.o
-ft_printf: CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o
-ft_printf: CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o
-ft_printf: CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o
-ft_printf: CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o
 ft_printf: CMakeFiles/ft_printf.dir/build.make
 ft_printf: CMakeFiles/ft_printf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable ft_printf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable ft_printf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ft_printf.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -231,10 +127,6 @@ CMakeFiles/ft_printf.dir/build: ft_printf
 
 CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/main.c.o.requires
 CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/ft_printf.c.o.requires
-CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o.requires
-CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o.requires
-CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o.requires
-CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o.requires
 
 .PHONY : CMakeFiles/ft_printf.dir/requires
 
@@ -243,6 +135,6 @@ CMakeFiles/ft_printf.dir/clean:
 .PHONY : CMakeFiles/ft_printf.dir/clean
 
 CMakeFiles/ft_printf.dir/depend:
-	cd /home/rengen/CLionProjects/ft_printf/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rengen/CLionProjects/ft_printf /home/rengen/CLionProjects/ft_printf /home/rengen/CLionProjects/ft_printf/cmake-build-debug /home/rengen/CLionProjects/ft_printf/cmake-build-debug /home/rengen/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/amichak/CLionProjects/ft_printf/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/amichak/CLionProjects/ft_printf /Users/amichak/CLionProjects/ft_printf /Users/amichak/CLionProjects/ft_printf/cmake-build-debug /Users/amichak/CLionProjects/ft_printf/cmake-build-debug /Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ft_printf.dir/depend
 

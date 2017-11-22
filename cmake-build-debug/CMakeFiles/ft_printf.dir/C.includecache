@@ -6,29 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/rengen/CLionProjects/ft_printf/ft_printf.c
+/Users/amichak/CLionProjects/ft_printf/ft_printf.c
 stdarg.h
 -
 libft/libft.h
-/home/rengen/CLionProjects/ft_printf/libft/libft.h
+/Users/amichak/CLionProjects/ft_printf/libft/libft.h
 
-/home/rengen/CLionProjects/ft_printf/libft/ft_putchar.c
-libft.h
-/home/rengen/CLionProjects/ft_printf/libft/libft.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-/home/rengen/CLionProjects/ft_printf/libft/ft_putendl.c
-libft.h
-/home/rengen/CLionProjects/ft_printf/libft/libft.h
-
-/home/rengen/CLionProjects/ft_printf/libft/ft_putnbr.c
-libft.h
-/home/rengen/CLionProjects/ft_printf/libft/libft.h
-
-/home/rengen/CLionProjects/ft_printf/libft/ft_putstr.c
-libft.h
-/home/rengen/CLionProjects/ft_printf/libft/libft.h
-
-/home/rengen/CLionProjects/ft_printf/libft/libft.h
+/Users/amichak/CLionProjects/ft_printf/libft/libft.h
 unistd.h
 -
 stdlib.h
@@ -36,7 +22,9 @@ stdlib.h
 string.h
 -
 
-/home/rengen/CLionProjects/ft_printf/main.c
+/Users/amichak/CLionProjects/ft_printf/main.c
 stdio.h
 -
+ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 

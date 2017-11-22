@@ -3,6 +3,7 @@
 
 
 int main() {
-    ft_printf("%fhfhdg fh f", '1', 2, 3);
+    //wchar_t h[] = { 0xe2, 0x98, 0xba };
+    printf("%C", 0x04D0);
     return 0;
 }

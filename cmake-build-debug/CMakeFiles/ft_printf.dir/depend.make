@@ -4,17 +4,6 @@
 CMakeFiles/ft_printf.dir/ft_printf.c.o: ../ft_printf.c
 CMakeFiles/ft_printf.dir/ft_printf.c.o: ../libft/libft.h
 
-CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o: ../libft/ft_putchar.c
-CMakeFiles/ft_printf.dir/libft/ft_putchar.c.o: ../libft/libft.h
-
-CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o: ../libft/ft_putendl.c
-CMakeFiles/ft_printf.dir/libft/ft_putendl.c.o: ../libft/libft.h
-
-CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o: ../libft/ft_putnbr.c
-CMakeFiles/ft_printf.dir/libft/ft_putnbr.c.o: ../libft/libft.h
-
-CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o: ../libft/ft_putstr.c
-CMakeFiles/ft_printf.dir/libft/ft_putstr.c.o: ../libft/libft.h
-
+CMakeFiles/ft_printf.dir/main.c.o: ../ft_printf.h
 CMakeFiles/ft_printf.dir/main.c.o: ../main.c
 

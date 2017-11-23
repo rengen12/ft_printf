@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 # include <unistd.h>
 
-int ft_printf (const char *format, ...);
-int ft_putchar_u(int c);
+int     ft_printf (const char *format, ...);
+int     ft_putchar_u(int c);
+int     ft_putstr_u(char *s);
 #endif

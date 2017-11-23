@@ -8,6 +8,6 @@ set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 set( CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")
 
 message("CMAKE_BUILD_TYPE is ${CMAKE_BUILD_TYPE}")
-set(SOURCE_FILES main.c ft_printf.c chars.c)
+set(SOURCE_FILES main.c ft_printf.c chars.c test.c)
 add_executable(ft_printf ${SOURCE_FILES})
 link_libraries(ft_printf ${LIBFT})

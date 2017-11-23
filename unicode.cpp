@@ -1,4 +1,3 @@
-#include <iostream>
 #include <stdio.h>
 #include "unistd.h"
 #include <stdlib.h>
@@ -10,7 +9,7 @@
 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
 */
 
-int     handle_umas(unsigned int *a, unsigned int c, int len)
+/*int     handle_umas(unsigned int *a, unsigned int c, int len)
 {
     int             i;
     unsigned int    mask;
@@ -54,7 +53,7 @@ int ft_putchar_u(int c)
         return (handle_umas(a, (((c & 63) | ((c & 4032) << 2) | \
                 ((c & 258048) << 4) | ((c & 1835008) << 6)) | v4), 4));
     return (0);
-}
+}*/
 
 int ft_putchar_uni_old(int c)
 {
@@ -104,7 +103,7 @@ int ft_putchar_uni_old(int c)
     return (ret);
 }
 
-int main() {
+/*int main() {
 
     int i =0;
     int res = 0;
@@ -164,14 +163,14 @@ int main() {
     printf("\n%d\n", res);
     res = ft_putchar_uni_old(65605);
     printf("\n%d\n", res);*/
-    while (i < 2097152) {
+   /* while (i < 2097152) {
         ft_putchar_u(i);
         i+=100;
         write(1, "\n", 1);
        sleep(1);
     }
     return 0;
-}
+}*/
 
 
 

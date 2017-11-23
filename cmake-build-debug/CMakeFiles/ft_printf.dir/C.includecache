@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/Users/amichak/CLionProjects/ft_printf/chars.c
+ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
+unicode.cpp
+/Users/amichak/CLionProjects/ft_printf/unicode.cpp
+
 /Users/amichak/CLionProjects/ft_printf/ft_printf.c
 stdarg.h
 -
@@ -13,6 +19,8 @@ libft/libft.h
 /Users/amichak/CLionProjects/ft_printf/libft/libft.h
 
 /Users/amichak/CLionProjects/ft_printf/ft_printf.h
+unistd.h
+-
 
 /Users/amichak/CLionProjects/ft_printf/libft/libft.h
 unistd.h
@@ -27,4 +35,18 @@ stdio.h
 -
 ft_printf.h
 /Users/amichak/CLionProjects/ft_printf/ft_printf.h
+
+/Users/amichak/CLionProjects/ft_printf/test.c
+stdio.h
+-
+ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
+
+/Users/amichak/CLionProjects/ft_printf/unicode.cpp
+stdio.h
+-
+unistd.h
+/Users/amichak/CLionProjects/ft_printf/unistd.h
+stdlib.h
+-
 

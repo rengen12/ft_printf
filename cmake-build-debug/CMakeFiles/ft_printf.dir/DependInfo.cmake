@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/amichak/CLionProjects/ft_printf/chars.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/chars.c.o"
   "/Users/amichak/CLionProjects/ft_printf/ft_printf.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_printf.c.o"
   "/Users/amichak/CLionProjects/ft_printf/main.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/main.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/test.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/test.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

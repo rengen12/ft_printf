@@ -94,6 +94,9 @@
 		<Unit filename="/Users/amichak/CLionProjects/ft_printf/main.c">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="/Users/amichak/CLionProjects/ft_printf/test.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/amichak/CLionProjects/ft_printf/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

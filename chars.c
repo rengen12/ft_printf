@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "unicode.cpp"
 
 int     handle_umas(unsigned int *a, unsigned int c, int len)
 {
@@ -35,7 +36,7 @@ int     handle_umas(unsigned int *a, unsigned int c, int len)
     return (len);
 }
 
-int ft_putchar_u(int c)
+int     ft_putchar_u(int c)
 {
     unsigned int v2;
     unsigned int v3;
@@ -56,4 +57,27 @@ int ft_putchar_u(int c)
         return (handle_umas(a, (((c & 63) | ((c & 4032) << 2) | \
                 ((c & 258048) << 4) | ((c & 1835008) << 6)) | v4), 4));
     return (0);
+}
+
+int     ft_putstr_u(char *s)
+{
+    size_t  i;
+    int     c;
+    size_t  ret;
+
+    if (!s)
+        return (0);
+    i = 0;
+    ret = 0;
+    while (s[i * 4] != 0 || s[i * 4 + 1] != 0 || s[i * 4 + 2] || s[i * 4 + 3] != 0)
+    {
+        c = 0;
+        c += (unsigned char)s[i * 4];
+        c += ((int)((unsigned char)s[i * 4 + 1])) << 8;
+        c += ((int)((unsigned char)s[i * 4 + 2])) << 16;
+        c += ((int)((unsigned char)s[i * 4 + 3])) << 24;
+        ret += ft_putchar_u(c);
+        i++;
+    }
+    return (ret);
 }

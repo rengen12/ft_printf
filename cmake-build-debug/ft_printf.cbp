@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/amichak/CLionProjects/ft_printf/chars.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/amichak/CLionProjects/ft_printf/ft_printf.c">
 			<Option target="ft_printf"/>
 		</Unit>

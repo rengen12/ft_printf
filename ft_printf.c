@@ -8,7 +8,7 @@ size_t handstr(va_list ap, const char *f)
     return (0);
 }
 
-int ft_printf (const char *format, ...)
+int ft_printf(const char *format, ...)
 {
     size_t  i;
     va_list ap;

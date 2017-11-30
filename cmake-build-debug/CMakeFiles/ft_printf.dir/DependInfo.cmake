@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/amichak/CLionProjects/ft_printf/chars.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/chars.c.o"
-  "/Users/amichak/CLionProjects/ft_printf/ft_printf.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_printf.c.o"
-  "/Users/amichak/CLionProjects/ft_printf/main.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/main.c.o"
-  "/Users/amichak/CLionProjects/ft_printf/test.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/test.c.o"
+  "C:/Users/Andrey/CLionProjects/ft_printf/chars.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/chars.c.obj"
+  "C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_printf.c.obj"
+  "C:/Users/Andrey/CLionProjects/ft_printf/main.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/main.c.obj"
+  "C:/Users/Andrey/CLionProjects/ft_printf/test.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/test.c.obj"
   )
-set(CMAKE_C_COMPILER_ID "AppleClang")
+set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH

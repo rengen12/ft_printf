@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int			check_base(char *b, char *c)
+int			check_b(char *b, char *c)
 {
 	if (b && c)
 		while (*c && *b && *c++ == *b++)
@@ -21,7 +21,7 @@ static int			check_base(char *b, char *c)
 	return (0);
 }
 
-static int			ind(char c, const char *b)
+int			ind(char c, const char *b)
 {
 	int				counter;
 
@@ -34,34 +34,32 @@ static int			ind(char c, const char *b)
 	return (counter);
 }
 
-static long long	atoi_parse(char *s, char *b, int cb)
+long long	atoi_parse(char *s, char *b, int cb)
 {
-	int				sign;
-	long long		r;
+	int				        sign;
+	unsigned long long		r;
 
-	sign = 1;
-	r = 0;
-	while (*s == ' ' || *s == '\n' || *s == '\t' || *s == '\f' || \
-		*s == '\v' || *s == '\r')
+	while (*s == 32 || (*s >= 9 && *s <= 13))
 		s++;
 	sign = *s == '-';
-	if (*s == '+' || *s == '-')
+	if ((r = 0) == 0 && (*s == '+' || *s == '-'))
 		s++;
 	while (ind(*s, b) < cb)
 		r = r * cb + ind(*s++, b);
-	return (sign ? -r : r);
+    if (r > 9223372036854775807)
+        return (0);
+	return ((long long)(sign ? -r : r));
 }
 
-long long			ft_atoi_base(char *s, char *base)
+long long			ft_atoi_base(char *s, char *b)
 {
 	int				cb;
 
-	if (!s || !base)
+	if (!s || !b)
 		return (0);
-	if (!check_base(base, "0123456789ABCDEF"))
+	if (!check_b(b, "0123456789ABCDEF") && !check_b(b, "0123456789abcdef"))
 		return (0);
-	cb = ft_strlen(base);
-	if (cb < 2)
+	if ((cb = ft_strlen(b)) < 2)
 		return (0);
-	return (atoi_parse(s, base, cb));
+	return (atoi_parse(s, b, cb));
 }

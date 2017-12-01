@@ -7,6 +7,9 @@ set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -Werror -Wconversion")
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 
 message("CMAKE_BUILD_TYPE is ${CMAKE_BUILD_TYPE}")
-set(SOURCE_FILES test.c main.c ft_printf.c chars.c)
+set(SOURCE_FILES test.c main.c ft_printf.c chars.c
+        libft/ft_isdigit.c
+        libft/ft_memdel.c
+        )
 add_executable(ft_printf ${SOURCE_FILES})
 target_link_libraries(ft_printf ${LIBFT})

@@ -1,4 +1,5 @@
 #include "ft_printf.h"
+#include "stdio.h"
 
 size_t print_ordsymb(const char **frmt)
 {
@@ -18,9 +19,15 @@ size_t print_ordsymb(const char **frmt)
     return (i);
 }
 
-size_t print_str_fs(t_fs *fs, void *var)
+size_t print_var_fs(va_list ap, t_fs *fs)
 {
+    size_t i;
+    int num;
 
+    i = 0;
+    num = va_arg(ap, int);
+    printf("num = ", num);
+    return (i);
 }
 
 void handle_flags(t_fs *fs, char curch)
@@ -67,15 +74,25 @@ int		ft_atoi_printf(const char **nptr_t)
 }
 void handle_modif(t_fs *fs, const char **s)
 {
-    if (**s++ == 'h')//test it
+    if (**s == 'h' && **s + 1 != 'h')//test it
+        fs->h = 1;
+    else if (**s == 'h' && **s + 1 == 'h')
     {
-        if (**s == 'h') //endofwork
-        {
-            fs->hh = 1;
-            return;
-        }
+        fs->hh = 1;
+        *s++;//test it
     }
-
+    else if (**s == 'l' && **s + 1 != 'l')
+        fs->l = 1;
+    else if (**s == 'l' && **s + 1 == 'l')
+    {
+        fs->ll = 1;
+        *s++;//test it
+    }
+    else if (**s == 'j')
+        fs->j = 1;
+    else if (**s == 'z')
+        fs->z = 1;
+    *s++;//test it
 }
 
 size_t handle_str_fs(va_list ap, const char **frmt, t_fs *fs)
@@ -88,15 +105,15 @@ size_t handle_str_fs(va_list ap, const char **frmt, t_fs *fs)
     while (*s == '-' || *s == '+' || *s == '#' || *s == ' ' || *s == '0')
         handle_flags(fs, *s++);
     if (ft_isdigit(*s))
-        fs->width = ft_atoi_printf(&s);
+        fs->width = ft_atoi_printf((const char **)&s);
     if (*s == '.')
-        fs->precision = ft_atoi_printf(&++s);
+        fs->precision = ft_atoi_printf((const char **)(++s));
     if (*s == 'h' || *s == 'l' || *s == 'L')
-        handle_modif(fs, &s);
-    if (*s)
+        handle_modif(fs, (const char **)&s);
+    if (!*s)
         exit(1);
     fs->ch = *s++;
-    //i = print_str_fs(fs, var); //передать переменную со значением для выведения
+    i = print_var_fs(ap, fs); //передать переменную со значением для выведения
     return (i);
 }
 

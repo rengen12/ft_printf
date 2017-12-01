@@ -6,21 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/Users/amichak/CLionProjects/ft_printf/chars.c
+C:/Users/Andrey/CLionProjects/ft_printf/chars.c
 ft_printf.h
-/Users/amichak/CLionProjects/ft_printf/ft_printf.h
+C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
 
-/Users/amichak/CLionProjects/ft_printf/ft_printf.c
+C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.c
 ft_printf.h
-/Users/amichak/CLionProjects/ft_printf/ft_printf.h
+C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+stdio.h
+C:/Users/Andrey/CLionProjects/ft_printf/stdio.h
 
-/Users/amichak/CLionProjects/ft_printf/ft_printf.h
+C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
 libft/libft.h
-/Users/amichak/CLionProjects/ft_printf/libft/libft.h
+C:/Users/Andrey/CLionProjects/ft_printf/libft/libft.h
 stdarg.h
 -
 
-/Users/amichak/CLionProjects/ft_printf/libft/libft.h
+C:/Users/Andrey/CLionProjects/ft_printf/libft/ft_isdigit.c
+libft.h
+C:/Users/Andrey/CLionProjects/ft_printf/libft/libft.h
+
+C:/Users/Andrey/CLionProjects/ft_printf/libft/ft_memdel.c
+libft.h
+C:/Users/Andrey/CLionProjects/ft_printf/libft/libft.h
+
+C:/Users/Andrey/CLionProjects/ft_printf/libft/libft.h
 unistd.h
 -
 stdlib.h
@@ -28,15 +38,15 @@ stdlib.h
 string.h
 -
 
-/Users/amichak/CLionProjects/ft_printf/main.c
+C:/Users/Andrey/CLionProjects/ft_printf/main.c
 stdio.h
 -
 ft_printf.h
-/Users/amichak/CLionProjects/ft_printf/ft_printf.h
+C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
 
-/Users/amichak/CLionProjects/ft_printf/test.c
+C:/Users/Andrey/CLionProjects/ft_printf/test.c
 stdio.h
 -
 ft_printf.h
-/Users/amichak/CLionProjects/ft_printf/ft_printf.h
+C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
 

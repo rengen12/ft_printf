@@ -1,10 +1,14 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ft_printf.dir/test.c.o"
-  "CMakeFiles/ft_printf.dir/main.c.o"
-  "CMakeFiles/ft_printf.dir/ft_printf.c.o"
-  "CMakeFiles/ft_printf.dir/chars.c.o"
+  "CMakeFiles/ft_printf.dir/test.c.obj"
+  "CMakeFiles/ft_printf.dir/main.c.obj"
+  "CMakeFiles/ft_printf.dir/ft_printf.c.obj"
+  "CMakeFiles/ft_printf.dir/chars.c.obj"
+  "CMakeFiles/ft_printf.dir/libft/ft_isdigit.c.obj"
+  "CMakeFiles/ft_printf.dir/libft/ft_memdel.c.obj"
   "ft_printf.pdb"
-  "ft_printf"
+  "ft_printf.exe"
+  "ft_printf.exe.manifest"
+  "libft_printf.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

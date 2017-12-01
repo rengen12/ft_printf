@@ -26,7 +26,7 @@ int main(void) {
     //ft_putstr_u("¡™£¢∞§¶•ªº–≠œ∑´†¥¨ˆπ“‘ÅÍÎÏ©ÓÔ˚Ò…Æ«Ω≈ç√∫˜≤≥çå");
     //printf("¡™£¢∞§¶•ªº–≠œ∑´†¥¨ˆπ“‘ÅÍÎÏ©ÓÔ˚Ò…Æ«Ω≈ç√∫˜≤≥çå");
 
-    res = printf("%hd", 66000);
+    res = ft_printf("bgd%#+2.2lld", 66000);
     printf("\nres = %d\n", res);
     return (0);
 }

@@ -1,3 +1,1 @@
-"E:\Soft\CLion 2017.2.3\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\ft_printf.dir/objects.a
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-W\mingw64\bin\ar.exe cr CMakeFiles\ft_printf.dir/objects.a @CMakeFiles\ft_printf.dir\objects1.rsp
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-W\mingw64\bin\gcc.exe -g    -Wl,--whole-archive CMakeFiles\ft_printf.dir/objects.a -Wl,--no-whole-archive  -o ft_printf.exe -Wl,--out-implib,libft_printf.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ft_printf.dir\linklibs.rsp
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/ft_printf.dir/test.c.o CMakeFiles/ft_printf.dir/main.c.o CMakeFiles/ft_printf.dir/ft_printf.c.o CMakeFiles/ft_printf.dir/chars.c.o  -o ft_printf ../libft/libft.a 

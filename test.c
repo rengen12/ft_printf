@@ -17,8 +17,7 @@
 //#include <wchar.h>
 
 
-int main(void)
-{
+int main(void) {
 
     int res;
     //setlocale(LC_ALL, "");
@@ -27,7 +26,7 @@ int main(void)
     //ft_putstr_u("¡™£¢∞§¶•ªº–≠œ∑´†¥¨ˆπ“‘ÅÍÎÏ©ÓÔ˚Ò…Æ«Ω≈ç√∫˜≤≥çå");
     //printf("¡™£¢∞§¶•ªº–≠œ∑´†¥¨ˆπ“‘ÅÍÎÏ©ÓÔ˚Ò…Æ«Ω≈ç√∫˜≤≥çå");
 
-    res = printf("%u", -1);
+    res = printf("%hd", 66000);
     printf("\nres = %d\n", res);
     return (0);
 }

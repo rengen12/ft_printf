@@ -1,46 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amichak <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 15:30:14 by amichak           #+#    #+#             */
-/*   Updated: 2017/10/30 15:30:15 by amichak          ###   ########.fr       */
+/*   Created: 2017/10/30 15:29:56 by amichak           #+#    #+#             */
+/*   Updated: 2017/10/30 15:29:59 by amichak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	numlen(int n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t	r;
+	unsigned char	*cs;
 
-	r = 1;
-	if (n < 0)
-		r++;
-	while (n /= 10)
-		r++;
-	return (r);
-}
-
-char			*ft_itoa(int n)
-{
-	char		*r;
-	long long	ln;
-	size_t		l;
-
-	l = numlen(n);
-	if (!(r = ft_strnew(l)))
-		return (NULL);
-	ln = (long long)n;
-	if (ln < 0)
+	if (n == 0)
+		return (s);
+	cs = (unsigned char *)s;
+	while (n--)
 	{
-		r[0] = '-';
-		ln = -ln;
+		*cs = (unsigned char)c;
+		if (n)
+			cs++;
 	}
-	r[--l] = (char)(ln % 10 + '0');
-	while (ln /= 10)
-		r[--l] = (char)(ln % 10 + '0');
-	return (r);
+	return (s);
 }

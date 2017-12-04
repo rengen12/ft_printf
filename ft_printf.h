@@ -12,37 +12,13 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
 # include <stdarg.h>
 
-int     ft_printf (const char *format, ...);
-int     ft_putchar_u(int c);
-int     ft_putstr_u(char *s);
-char	*ft_itoa(size_t n);
-char	*ft_convert_base(size_t nb, char *base_to);
-size_t	ft_putchar(char c);
-size_t	ft_putstr(char const *s);
-size_t	ft_strlen(const char *s);
-
 typedef struct s_fs
 {
-    /*int s;
-    int S;
-    int p;
-    int d;
-    int D;
-    int i;
-    int o;
-    int O;
-    int u;
-    int U;
-    int x;
-    int X;
-    int c;
-    int C;*/
     /*charecter*/
     char ch;
 
@@ -63,4 +39,19 @@ typedef struct s_fs
     int z;
     int bl;
 }           t_fs;
+
+int     ft_printf (const char *format, ...);
+int     ft_putchar_u(int c);
+int     ft_putstr_u(char *s);
+char	*ft_itoa(size_t n);
+char	*ft_convert_base(size_t nb, char *base_to);
+size_t	ft_putchar(char c);
+size_t	ft_putstr(char const *s);
+size_t	ft_strlen(const char *s);
+void	ft_memdel(void **ap);
+char	*ft_strnew(size_t size);
+char	*ft_strncat(char *dest, const char *src, size_t n);
+void	*ft_memset(void *s, int c, size_t n);
+size_t	ft_putnbr(ssize_t n, size_t i, t_fs *fs);
+
 #endif

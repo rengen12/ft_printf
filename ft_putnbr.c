@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amichak <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 15:30:14 by amichak           #+#    #+#             */
-/*   Updated: 2017/10/30 15:30:15 by amichak          ###   ########.fr       */
+/*   Created: 2017/10/25 21:02:46 by amichak           #+#    #+#             */
+/*   Updated: 2017/10/25 21:22:18 by amichak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	numlen(int n)
+static size_t ft_putnbr_rec(ssize_t n, size_t i)
 {
-	size_t	r;
-
-	r = 1;
-	if (n < 0)
-		r++;
-	while (n /= 10)
-		r++;
-	return (r);
+	if (n >= 10)
+		i = ft_putnbr_rec(n / 10, i + 1);
+	ft_putchar((char)((n % 10) + '0'));
+	return (i);
 }
 
-char			*ft_itoa(int n)
+size_t	ft_putnbr(ssize_t n, size_t i, t_fs *fs)
 {
-	char		*r;
-	long long	ln;
-	size_t		l;
-
-	l = numlen(n);
-	if (!(r = ft_strnew(l)))
-		return (NULL);
-	ln = (long long)n;
-	if (ln < 0)
+	if (n < 0)
 	{
-		r[0] = '-';
-		ln = -ln;
+		ft_putchar('-');
+		i++;
 	}
-	r[--l] = (char)(ln % 10 + '0');
-	while (ln /= 10)
-		r[--l] = (char)(ln % 10 + '0');
-	return (r);
+    if (fs->ch == 'u')
+        n = (unsigned)n;
+	if (fs->l == 1)
+		n = (long)n;
+    if (!fs->l)
+        n = (int)n;
+	i += ft_putnbr_rec(n, i);
+	return (i);
 }

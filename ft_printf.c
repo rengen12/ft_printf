@@ -1,37 +1,64 @@
 #include "ft_printf.h"
 
-size_t padding(char cs, size_t width, size_t prec, size_t wordlen)
+size_t padding(t_fs *fs, int width, int prec, size_t wordlen)
 {
     size_t i;
 
     i = 0;
-    while (width-- > prec - wordlen)
+    if ((fs->zero && prec) ||(fs->zero && fs->minus))
+        fs->zero = 0;
+    else if (!prec)
+        prec = width - wordlen;
+    while (width-- > prec - wordlen && !fs->minus)
         i += ft_putchar(' ');
-    if (cs != 'f')
+    if (fs->ch != 'f')
         while (prec-- > wordlen)
             i += ft_putchar('0');
     return (i);
 }
 
-size_t print_ordsymb(const char **frmt)
+size_t padding_after(t_fs *fs, int width, int prec, int wordlen)
 {
-    char    *s;
-    size_t  i;
+    size_t i;
 
-    s = *(char **)frmt;
     i = 0;
-    while (*s != 0)
-    {
-        if (*s == '%')
-           if (*++s != '%')
-               break ;
-        ft_putchar_u(*s++);
-        i++;
-    }
-    *frmt = s;
+    while (wordlen-- > 0 && fs->minus && fs->ch != 'f')
+        i += ft_putchar(' ');
+    if (fs->ch == 'f')
+        while (prec--)
+            i += ft_putchar('0');//divis prec when float was printed
     return (i);
 }
 
+size_t print_ordsymb(const char **s)
+{
+    size_t  i;
+
+    i = 0;
+    while (**s != 0)
+    {
+        if (**s == '%')
+           if (*++*s != '%')
+               break ;
+        ft_putchar_u(*(*s)++);
+        i++;
+    }
+    return (i);
+}
+
+
+int     ft_wordlen(ssize_t var)
+{
+    int     i;
+
+    i = 0;
+    while (var)
+    {
+        var /= 10;
+        i++;
+    }
+    return (i);
+}
 
 size_t print(t_fs *fs, ssize_t var)
 {
@@ -39,14 +66,24 @@ size_t print(t_fs *fs, ssize_t var)
 
     i = 0;
     if (fs->ch == 'c')
-        ft_putchar((char)var);
+        i += ft_putchar((char)var);
     else if (fs->ch == 's')
-        ft_putstr((char *)var);
+        i += ft_putstr((char *)var);
     else if (fs->ch == 'C')
-        i = ft_putchar_u((int)var);
+        i += ft_putchar_u((int)var);
     else if (fs->ch == 'S')
-        i = ft_putstr_u((char *)var);
-
+        i += ft_putstr_u((char *)var);
+    else if (fs->ch == 'i' || fs->ch == 'd' || fs->ch == 'D')
+    {
+        i += padding(fs, fs->width, fs->precision, ft_wordlen(var));
+        i += ft_putnbr(var, 0, fs);
+    }
+    else if (fs->ch == 'f')
+    {
+        i += padding(fs, fs->width, fs->precision, ft_wordlen((ssize_t)var));
+        i += ft_putnbr(var, 0, fs);
+        //endofwork
+    }
     return (i);
 }
 
@@ -66,7 +103,7 @@ size_t print_base(t_fs *fs, size_t var)
     else if (fs->ch == 'b')
         systemstr = "01";
     str = ft_convert_base(var, systemstr);
-    padding(fs->ch, fs->width, fs->precision, (i = ft_strlen(str)));
+    i += padding(fs, fs->width, fs->precision, (ft_strlen(str));
     return (i);
 }
 
@@ -79,24 +116,10 @@ size_t print_str_fs(t_fs *fs, va_list ap)
             fs->ch == 'u' || fs->ch == 'U' || fs->ch == 'p' || fs->ch == 'b')
         i += print_base(fs, va_arg(ap, size_t));
     else if (fs->ch == 'd' || fs->ch == 'D' || fs->ch == 's' || fs->ch == 'S' || \
-            fs->ch == 'c' || fs->ch == 'C')
+            fs->ch == 'c' || fs->ch == 'C' || fs->ch == 'i' || fs->ch == 'f')
         i += print(fs, va_arg(ap, ssize_t));
+    i += padding_after(fs, fs->width, fs->precision, (fs->width - i)); //??? mb v else if
     return (i);
-}
-
-void handle_flags(t_fs *fs, char curch)
-{
-
-    if (curch == '-')
-        fs->minus = 1;
-    else if (curch == '+')
-        fs->plus = 1;
-    else if (curch == '#')
-        fs->sh = 1;
-    else if (curch == ' ')
-        fs->space = 1;
-    else if (curch == '0')
-        fs->zero = 1;
 }
 
 int		ft_atoi_printf(const char **nptr_t)
@@ -128,7 +151,21 @@ int		ft_atoi_printf(const char **nptr_t)
     return ((int)r * sign);
 }
 
-void handle_modif(t_fs *fs, char s)
+void handle_flags(t_fs *fs, char ch)
+{
+    if (ch == '-')
+        fs->minus = 1;
+    else if (ch == '+')
+        fs->plus = 1;
+    else if (ch == '#')
+        fs->sh = 1;
+    else if (ch == ' ')
+        fs->space = 1;
+    else if (ch == '0')
+        fs->zero = 1;
+}
+
+void handle_modif(t_fs *fs, char ch)
 {
     /*if (**s == 'h')
         if (*++(*s++) == 'h')
@@ -142,39 +179,36 @@ void handle_modif(t_fs *fs, char s)
             fs->l = 1;
     else if (*(*s++) == 'L')
         fs->bl = 1;*/
-    if (s == 'h')
+    if (ch == 'h')
         fs->h++;
-    else if (s == 'l')
+    else if (ch == 'l')
         fs->l++;
-    else if (s == 'L')
+    else if (ch == 'L')
         fs->bl++;
-    else if (s == 'z')
+    else if (ch == 'z')
         fs->z++;
-    else if (s == 'j')
+    else if (ch == 'j')
         fs->j++;
 }
 
-size_t handle_str_fs(va_list ap, const char **frmt, t_fs *fs)
+size_t handle_str_fs(va_list ap, const char **s, t_fs *fs)
 {
-    size_t        i;
-    const char    *s;
-
-    i = 0;
-    s = *frmt;
-    while (*s == '-' || *s == '+' || *s == '#' || *s == ' ' || *s == '0')
-        handle_flags(fs, *s++);
-    if (ft_isdigit(*s))
-        fs->width = ft_atoi_printf(&s);
-    if (*s == '.')
-        fs->precision = ft_atoi_printf(&s);
-    while (*s == 'h' || *s == 'l' || *s == 'L' || *s == 'j' || *s == 'z')
-        handle_modif(fs, *s++);
-    if (!*s)
+    while (**s == '-' || **s == '+' || **s == '#' || **s == ' ' || **s == '0')
+        handle_flags(fs, *(*s)++);
+    if (**s >= '0' && **s <= '9')
+        fs->width = ft_atoi_printf(s);
+    if (**s == '.')
+    {
+        (*s)++;
+        fs->precision = ft_atoi_printf(s);
+        fs->precision = (fs->precision > 0) ? fs->precision : 0;
+    }
+    while (**s == 'h' || **s == 'l' || **s == 'L' || **s == 'j' || **s == 'z')
+        handle_modif(fs, *(*s)++);
+    if (!**s)
         exit(1);
-    fs->ch = *s++;
-    i += print_str_fs(fs, ap);
-    *frmt = s;
-    return (i);
+    fs->ch = *(*s)++;
+    return (print_str_fs(fs, ap));
 }
 
 size_t handstrform(va_list ap, const char *frmt, t_fs *fs)
@@ -185,8 +219,8 @@ size_t handstrform(va_list ap, const char *frmt, t_fs *fs)
     while (*frmt)
     {
         i += print_ordsymb(&frmt);
-        if (*frmt != 0)
-            i += handle_str_fs(ap, &frmt, fs); //передваемый параметр ва_лист. Можно передавать переменную со значением, а не весь лист
+        if (*frmt)
+            i += handle_str_fs(ap, &frmt, fs);
     }
     return (i);
 }
@@ -200,11 +234,12 @@ void init_flags(t_fs *fs)
     fs->plus = 0;
     fs->space = 0;
     fs->width = 0;
-    fs->precision = 0;
+    fs->precision = 1;
     fs->h = 0;
     fs->l = 0;
     fs->j = 0;
     fs->z = 0;
+    fs->bl = 0;
 }
 
 int ft_printf(const char *format, ...)

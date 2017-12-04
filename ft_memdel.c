@@ -1,46 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amichak <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 15:30:14 by amichak           #+#    #+#             */
-/*   Updated: 2017/10/30 15:30:15 by amichak          ###   ########.fr       */
+/*   Created: 2017/10/30 15:30:05 by amichak           #+#    #+#             */
+/*   Updated: 2017/10/30 15:30:07 by amichak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	numlen(int n)
+void	ft_memdel(void **ap)
 {
-	size_t	r;
-
-	r = 1;
-	if (n < 0)
-		r++;
-	while (n /= 10)
-		r++;
-	return (r);
-}
-
-char			*ft_itoa(int n)
-{
-	char		*r;
-	long long	ln;
-	size_t		l;
-
-	l = numlen(n);
-	if (!(r = ft_strnew(l)))
-		return (NULL);
-	ln = (long long)n;
-	if (ln < 0)
+	if (ap)
 	{
-		r[0] = '-';
-		ln = -ln;
+		if (*ap)
+			free(*ap);
+		*ap = NULL;
 	}
-	r[--l] = (char)(ln % 10 + '0');
-	while (ln /= 10)
-		r[--l] = (char)(ln % 10 + '0');
-	return (r);
 }

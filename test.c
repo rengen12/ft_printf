@@ -67,8 +67,8 @@ int main(void) {
 
     movep(&a);
     ft_putendl(a);*/
-    //ft_printf("fdsfsf %lls", "123456");
-    res = printf("hex = %5.2f\n", 65.1);
+    //ft_printf("fdsfsf %llszkoop", "123456");
+    res = printf("hex = %02.6d\n", 15);
     printf("\nres = %d\n", res);
     return (0);
 }

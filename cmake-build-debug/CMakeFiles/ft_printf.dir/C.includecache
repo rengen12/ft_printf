@@ -6,31 +6,43 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Andrey/CLionProjects/ft_printf/chars.c
+/Users/amichak/CLionProjects/ft_printf/chars.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.c
-ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
-stdio.h
-C:/Users/Andrey/CLionProjects/ft_printf/stdio.h
-
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_convert_base.c
 libft/libft.h
-C:/Users/Andrey/CLionProjects/ft_printf/libft/libft.h
+/Users/amichak/CLionProjects/ft_printf/libft/libft.h
+
+/Users/amichak/CLionProjects/ft_printf/ft_printf.c
+ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
+
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
+libft/libft.h
+/Users/amichak/CLionProjects/ft_printf/libft/libft.h
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
 stdarg.h
 -
 
-C:/Users/Andrey/CLionProjects/ft_printf/libft/ft_isdigit.c
-libft.h
-C:/Users/Andrey/CLionProjects/ft_printf/libft/libft.h
+/Users/amichak/CLionProjects/ft_printf/ft_putchar.c
+ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/libft/ft_memdel.c
-libft.h
-C:/Users/Andrey/CLionProjects/ft_printf/libft/libft.h
+/Users/amichak/CLionProjects/ft_printf/ft_putstr.c
+ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/libft/libft.h
+/Users/amichak/CLionProjects/ft_printf/ft_strlen.c
+ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
+
+/Users/amichak/CLionProjects/ft_printf/libft/libft.h
 unistd.h
 -
 stdlib.h
@@ -38,15 +50,15 @@ stdlib.h
 string.h
 -
 
-C:/Users/Andrey/CLionProjects/ft_printf/main.c
+/Users/amichak/CLionProjects/ft_printf/main.c
 stdio.h
 -
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/test.c
+/Users/amichak/CLionProjects/ft_printf/test.c
 stdio.h
 -
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 

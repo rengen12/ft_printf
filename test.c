@@ -16,6 +16,31 @@
 //#include <locale.h>
 //#include <wchar.h>
 
+char *push_char(char *mas, char ch, int max)
+{
+    size_t i;
+
+    i = 0;
+    while (i < max)
+    {
+        if (!mas[i])
+        {
+            mas[i] = ch;
+            break ;
+        }
+        i++;
+    }
+    return (mas);
+}
+
+void movep(char **a)
+{
+    ft_putchar(*(*a)++);
+    int b;
+    b = 1;
+    b++;
+    a++;
+}
 
 int main(void) {
 
@@ -26,7 +51,24 @@ int main(void) {
     //ft_putstr_u("¡™£¢∞§¶•ªº–≠œ∑´†¥¨ˆπ“‘ÅÍÎÏ©ÓÔ˚Ò…Æ«Ω≈ç√∫˜≤≥çå");
     //printf("¡™£¢∞§¶•ªº–≠œ∑´†¥¨ˆπ“‘ÅÍÎÏ©ÓÔ˚Ò…Æ«Ω≈ç√∫˜≤≥çå");
 
-    res = ft_printf("bgd%#+2.2lld", 66000);
+
+   /* char *a;
+
+    a = ft_strnew(100);
+
+    push_char(a, 97, 100);
+    push_char(a, 98, 100);
+    push_char(a, 99, 100);
+    push_char(a, 100, 100);
+    push_char(a, 101, 100);
+    push_char(a, 102, 100);
+
+    ft_putendl(a);
+
+    movep(&a);
+    ft_putendl(a);*/
+    //ft_printf("fdsfsf %lls", "123456");
+    res = printf("hex = %5.2f\n", 65.1);
     printf("\nres = %d\n", res);
     return (0);
 }

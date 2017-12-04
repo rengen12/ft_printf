@@ -24,7 +24,7 @@ static size_t	numlen(int n)
 	return (r);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long n)
 {
 	char		*r;
 	long long	ln;
@@ -33,7 +33,7 @@ char			*ft_itoa(int n)
 	l = numlen(n);
 	if (!(r = ft_strnew(l)))
 		return (NULL);
-	ln = (long long)n;
+	ln = n;
 	if (ln < 0)
 	{
 		r[0] = '-';

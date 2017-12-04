@@ -1,5 +1,17 @@
 #include "ft_printf.h"
-#include "stdio.h"
+
+size_t padding(char cs, size_t width, size_t prec, size_t wordlen)
+{
+    size_t i;
+
+    i = 0;
+    while (width-- > prec - wordlen)
+        i += ft_putchar(' ');
+    if (cs != 'f')
+        while (prec-- > wordlen)
+            i += ft_putchar('0');
+    return (i);
+}
 
 size_t print_ordsymb(const char **frmt)
 {
@@ -16,22 +28,65 @@ size_t print_ordsymb(const char **frmt)
         ft_putchar_u(*s++);
         i++;
     }
+    *frmt = s;
     return (i);
 }
 
-size_t print_var_fs(va_list ap, t_fs *fs)
+
+size_t print(t_fs *fs, ssize_t var)
 {
-    size_t i;
-    int num;
+    size_t  i;
 
     i = 0;
-    num = va_arg(ap, int);
-    printf("num = ", num);
+    if (fs->ch == 'c')
+        ft_putchar((char)var);
+    else if (fs->ch == 's')
+        ft_putstr((char *)var);
+    else if (fs->ch == 'C')
+        i = ft_putchar_u((int)var);
+    else if (fs->ch == 'S')
+        i = ft_putstr_u((char *)var);
+
+    return (i);
+}
+
+size_t print_base(t_fs *fs, size_t var)
+{
+    size_t  i;
+    char    *systemstr;
+    char    *str;
+
+    systemstr = NULL;
+    if (fs->ch == 'X')
+        systemstr = "0123456789ABCDEF";
+    else if (fs->ch == 'x' || fs->ch == 'p')
+        systemstr = "0123456789abcdef";
+    else if (fs->ch == 'O' || fs->ch == 'o')
+        systemstr = "01234567";
+    else if (fs->ch == 'b')
+        systemstr = "01";
+    str = ft_convert_base(var, systemstr);
+    padding(fs->ch, fs->width, fs->precision, (i = ft_strlen(str)));
+    return (i);
+}
+
+size_t print_str_fs(t_fs *fs, va_list ap)
+{
+    size_t  i;
+
+    i = 0;
+    if (fs->ch == 'o' || fs->ch == 'O' || fs->ch == 'x' || fs->ch == 'X' || \
+            fs->ch == 'u' || fs->ch == 'U' || fs->ch == 'p' || fs->ch == 'b')
+        i += print_base(fs, va_arg(ap, size_t));
+    else if (fs->ch == 'd' || fs->ch == 'D' || fs->ch == 's' || fs->ch == 'S' || \
+            fs->ch == 'c' || fs->ch == 'C')
+        i += print(fs, va_arg(ap, ssize_t));
     return (i);
 }
 
 void handle_flags(t_fs *fs, char curch)
 {
+
     if (curch == '-')
         fs->minus = 1;
     else if (curch == '+')
@@ -72,48 +127,53 @@ int		ft_atoi_printf(const char **nptr_t)
     *nptr_t = nptr + i;
     return ((int)r * sign);
 }
-void handle_modif(t_fs *fs, const char **s)
+
+void handle_modif(t_fs *fs, char s)
 {
-    if (**s == 'h' && **s + 1 != 'h')//test it
-        fs->h = 1;
-    else if (**s == 'h' && **s + 1 == 'h')
-    {
-        fs->hh = 1;
-        *s++;//test it
-    }
-    else if (**s == 'l' && **s + 1 != 'l')
-        fs->l = 1;
-    else if (**s == 'l' && **s + 1 == 'l')
-    {
-        fs->ll = 1;
-        *s++;//test it
-    }
-    else if (**s == 'j')
-        fs->j = 1;
-    else if (**s == 'z')
-        fs->z = 1;
-    *s++;//test it
+    /*if (**s == 'h')
+        if (*++(*s++) == 'h')
+            fs->hh = 1;
+        else
+            fs->h = 1;
+    else if (**s == 'l')
+        if (*++(*s++) == 'l')
+            fs->ll = 1;
+        else
+            fs->l = 1;
+    else if (*(*s++) == 'L')
+        fs->bl = 1;*/
+    if (s == 'h')
+        fs->h++;
+    else if (s == 'l')
+        fs->l++;
+    else if (s == 'L')
+        fs->bl++;
+    else if (s == 'z')
+        fs->z++;
+    else if (s == 'j')
+        fs->j++;
 }
 
 size_t handle_str_fs(va_list ap, const char **frmt, t_fs *fs)
 {
-    size_t  i;
-    char    *s;
+    size_t        i;
+    const char    *s;
 
     i = 0;
-    s = *(char **)frmt;
+    s = *frmt;
     while (*s == '-' || *s == '+' || *s == '#' || *s == ' ' || *s == '0')
         handle_flags(fs, *s++);
     if (ft_isdigit(*s))
-        fs->width = ft_atoi_printf((const char **)&s);
+        fs->width = ft_atoi_printf(&s);
     if (*s == '.')
-        fs->precision = ft_atoi_printf((const char **)(++s));
-    if (*s == 'h' || *s == 'l' || *s == 'L')
-        handle_modif(fs, (const char **)&s);
+        fs->precision = ft_atoi_printf(&s);
+    while (*s == 'h' || *s == 'l' || *s == 'L' || *s == 'j' || *s == 'z')
+        handle_modif(fs, *s++);
     if (!*s)
         exit(1);
     fs->ch = *s++;
-    i = print_var_fs(ap, fs); //передать переменную со значением для выведения
+    i += print_str_fs(fs, ap);
+    *frmt = s;
     return (i);
 }
 
@@ -141,10 +201,8 @@ void init_flags(t_fs *fs)
     fs->space = 0;
     fs->width = 0;
     fs->precision = 0;
-    fs->hh = 0;
     fs->h = 0;
     fs->l = 0;
-    fs->ll = 0;
     fs->j = 0;
     fs->z = 0;
 }

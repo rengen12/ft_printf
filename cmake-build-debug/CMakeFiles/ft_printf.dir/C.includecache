@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Andrey/CLionProjects/ft_printf/chars.c
+/Users/amichak/CLionProjects/ft_printf/chars.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_convert_base.c
+/Users/amichak/CLionProjects/ft_printf/ft_convert_base.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_memdel.c
+/Users/amichak/CLionProjects/ft_printf/ft_memdel.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_memset.c
+/Users/amichak/CLionProjects/ft_printf/ft_memset.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.c
+/Users/amichak/CLionProjects/ft_printf/ft_printf.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 unistd.h
 -
 stdlib.h
@@ -36,39 +36,39 @@ string.h
 stdarg.h
 -
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_putchar.c
+/Users/amichak/CLionProjects/ft_printf/ft_putchar.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_putnbr.c
+/Users/amichak/CLionProjects/ft_printf/ft_putnbr.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_putstr.c
+/Users/amichak/CLionProjects/ft_printf/ft_putstr.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_strlen.c
+/Users/amichak/CLionProjects/ft_printf/ft_strlen.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_strncat.c
+/Users/amichak/CLionProjects/ft_printf/ft_strncat.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/ft_strnew.c
+/Users/amichak/CLionProjects/ft_printf/ft_strnew.c
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/main.c
+/Users/amichak/CLionProjects/ft_printf/main.c
 stdio.h
 -
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 
-C:/Users/Andrey/CLionProjects/ft_printf/test.c
+/Users/amichak/CLionProjects/ft_printf/test.c
 stdio.h
 -
 ft_printf.h
-C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.h
+/Users/amichak/CLionProjects/ft_printf/ft_printf.h
 

@@ -15,8 +15,8 @@
 static size_t ft_putnbr_rec(ssize_t n, size_t i)
 {
 	if (n >= 10)
-		i = ft_putnbr_rec(n / 10, i + 1);
-	ft_putchar((char)((n % 10) + '0'));
+		i = ft_putnbr_rec(n / 10, i);
+	i += ft_putchar((char)((n % 10) + '0'));
 	return (i);
 }
 
@@ -33,6 +33,10 @@ size_t	ft_putnbr(ssize_t n, size_t i, t_fs *fs)
 		n = (long)n;
     if (!fs->l)
         n = (int)n;
+	if (n > 0 && !fs->plus && fs->space)
+		i += ft_putchar(' ');
+	else if (n > 0 && fs->plus)
+		i += ft_putchar('+');
 	i += ft_putnbr_rec(n, i);
 	return (i);
 }

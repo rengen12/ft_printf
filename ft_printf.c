@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-size_t padding(t_fs *fs, int width, int prec, size_t wordlen)
+size_t padding(t_fs *fs, int width, int prec, int wordlen)
 {
     size_t i;
 
@@ -17,7 +17,7 @@ size_t padding(t_fs *fs, int width, int prec, size_t wordlen)
     return (i);
 }
 
-size_t padding_after(t_fs *fs, int width, int prec, int wordlen)
+size_t padding_after(t_fs *fs, int prec, int wordlen)
 {
     size_t i;
 
@@ -82,7 +82,6 @@ size_t print(t_fs *fs, ssize_t var)
     {
         i += padding(fs, fs->width, fs->precision, ft_wordlen((ssize_t)var));
         i += ft_putnbr(var, 0, fs);
-        //endofwork
     }
     return (i);
 }
@@ -94,6 +93,7 @@ size_t print_base(t_fs *fs, size_t var)
     char    *str;
 
     systemstr = NULL;
+    i = 0;
     if (fs->ch == 'X')
         systemstr = "0123456789ABCDEF";
     else if (fs->ch == 'x' || fs->ch == 'p')
@@ -102,8 +102,8 @@ size_t print_base(t_fs *fs, size_t var)
         systemstr = "01234567";
     else if (fs->ch == 'b')
         systemstr = "01";
-    str = ft_convert_base(var, systemstr);
-    i += padding(fs, fs->width, fs->precision, (ft_strlen(str));
+    str = ft_convert_base(var, systemstr, fs);
+    i += padding(fs, fs->width, fs->precision, (ft_strlen(str)));
     return (i);
 }
 
@@ -118,7 +118,7 @@ size_t print_str_fs(t_fs *fs, va_list ap)
     else if (fs->ch == 'd' || fs->ch == 'D' || fs->ch == 's' || fs->ch == 'S' || \
             fs->ch == 'c' || fs->ch == 'C' || fs->ch == 'i' || fs->ch == 'f')
         i += print(fs, va_arg(ap, ssize_t));
-    i += padding_after(fs, fs->width, fs->precision, (fs->width - i)); //??? mb v else if
+    i += padding_after(fs, fs->precision, (fs->width - i)); //??? mb v else if
     return (i);
 }
 

@@ -44,7 +44,7 @@ int     ft_printf (const char *format, ...);
 int     ft_putchar_u(int c);
 int     ft_putstr_u(char *s);
 char	*ft_itoa(size_t n);
-char	*ft_convert_base(size_t nb, char *base_to);
+char	*ft_convert_base(size_t nb, char *base_to, t_fs *fs);
 size_t	ft_putchar(char c);
 size_t	ft_putstr(char const *s);
 size_t	ft_strlen(const char *s);

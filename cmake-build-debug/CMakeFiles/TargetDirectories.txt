@@ -1,3 +1,3 @@
-C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir
-C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir

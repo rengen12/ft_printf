@@ -58,7 +58,7 @@ int     ft_putchar_u(int c)
     return (0);
 }
 
-int     ft_putstr_u(char *s)
+int     ft_putstr_u(char *s, t_fs *fs)
 {
     size_t  i;
     int     c;
@@ -68,7 +68,7 @@ int     ft_putstr_u(char *s)
         return (0);
     i = 0;
     ret = 0;
-    while (s[i * 4] != 0 || s[i * 4 + 1] != 0 || s[i * 4 + 2] || s[i * 4 + 3] != 0)
+    while (s[i * 4] || s[i * 4 + 1] || s[i * 4 + 2] || s[i * 4 + 3])
     {
         c = 0;
         c += (unsigned char)s[i * 4];
@@ -77,6 +77,8 @@ int     ft_putstr_u(char *s)
         c += ((int)((unsigned char)s[i * 4 + 3])) << 24;
         ret += ft_putchar_u(c);
         i++;
+        if (fs->precision != 1 && (size_t)fs->precision <= i && fs->ch == 'S')
+            return (ret);
     }
     return (ret);
 }

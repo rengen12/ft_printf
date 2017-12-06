@@ -4,23 +4,23 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/Andrey/CLionProjects/ft_printf/chars.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/chars.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_convert_base.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_convert_base.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_memdel.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_memdel.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_memset.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_memset.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_printf.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_putchar.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putchar.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_putendl.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putendl.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_putnbr.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putnbr.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_putstr.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putstr.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_strdel.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strdel.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_strdup.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strdup.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_strlen.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strlen.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_strncat.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strncat.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/ft_strnew.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strnew.c.obj"
-  "C:/Users/Andrey/CLionProjects/ft_printf/test.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/test.c.obj"
+  "/Users/amichak/CLionProjects/ft_printf/chars.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/chars.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_convert_base.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_convert_base.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_memdel.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_memdel.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_memset.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_memset.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_printf.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_printf.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_putchar.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putchar.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_putendl.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putendl.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_putnbr.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putnbr.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_putstr.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putstr.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_strdel.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strdel.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_strdup.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strdup.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_strlen.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strlen.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_strncat.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strncat.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/ft_strnew.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strnew.c.o"
+  "/Users/amichak/CLionProjects/ft_printf/test.c" "/Users/amichak/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/test.c.o"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH

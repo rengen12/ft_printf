@@ -12,13 +12,15 @@
 
 #include "ft_printf.h"
 
-size_t ft_putstr(char const *s)
+size_t ft_putstr(char const *s, t_fs *fs)
 {
 	size_t i;
 
 	if (!s)
 		return (0);
 	i = ft_strlen(s);
+	if (fs->precision != 1 && (size_t)fs->precision < i && fs->ch == 's')
+		i = fs->precision;
 	write(1, s, i);
 	return (i);
 }

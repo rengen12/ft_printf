@@ -1,22 +1,30 @@
 #include "ft_printf.h"
 
-void usemodif(t_fs *fs, ssize_t *vals, size_t *valu)
+void usemodifu(t_fs *fs, size_t *valu)
 {
-    if (fs->h && *valu)
+    if (fs->h && *valu && !fs->l)
         if (fs->h == 1)
             *valu = (unsigned short int)*valu;
         else
             *valu = (unsigned char)*valu;
-    else if (fs->h && *vals)
-        if (fs->h == 1)
-            *vals = (short int)*vals;
-        else
-            *vals = (char)*vals;
     else if (fs->l && *valu)
         if (fs->l == 1)
             *valu = (unsigned long int)*valu;
         else
             *valu = (unsigned long long int)*valu;
+    else if (fs->j && *valu)
+        *valu = (uintmax_t)*valu;
+    else
+        *valu = (unsigned int)*valu;
+}
+
+void usemodifs(t_fs *fs, ssize_t *vals)
+{
+    if (fs->h && *vals && !fs->l)
+        if (fs->h == 1)
+            *vals = (short int)*vals;
+        else
+            *vals = (char)*vals;
     else if (fs->l && *vals)
         if (fs->l == 1)
             *vals = (long int)*vals;
@@ -26,8 +34,8 @@ void usemodif(t_fs *fs, ssize_t *vals, size_t *valu)
         *vals = (long double)*vals;
     else if (fs->j && *vals)
         *vals = (intmax_t)*vals;
-    else if (fs->j && *valu)
-        *valu = (uintmax_t)*valu;
+    else
+        *vals = (int)*vals;
 }
 
 size_t padding(t_fs *fs, int wordlen)
@@ -38,17 +46,18 @@ size_t padding(t_fs *fs, int wordlen)
     /*if (!fs->ch)
         while (fs->width--)
             i += ft_putchar(' ');*/
-    if ((fs->zero && fs->precision) ||(fs->zero && fs->minus))
+    if ((fs->zero && fs->precision != 1) ||(fs->zero && fs->minus))
         fs->zero = 0;
     else if (fs->zero)
-        fs->precision = fs->width - wordlen;
-    while (fs->width > /*fs->precision - */wordlen && !fs->minus)
+        fs->precision = fs->width;
+    while (fs->width > /*fs->precision - */wordlen && !fs->minus && !fs->zero)
     {
         i += ft_putchar(' ');
         fs->width--;
     }
     if (fs->ch != 'f')
-        while (fs->precision > wordlen)
+        while (fs->precision > wordlen && fs->precision && \
+               fs->ch != 's' && fs->ch != 'S' && fs->ch != 'c' && fs->ch != 'C')
         {
             i += ft_putchar('0');
             fs->precision--;
@@ -113,38 +122,46 @@ void handle_star(t_fs *fs, va_list ap)
         fs->precision = va_arg(ap, int);
 }
 
-size_t print(t_fs *fs, va_list ap)
+size_t print_num(t_fs *fs, va_list ap)
 {
-    size_t  i;
     ssize_t var;
+    size_t  i;
 
     i = 0;
     var = va_arg(ap, ssize_t);
-    usemodif(fs, var, 0);
     handle_star(fs, ap);
-    if (fs->ch == 'c')
-        i += ft_putchar((char)var);
-    else if (fs->ch == 's')
-        i += ft_putstr((char *)var);
-    else if (fs->ch == 'C')
-        i += ft_putchar_u((int)var);
-    else if (fs->ch == 'S')
-        i += ft_putstr_u((char *)var);
-    else if (fs->ch == 'i' || fs->ch == 'd' || fs->ch == 'D')
+    if (fs->ch == 'i' || fs->ch == 'd')
     {
+        usemodifs(fs, &var);
         i += padding(fs, ft_wordlen(var));
-        i += ft_putnbr(var, 0, fs);
+        i += ft_putnbr(var, fs);
     }
     else if (fs->ch == 'f')
     {
         i += padding(fs, ft_wordlen((ssize_t)var));
-        i += ft_putnbr(var, 0, fs);
+        i += ft_putnbr(var, fs);
     }
     fs->width -= i;
     return (i);
 }
+size_t handle_sharp(size_t nb, t_fs *fs)
+{
+    size_t  i;
 
-size_t print_base(t_fs *fs, va_list ap)
+    i = 0;
+    if (fs->zero)
+    {
+        if (nb && fs->ch == 'x' && fs->sh)
+            i += ft_putstr("0x", fs);
+        else if (nb && fs->ch == 'X' && fs->sh)
+            i += ft_putstr("0X", fs);
+        else if (nb && (fs->ch == 'o' || fs->ch == 'O') && fs->sh)
+            i += ft_putstr("0", fs);
+    }
+    //fs->width -= i;
+    return (i);
+}
+size_t print_unsig(t_fs *fs, va_list ap)
 {
     size_t  i;
     char    *systemstr;
@@ -153,26 +170,75 @@ size_t print_base(t_fs *fs, va_list ap)
 
     systemstr = NULL;
     i = 0;
-    if (fs->ch != '%')
-    {
-        var = va_arg(ap, size_t);
-        usemodif(fs, 0, var);
-        handle_star(fs, ap);
-        if (fs->ch == 'X')
-            systemstr = "0123456789ABCDEF";
-        else if (fs->ch == 'x' || fs->ch == 'p')
-            systemstr = "0123456789abcdef";
-        else if (fs->ch == 'O' || fs->ch == 'o')
-            systemstr = "01234567";
-        else if (fs->ch == 'b')
-            systemstr = "01";
-        str = ft_convert_base(var, systemstr, fs);
-    }
-    else
-        str = ft_strdup("%");
-    i += padding(fs, ft_strlen(str));
-    i += ft_putstr(str);
+    handle_star(fs, ap);
+    var = va_arg(ap, size_t);
+    usemodifu(fs, &var);
+    i += handle_sharp(var, fs);
+    if (fs->ch == 'u')
+        systemstr = "0123456789";
+    if (fs->ch == 'X')
+        systemstr = "0123456789ABCDEF";
+    else if (fs->ch == 'x' || fs->ch == 'p')
+        systemstr = "0123456789abcdef";
+    else if (fs->ch == 'O' || fs->ch == 'o')
+        systemstr = "01234567";
+    else if (fs->ch == 'b')
+        systemstr = "01";
+    str = ft_convert_base(var, systemstr, fs);
+    i += padding(fs, ft_strlen(str) + i);
+    i += ft_putstr(str, fs);
     ft_strdel(&str);
+    return (i);
+}
+
+size_t print_float(t_fs *fs, va_list ap)
+{
+    size_t  i;
+    double  var;
+    //ssize_t vardoub;
+
+    i = 0;
+    var = va_arg(ap, double);
+    i += ft_putnbr((int)var, fs);
+    i += ft_putchar('.');
+    //i += ft_putnbr(, fs);
+    return (i);
+}
+
+size_t print_string(t_fs *fs, va_list ap)
+{
+    size_t  i;
+    char *str;
+    size_t  l;
+
+    i = 0;
+    str = va_arg(ap, char *);
+    l = ft_strlen(str);
+    l = (l > (size_t)fs->precision && fs->precision != 1) ? (size_t)fs->precision : l;
+    i += padding(fs, l);
+    if (!str)
+        i += ft_putstr("(null)", fs);
+    else if (fs->ch == 's')
+        i += ft_putstr(str, fs);
+    else if (fs->ch == 'S')
+        i += ft_putstr_u(str, fs);
+    return (i);
+}
+
+size_t print_char(t_fs *fs, va_list ap)
+{
+    size_t  i;
+    int     var;
+
+    i = 0;
+    var = va_arg(ap, int);
+    i += padding(fs, 1);
+    if (fs->ch == 'c')
+        i += ft_putchar((char)var);
+    else if (fs->ch == 'C')
+        i += ft_putchar_u(var);
+    else if (fs->ch == '%')
+        i += ft_putchar('%');
     return (i);
 }
 
@@ -181,17 +247,20 @@ size_t print_str_fs(t_fs *fs, va_list ap)
     size_t  i;
 
     i = 0;
-    //i = padding(fs, 1);
     if (fs->ch)
     {
         if (fs->ch == 'o' || fs->ch == 'O' || fs->ch == 'x' || fs->ch == 'X' || \
-            fs->ch == 'u' || fs->ch == 'U' || fs->ch == 'p' || fs->ch == 'b' || \
-            fs->ch == '%')
-            i += print_base(fs, ap);
-        else if (fs->ch == 'd' || fs->ch == 'D' || fs->ch == 's' || fs->ch == 'S' || \
-                fs->ch == 'c' || fs->ch == 'C' || fs->ch == 'i' || fs->ch == 'f')
-            i += print(fs, ap);
-        i += padding_after(fs, i); //??? mb v else if
+            fs->ch == 'u' || fs->ch == 'U' || fs->ch == 'b')
+            i += print_unsig(fs, ap);
+        else if (fs->ch == 'd' || fs->ch == 'i' )
+            i += print_num(fs, ap);
+        else if (fs->ch == 'f')
+            i += print_float(fs, ap);
+        else if (fs->ch == 's' || fs->ch == 'S')
+            i += print_string(fs, ap);
+        else if (fs->ch == 'c' || fs->ch == 'C' || fs->ch == '%')
+            i += print_char(fs, ap);
+        i += padding_after(fs, i);
     }
     return (i);
 }
@@ -217,10 +286,10 @@ int		ft_atoi_printf(const char **nptr_t)
         r = r * 10 + (nptr[i] - '0');
         i++;
     }
-   /* if (r > 9223372036854775807 && sign == -1)
+    if (r > 9223372036854775807 && sign == -1)
         return (0);
     if (r > 9223372036854775807)
-        return (-1);*/
+        return (-1);
     *nptr_t = nptr + i;
     return ((int)r * sign);
 }
@@ -256,11 +325,28 @@ void handle_modif(t_fs *fs, char ch)
 void read_conv_mod(t_fs *fs, const char **s)
 {
     if (**s == 'o' || **s == 'O' || **s == 'x' || **s == 'X' || \
-        **s == 'u' || **s == 'U' || **s == 'p' || **s == 'b' || \
-        **s == 'd' || **s == 'D' || **s == 's' || **s == 'S' || \
-        **s == 'c' || **s == 'C' || **s == 'i' || **s == 'f' || \
-        **s == '%')
+        **s == 'u' || **s == 'b' || \
+        **s == 'd' || **s == 's' || **s == 'S' || **s == 'c' ||
+        **s == 'C' || **s == 'i' || **s == 'f' || **s == '%')
         fs->ch = *(*s)++;
+    else if (**s == 'D')
+    {
+        (*s)++;
+        fs->ch = 'd';
+        fs->l = 1;
+    }
+    else if (**s == 'p')
+    {
+        (*s)++;
+        fs->ch = 'x';
+        fs->sh = 1;
+    }
+    else if (**s == 'U')
+    {
+        (*s)++;
+        fs->ch = 'u';
+        fs->l = 1;
+    }
 }
 
 
@@ -326,7 +412,7 @@ size_t handstrform(va_list ap, const char *frmt, t_fs *fs)
         i += print_ordsymb(&frmt);
         if (*frmt)
         {
-            init_flags(fs); //
+            init_flags(fs);
             i += handle_str_fs(ap, &frmt, fs);
         }
     }

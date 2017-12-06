@@ -20,12 +20,15 @@ static size_t ft_putnbr_rec(ssize_t n, size_t i)
 	return (i);
 }
 
-size_t	ft_putnbr(ssize_t n, size_t i, t_fs *fs)
+size_t	ft_putnbr(ssize_t n, t_fs *fs)
 {
+	size_t i;
+
+	i = 0;
 	if (n < 0)
 	{
-		ft_putchar('-');
-		i++;
+		i += ft_putchar('-');
+        n = -n;
 	}
     if (fs->ch == 'u')
         n = (unsigned)n;

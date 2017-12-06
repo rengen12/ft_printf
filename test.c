@@ -72,10 +72,8 @@ int main(void) {
     res = ft_printf("%X", var);
     printf("\nres = %d\n", res);*/
 
+    ft_printf("%d", -1);
 
-int *test;
-
-    ft_printf("%llX", 4294967296);
   
 
     return (0);

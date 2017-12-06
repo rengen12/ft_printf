@@ -74,34 +74,9 @@ int main(void) {
 
 
 int *test;
-    ft_printf("");
-    ft_printf("\\n");
-    ft_printf("test");
-    ft_printf("test\\n");
-   ft_printf("1234");
-    ft_printf("%%");
-    ft_printf("%5%");
-   ft_printf("%-5%");
-    ft_printf("%.0%");
-    ft_printf("%%", "test");
-    ft_printf("%   %", "test");
-    ft_printf("%x", 42);
-    ft_printf("%X", 42);
-    ft_printf("%x", 0);
-    ft_printf("%X", 0);
-    ft_printf("\n");
-    ft_printf("%x", -42);
-    ft_printf("%X", -42);
-    ft_printf("%x", 4294967296);
-    ft_printf("%X", 4294967296);
-    ft_printf("%x", test);
-    ft_printf("%10x", 42);
-    ft_printf("%-10x", 42);
-    ft_printf("%lx", 4294967296);
+
     ft_printf("%llX", 4294967296);
-    ft_printf("%hx", 4294967296);
-    ft_printf("%hhX", 4294967296);
-    ft_printf("%jx", 4294967295);
+  
 
     return (0);
 }

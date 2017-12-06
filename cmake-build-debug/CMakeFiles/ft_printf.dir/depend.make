@@ -19,6 +19,9 @@ CMakeFiles/ft_printf.dir/ft_printf.c.obj: ../ft_printf.h
 CMakeFiles/ft_printf.dir/ft_putchar.c.obj: ../ft_printf.h
 CMakeFiles/ft_printf.dir/ft_putchar.c.obj: ../ft_putchar.c
 
+CMakeFiles/ft_printf.dir/ft_putendl.c.obj: ../ft_printf.h
+CMakeFiles/ft_printf.dir/ft_putendl.c.obj: ../ft_putendl.c
+
 CMakeFiles/ft_printf.dir/ft_putnbr.c.obj: ../ft_printf.h
 CMakeFiles/ft_printf.dir/ft_putnbr.c.obj: ../ft_putnbr.c
 

@@ -284,6 +284,33 @@ ft_putchar.c.s:
 	$(MAKE) -f CMakeFiles\ft_printf.dir\build.make CMakeFiles/ft_printf.dir/ft_putchar.c.s
 .PHONY : ft_putchar.c.s
 
+ft_putendl.obj: ft_putendl.c.obj
+
+.PHONY : ft_putendl.obj
+
+# target to build an object file
+ft_putendl.c.obj:
+	$(MAKE) -f CMakeFiles\ft_printf.dir\build.make CMakeFiles/ft_printf.dir/ft_putendl.c.obj
+.PHONY : ft_putendl.c.obj
+
+ft_putendl.i: ft_putendl.c.i
+
+.PHONY : ft_putendl.i
+
+# target to preprocess a source file
+ft_putendl.c.i:
+	$(MAKE) -f CMakeFiles\ft_printf.dir\build.make CMakeFiles/ft_printf.dir/ft_putendl.c.i
+.PHONY : ft_putendl.c.i
+
+ft_putendl.s: ft_putendl.c.s
+
+.PHONY : ft_putendl.s
+
+# target to generate assembly for a file
+ft_putendl.c.s:
+	$(MAKE) -f CMakeFiles\ft_printf.dir\build.make CMakeFiles/ft_printf.dir/ft_putendl.c.s
+.PHONY : ft_putendl.c.s
+
 ft_putnbr.obj: ft_putnbr.c.obj
 
 .PHONY : ft_putnbr.obj
@@ -527,6 +554,9 @@ help:
 	@echo ... ft_putchar.obj
 	@echo ... ft_putchar.i
 	@echo ... ft_putchar.s
+	@echo ... ft_putendl.obj
+	@echo ... ft_putendl.i
+	@echo ... ft_putendl.s
 	@echo ... ft_putnbr.obj
 	@echo ... ft_putnbr.i
 	@echo ... ft_putnbr.s

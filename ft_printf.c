@@ -120,6 +120,7 @@ size_t print(t_fs *fs, va_list ap)
 
     i = 0;
     var = va_arg(ap, ssize_t);
+    usemodif(fs, var, 0);
     handle_star(fs, ap);
     if (fs->ch == 'c')
         i += ft_putchar((char)var);
@@ -155,6 +156,7 @@ size_t print_base(t_fs *fs, va_list ap)
     if (fs->ch != '%')
     {
         var = va_arg(ap, size_t);
+        usemodif(fs, 0, var);
         handle_star(fs, ap);
         if (fs->ch == 'X')
             systemstr = "0123456789ABCDEF";

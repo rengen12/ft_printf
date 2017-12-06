@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/Andrey/CLionProjects/ft_printf/ft_memset.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_memset.c.obj"
   "C:/Users/Andrey/CLionProjects/ft_printf/ft_printf.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_printf.c.obj"
   "C:/Users/Andrey/CLionProjects/ft_printf/ft_putchar.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putchar.c.obj"
+  "C:/Users/Andrey/CLionProjects/ft_printf/ft_putendl.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putendl.c.obj"
   "C:/Users/Andrey/CLionProjects/ft_printf/ft_putnbr.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putnbr.c.obj"
   "C:/Users/Andrey/CLionProjects/ft_printf/ft_putstr.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putstr.c.obj"
   "C:/Users/Andrey/CLionProjects/ft_printf/ft_strdel.c" "C:/Users/Andrey/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strdel.c.obj"

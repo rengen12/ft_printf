@@ -59,5 +59,6 @@ void	*ft_memset(void *s, int c, size_t n);
 size_t	ft_putnbr(ssize_t n, size_t i, t_fs *fs);
 void	ft_strdel(char **as);
 char	*ft_strdup(const char *s);
+void    ft_putendl(char const *s);
 
 #endif

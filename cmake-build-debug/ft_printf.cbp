@@ -101,6 +101,9 @@
 		<Unit filename="C:/Users/Andrey/CLionProjects/ft_printf/ft_putchar.c">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="C:/Users/Andrey/CLionProjects/ft_printf/ft_putendl.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="C:/Users/Andrey/CLionProjects/ft_printf/ft_putnbr.c">
 			<Option target="ft_printf"/>
 		</Unit>

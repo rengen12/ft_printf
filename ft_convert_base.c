@@ -23,20 +23,15 @@ char			*ft_convert_base(size_t nb, char *base_to, t_fs *fs)
 {
 	char			*r;
 	int				l;
-	size_t	    	max;
 	int				mem;
 
-	max = 1;
-	mem = 1;
+	mem = 32;
+    if (fs->ch == 'b')
+        mem = 64;
 	l = ft_strlen(base_to);
-	while (max <= nb)
-	{
-		max *= l;
-		mem++;
-	}
     if (fs->sh)
         mem += 2;
-	r = ft_strnew(mem);
+    r = ft_strnew(mem);
     if (nb && fs->ch == 'x' && fs->sh)
         ft_strncat(r, "0x", 1);
     else if (nb && fs->ch == 'X' && fs->sh)

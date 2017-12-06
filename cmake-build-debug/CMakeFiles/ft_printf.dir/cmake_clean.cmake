@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/ft_putnbr.c.obj"
   "CMakeFiles/ft_printf.dir/ft_strdel.c.obj"
   "CMakeFiles/ft_printf.dir/ft_strdup.c.obj"
+  "CMakeFiles/ft_printf.dir/ft_putendl.c.obj"
   "ft_printf.pdb"
   "ft_printf.exe"
   "ft_printf.exe.manifest"

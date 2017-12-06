@@ -68,7 +68,40 @@ int main(void) {
     movep(&a);
     ft_putendl(a);*/
     //ft_printf("fdsfsf %llszkoop", "123456");
-    res = printf("hex = %02.6d\n", 15);
-    printf("\nres = %d\n", res);
+    /*int var = -42;
+    res = ft_printf("%X", var);
+    printf("\nres = %d\n", res);*/
+
+
+int *test;
+    ft_printf("");
+    ft_printf("\\n");
+    ft_printf("test");
+    ft_printf("test\\n");
+   ft_printf("1234");
+    ft_printf("%%");
+    ft_printf("%5%");
+   ft_printf("%-5%");
+    ft_printf("%.0%");
+    ft_printf("%%", "test");
+    ft_printf("%   %", "test");
+    ft_printf("%x", 42);
+    ft_printf("%X", 42);
+    ft_printf("%x", 0);
+    ft_printf("%X", 0);
+    ft_printf("\n");
+    ft_printf("%x", -42);
+    ft_printf("%X", -42);
+    ft_printf("%x", 4294967296);
+    ft_printf("%X", 4294967296);
+    ft_printf("%x", test);
+    ft_printf("%10x", 42);
+    ft_printf("%-10x", 42);
+    ft_printf("%lx", 4294967296);
+    ft_printf("%llX", 4294967296);
+    ft_printf("%hx", 4294967296);
+    ft_printf("%hhX", 4294967296);
+    ft_printf("%jx", 4294967295);
+
     return (0);
 }

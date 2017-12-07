@@ -60,5 +60,7 @@ size_t	ft_putnbr(ssize_t n, t_fs *fs);
 void	ft_strdel(char **as);
 char	*ft_strdup(const char *s);
 void    ft_putendl(char const *s);
+size_t  padding_afsign(t_fs *fs, int wordlen);
+int     ft_wordlen(ssize_t var, t_fs *fs);
 
 #endif

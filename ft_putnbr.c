@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static size_t ft_putnbr_rec(ssize_t n, size_t i)
+static size_t ft_putnbr_rec(size_t n, size_t i)
 {
 	if (n >= 10)
 		i = ft_putnbr_rec(n / 10, i);
@@ -20,26 +20,31 @@ static size_t ft_putnbr_rec(ssize_t n, size_t i)
 	return (i);
 }
 
-size_t	ft_putnbr(ssize_t n, t_fs *fs)
+size_t	ft_putnbr(ssize_t nb, t_fs *fs)
 {
-	size_t i;
+	size_t  i;
+    int     nf;
+    size_t  n;
 
 	i = 0;
-	if (n < 0)
-	{
-		i += ft_putchar('-');
-        n = -n;
-	}
-    if (fs->ch == 'u')
-        n = (unsigned)n;
-	if (fs->l == 1)
-		n = (long)n;
-    if (!fs->l)
-        n = (int)n;
-	if (n > 0 && !fs->plus && fs->space)
+    nf = 0;
+	if (nb < 0)
+    {
+        n = -nb;
+        nf = 1;
+    }
+    else
+        n = nb;
+	if (!nf && !fs->plus && fs->space)
 		i += ft_putchar(' ');
-	else if (n > 0 && fs->plus)
-		i += ft_putchar('+');
-	i += ft_putnbr_rec(n, i);
+	else if (!nf && fs->plus)
+        i += ft_putchar('+');
+    else if (nf)
+        i += ft_putchar('-');
+    i += padding_afsign(fs, ft_wordlen(n, fs));
+	i += ft_putnbr_rec(n, 0);
 	return (i);
 }
+
+
+

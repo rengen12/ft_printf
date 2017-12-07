@@ -14,6 +14,8 @@ void usemodifu(t_fs *fs, size_t *valu)
             *valu = (unsigned long long int)*valu;
     else if (fs->j && *valu)
         *valu = (uintmax_t)*valu;
+    else if (fs->z)
+        *valu = (size_t)*valu;
     else
         *valu = (unsigned int)*valu;
 }
@@ -34,6 +36,8 @@ void usemodifs(t_fs *fs, ssize_t *vals)
         *vals = (long double)*vals;
     else if (fs->j && *vals)
         *vals = (intmax_t)*vals;
+    else if (fs->z)
+        *vals = (size_t)*vals;
     else
         *vals = (int)*vals;
 }
@@ -43,25 +47,38 @@ size_t padding(t_fs *fs, int wordlen)
     size_t i;
 
     i = 0;
-    /*if (!fs->ch)
-        while (fs->width--)
-            i += ft_putchar(' ');*/
-    if ((fs->zero && fs->precision != 1) ||(fs->zero && fs->minus))
+    if ((fs->zero && fs->precision != 1) || (fs->zero && fs->minus))
         fs->zero = 0;
     else if (fs->zero)
         fs->precision = fs->width;
-    while (fs->width > /*fs->precision - */wordlen && !fs->minus && !fs->zero)
+    while (fs->width > /*fs->precision - */wordlen && !fs->minus && !fs->zero && fs->precision < fs->width)
     {
         i += ft_putchar(' ');
         fs->width--;
     }
-    if (fs->ch != 'f')
-        while (fs->precision > wordlen && fs->precision && \
-               fs->ch != 's' && fs->ch != 'S' && fs->ch != 'c' && fs->ch != 'C')
+    if (fs->ch != 'f' && fs->ch != 'd' && fs->ch != 'i')
+        while (fs->precision > wordlen && fs->ch != 'c' && fs->ch != 'C')
         {
             i += ft_putchar('0');
             fs->precision--;
         }
+    return (i);
+}
+
+size_t padding_str(t_fs *fs, int wordlen)
+{
+    size_t i;
+
+    i = 0;
+    if ((fs->zero && fs->precision != 1) || (fs->zero && fs->minus))
+        fs->zero = 0;
+    else if (fs->zero)
+        fs->precision = fs->width;
+    while (fs->width > wordlen && !fs->minus && !fs->zero)
+    {
+        i += ft_putchar(' ');
+        fs->width--;
+    }
     return (i);
 }
 
@@ -101,16 +118,20 @@ size_t print_ordsymb(const char **s)
 }
 
 
-int     ft_wordlen(ssize_t var)
+int     ft_wordlen(ssize_t var, t_fs *fs)
 {
     int     i;
 
     i = 0;
+    if (var < 0 || fs->plus)
+        i++;
     while (var)
     {
         var /= 10;
         i++;
     }
+    if (!i)
+        i = 1;
     return (i);
 }
 
@@ -122,6 +143,19 @@ void handle_star(t_fs *fs, va_list ap)
         fs->precision = va_arg(ap, int);
 }
 
+size_t padding_afsign(t_fs *fs, int wordlen)
+{
+    size_t i;
+
+    i = 0;
+    while (fs->precision > wordlen)
+    {
+        i += ft_putchar('0');
+        fs->precision--;
+    }
+    return (i);
+}
+
 size_t print_num(t_fs *fs, va_list ap)
 {
     ssize_t var;
@@ -130,15 +164,12 @@ size_t print_num(t_fs *fs, va_list ap)
     i = 0;
     var = va_arg(ap, ssize_t);
     handle_star(fs, ap);
-    if (fs->ch == 'i' || fs->ch == 'd')
+    usemodifs(fs, &var);
+    if (!fs->precision && !var)
+        i += padding(fs, 0);
+    else
     {
-        usemodifs(fs, &var);
-        i += padding(fs, ft_wordlen(var));
-        i += ft_putnbr(var, fs);
-    }
-    else if (fs->ch == 'f')
-    {
-        i += padding(fs, ft_wordlen((ssize_t)var));
+        i += padding(fs, ft_wordlen(var, fs));
         i += ft_putnbr(var, fs);
     }
     fs->width -= i;
@@ -215,7 +246,7 @@ size_t print_string(t_fs *fs, va_list ap)
     str = va_arg(ap, char *);
     l = ft_strlen(str);
     l = (l > (size_t)fs->precision && fs->precision != 1) ? (size_t)fs->precision : l;
-    i += padding(fs, l);
+    i += padding_str(fs, l);
     if (!str)
         i += ft_putstr("(null)", fs);
     else if (fs->ch == 's')

@@ -72,7 +72,7 @@ int main(void) {
     res = ft_printf("%X", var);
     printf("\nres = %d\n", res);*/
 
-    ft_printf("% ");
+    ft_printf("%0+5d", -42);
 
   
 

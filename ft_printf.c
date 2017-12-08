@@ -50,8 +50,8 @@ size_t padding(t_fs *fs, int wordlen)
     if ((fs->zero && fs->precision != 1) || (fs->zero && fs->minus))
         fs->zero = 0;
     else if (fs->zero)
-        fs->precision = ((fs->plus && !fs->nf) || (fs->nf && !fs->plus)) ? fs->width - 1 : fs->width;
-    while (fs->width > wordlen + (fs->nf || fs->plus) + fs->space  && !fs->minus && !fs->zero && fs->precision + fs->space < fs->width)
+        fs->precision = ((fs->plus) || (fs->nf && !fs->plus)) ? fs->width - 1 : fs->width;
+    while (fs->width > wordlen + (fs->nf || fs->plus) + fs->space  && !fs->minus && !fs->zero && fs->precision + (fs->nf || fs->plus) + fs->space < fs->width)
     {
         i += ft_putchar(' ');
         fs->width--;
@@ -149,7 +149,7 @@ size_t padding_afsign(t_fs *fs, int wordlen)
     size_t i;
 
     i = 0;
-    while (fs->precision > wordlen /*+ fs->nf*/)
+    while (fs->precision > wordlen /*+ (fs->nf || fs->plus) */)
     {
         i += ft_putchar('0');
         fs->precision--;

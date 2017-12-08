@@ -23,6 +23,7 @@ typedef struct s_fs
 {
     /*charecter*/
     char ch;
+    int nf;
 
     /*flags*/
     int sh;

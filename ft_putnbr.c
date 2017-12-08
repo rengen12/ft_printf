@@ -23,25 +23,20 @@ static size_t ft_putnbr_rec(size_t n, size_t i)
 size_t	ft_putnbr(ssize_t nb, t_fs *fs)
 {
 	size_t  i;
-    int     nf;
     size_t  n;
 
 	i = 0;
-    nf = 0;
 	if (nb < 0)
-    {
         n = -nb;
-        nf = 1;
-    }
     else
         n = nb;
-	if (!nf && !fs->plus && fs->space)
+	if (!fs->nf && !fs->plus && fs->space)
 		i += ft_putchar(' ');
-	else if (!nf && fs->plus)
+	else if (!fs->nf && fs->plus)
         i += ft_putchar('+');
-    else if (nf)
+    else if (fs->nf)
         i += ft_putchar('-');
-    i += padding_afsign(fs, ft_wordlen(n, fs));
+    i += padding_afsign(fs, ft_wordlen(nb, fs));
 	i += ft_putnbr_rec(n, 0);
 	return (i);
 }

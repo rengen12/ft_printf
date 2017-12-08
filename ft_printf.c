@@ -50,8 +50,8 @@ size_t padding(t_fs *fs, int wordlen)
     if ((fs->zero && fs->precision != 1) || (fs->zero && fs->minus))
         fs->zero = 0;
     else if (fs->zero)
-        fs->precision = fs->width;
-    while (fs->width > /*fs->precision - */wordlen && !fs->minus && !fs->zero && fs->precision < fs->width)
+        fs->precision = ((fs->plus && !fs->nf) || (fs->nf && !fs->plus)) ? fs->width - 1 : fs->width;
+    while (fs->width > wordlen + (fs->nf || fs->plus) + fs->space  && !fs->minus && !fs->zero && fs->precision + fs->space < fs->width)
     {
         i += ft_putchar(' ');
         fs->width--;
@@ -87,7 +87,7 @@ size_t padding_after(t_fs *fs, int wordlen)
     size_t i;
 
     i = 0;
-    while (fs->width > /*fs->precision - */wordlen && fs->minus && fs->ch != 'f')
+    while (fs->width > wordlen && fs->minus && fs->ch != 'f')
     {
         i += ft_putchar(' ');
         fs->width--;
@@ -123,8 +123,9 @@ int     ft_wordlen(ssize_t var, t_fs *fs)
     int     i;
 
     i = 0;
-    if (var < 0 || fs->plus)
-        i++;
+    /*if (var < 0 || fs->plus)
+        i++;*/
+    (void)fs;
     while (var)
     {
         var /= 10;
@@ -148,7 +149,7 @@ size_t padding_afsign(t_fs *fs, int wordlen)
     size_t i;
 
     i = 0;
-    while (fs->precision > wordlen)
+    while (fs->precision > wordlen /*+ fs->nf*/)
     {
         i += ft_putchar('0');
         fs->precision--;
@@ -165,6 +166,10 @@ size_t print_num(t_fs *fs, va_list ap)
     var = va_arg(ap, ssize_t);
     handle_star(fs, ap);
     usemodifs(fs, &var);
+    /*if (fs->plus || var < 0)
+        fs->width--;*/
+    if (var < 0)
+        fs->nf = 1;
     if (!fs->precision && !var)
         i += padding(fs, 0);
     else
@@ -172,7 +177,7 @@ size_t print_num(t_fs *fs, va_list ap)
         i += padding(fs, ft_wordlen(var, fs));
         i += ft_putnbr(var, fs);
     }
-    fs->width -= i;
+    //fs->width -= i;
     return (i);
 }
 size_t handle_sharp(size_t nb, t_fs *fs)
@@ -408,8 +413,10 @@ size_t handle_str_fs(va_list ap, const char **s, t_fs *fs)
     }
     while (**s == 'h' || **s == 'l' || **s == 'L' || **s == 'j' || **s == 'z')
         handle_modif(fs, *(*s)++);
+    while (**s == '-' || **s == '+' || **s == '#' || **s == ' ' || **s == '0')
+        handle_flags(fs, *(*s)++);
     if (!**s)
-        exit(1);
+        return (0);
     read_conv_mod(fs, s);
     return (print_str_fs(fs, ap));
 }
@@ -417,6 +424,7 @@ size_t handle_str_fs(va_list ap, const char **s, t_fs *fs)
 void init_flags(t_fs *fs)
 {
     fs->ch = 0;
+    fs->nf = 0;
     fs->sh = 0;
     fs->zero = 0;
     fs->minus = 0;

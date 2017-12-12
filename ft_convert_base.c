@@ -26,7 +26,7 @@ char			*ft_convert_base(size_t nb, char *base_to, t_fs *fs)
 	int				mem;
 
     l = ft_strlen(base_to);
-    if (!nb && (l == 16 || (l == 8 && !fs->sh)))
+    if ((!nb && fs->ch != 'p') && (l == 16 || (l == 8 && !fs->sh)))
         return (NULL);
 	mem = 34;
     if (fs->ch == 'b')
@@ -34,7 +34,7 @@ char			*ft_convert_base(size_t nb, char *base_to, t_fs *fs)
     r = ft_strnew(mem);
     if (!fs->zero)
     {
-        if (nb && fs->ch == 'x' && fs->sh)
+        if ((nb && fs->ch == 'x' && fs->sh) || fs->ch == 'p')
             ft_strncat(r, "0x", 2);
         else if (nb && fs->ch == 'X' && fs->sh)
             ft_strncat(r, "0X", 2);

@@ -7,8 +7,8 @@ void usemodifu(t_fs *fs, size_t *valu)
             *valu = (unsigned short int)*valu;
         else
             *valu = (unsigned char)*valu;
-    else if (fs->l && *valu)
-        if (fs->l == 1)
+    else if ((fs->l && *valu) || fs->ch == 'p' || fs->ch == 'O')
+        if (fs->l == 1 || fs->ch == 'p' || fs->ch == 'O')
             *valu = (unsigned long int)*valu;
         else
             *valu = (unsigned long long int)*valu;
@@ -93,7 +93,7 @@ size_t padding_after(t_fs *fs, int wordlen)
         fs->width--;
     }
     if (fs->ch == 'f')
-        while (fs->precision)
+        while (fs->precision > 0)
         {
             i += ft_putchar('0');//divis prec when float was printed
             fs->precision--;
@@ -149,7 +149,7 @@ size_t padding_afsign(t_fs *fs, int wordlen)
     size_t i;
 
     i = 0;
-    while (fs->precision > wordlen /*+ (fs->nf || fs->plus) */)
+    while (fs->precision > wordlen && fs->ch != 'f')
     {
         i += ft_putchar('0');
         fs->precision--;
@@ -180,6 +180,7 @@ size_t print_num(t_fs *fs, va_list ap)
     //fs->width -= i;
     return (i);
 }
+
 size_t handle_sharp(size_t nb, t_fs *fs)
 {
     size_t  i;
@@ -197,6 +198,7 @@ size_t handle_sharp(size_t nb, t_fs *fs)
     //fs->width -= i;
     return (i);
 }
+
 size_t print_unsig(t_fs *fs, va_list ap)
 {
     size_t  i;
@@ -230,14 +232,51 @@ size_t print_unsig(t_fs *fs, va_list ap)
 size_t print_float(t_fs *fs, va_list ap)
 {
     size_t  i;
-    double  var;
-    //ssize_t vardoub;
+    long double  var;
 
     i = 0;
-    var = va_arg(ap, double);
+    var = va_arg(ap, long double);
     i += ft_putnbr((int)var, fs);
-    i += ft_putchar('.');
-    //i += ft_putnbr(, fs);
+    if (fs->precision == -1)
+        fs->precision = 6;
+    if (fs->precision > 0)
+        i += ft_putchar('.');
+    while (fs->precision-- > 0)
+    {
+        var -= (int)var;
+        var += 0.000000000001;
+        var *= 10;
+        i += ft_putnbr((int)var, fs);
+    }
+    return (i);
+}
+
+size_t ft_strlen_u(char *s)
+{
+    size_t  i;
+    int     num;
+
+    i = 0;
+    if (s)
+        while (*s || *(s + 1) || *(s + 2) || *(s + 3))
+        {
+            num = 0;
+            num += (unsigned char)*s;
+            num += ((int)((unsigned char)*(s + 1))) << 8;
+            num += ((int)((unsigned char)*(s + 2))) << 16;
+            num += ((int)((unsigned char)*(s + 3))) << 24;
+            if (num <= 127)
+                i += 1;
+            else if (num <= 2047)
+                i += 2;
+            else if (num <= 65535)
+                i += 3;
+            else if (num <= 2097151)
+                i += 4;
+            else
+                break ;
+            s += 4;
+        }
     return (i);
 }
 
@@ -249,14 +288,17 @@ size_t print_string(t_fs *fs, va_list ap)
 
     i = 0;
     str = va_arg(ap, char *);
-    l = ft_strlen(str);
+    if (fs->ch == 'S')
+        l = ft_strlen_u(str);
+    else
+        l = ft_strlen(str);
     l = (l > (size_t)fs->precision && fs->precision != 1) ? (size_t)fs->precision : l;
     i += padding_str(fs, l);
     if (!str)
         i += ft_putstr("(null)", fs);
-    else if (fs->ch == 's')
+    else if (fs->ch == 's' && fs->l == 0)
         i += ft_putstr(str, fs);
-    else if (fs->ch == 'S')
+    else if (fs->ch == 'S' || (fs->ch == 's' && fs->l))
         i += ft_putstr_u(str, fs);
     return (i);
 }
@@ -269,9 +311,9 @@ size_t print_char(t_fs *fs, va_list ap)
     i = 0;
     var = va_arg(ap, int);
     i += padding(fs, 1);
-    if (fs->ch == 'c')
+    if (fs->ch == 'c' && fs->l == 0)
         i += ft_putchar((char)var);
-    else if (fs->ch == 'C')
+    else if (fs->ch == 'C' || (fs->ch == 'c' && fs->l))
         i += ft_putchar_u(var);
     else if (fs->ch == '%')
         i += ft_putchar('%');
@@ -285,19 +327,23 @@ size_t print_str_fs(t_fs *fs, va_list ap)
     i = 0;
     if (fs->ch)
     {
+        if (fs->ch == 'f')
+            i += print_float(fs, ap);
+        else if (fs->precision == -1)
+            fs->precision = 1;
         if (fs->ch == 'o' || fs->ch == 'O' || fs->ch == 'x' || fs->ch == 'X' || \
-            fs->ch == 'u' || fs->ch == 'U' || fs->ch == 'b')
+            fs->ch == 'u' || fs->ch == 'U' || fs->ch == 'b' || fs->ch == 'p')
             i += print_unsig(fs, ap);
         else if (fs->ch == 'd' || fs->ch == 'i' )
             i += print_num(fs, ap);
-        else if (fs->ch == 'f')
-            i += print_float(fs, ap);
         else if (fs->ch == 's' || fs->ch == 'S')
             i += print_string(fs, ap);
         else if (fs->ch == 'c' || fs->ch == 'C' || fs->ch == '%')
             i += print_char(fs, ap);
         i += padding_after(fs, i);
     }
+    else
+        i += padding(fs, 1);
     return (i);
 }
 
@@ -360,10 +406,9 @@ void handle_modif(t_fs *fs, char ch)
 
 void read_conv_mod(t_fs *fs, const char **s)
 {
-    if (**s == 'o' || **s == 'O' || **s == 'x' || **s == 'X' || \
-        **s == 'u' || **s == 'b' || \
-        **s == 'd' || **s == 's' || **s == 'S' || **s == 'c' ||
-        **s == 'C' || **s == 'i' || **s == 'f' || **s == '%')
+    if (**s == 'o' || **s == 'x' || **s == 'X' || **s == 'u' || \
+        **s == 'b' || **s == 'd' || **s == 's' || **s == 'S' || **s == 'c' || \
+        **s == 'C' || **s == 'i' || **s == 'f' || **s == '%' || **s == 'p')
         fs->ch = *(*s)++;
     else if (**s == 'D')
     {
@@ -371,17 +416,24 @@ void read_conv_mod(t_fs *fs, const char **s)
         fs->ch = 'd';
         fs->l = 1;
     }
-    else if (**s == 'p')
-    {
-        (*s)++;
-        fs->ch = 'x';
-        fs->sh = 1;
-    }
     else if (**s == 'U')
     {
         (*s)++;
         fs->ch = 'u';
         fs->l = 1;
+    }
+    else if (**s == 'O')
+    {
+        (*s)++;
+        fs->ch = 'o';
+        fs->l = 1;
+    }
+    else if (**s == 'F' || **s == 'L')
+    {
+        (*s)++;
+        fs->ch = 'f';
+        if (**s == 'L')
+            fs->l = 1;
     }
 }
 
@@ -431,7 +483,7 @@ void init_flags(t_fs *fs)
     fs->plus = 0;
     fs->space = 0;
     fs->width = 0;
-    fs->precision = 1;
+    fs->precision = -1;
     fs->starw = 0;
     fs->starp = 0;
     fs->h = 0;

@@ -34,6 +34,7 @@ typedef struct s_fs
 
     int width;
     int precision;
+    int prec_exist;
     int starw;
     int starp;
 
@@ -43,6 +44,7 @@ typedef struct s_fs
     int j;
     int z;
     int bl;
+
 }           t_fs;
 
 int     ft_printf (const char *format, ...);

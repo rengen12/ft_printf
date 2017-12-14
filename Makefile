@@ -17,7 +17,8 @@ HEADER = -I ./
 OBJFOLD = ./obj/
 SRC = ft_printf.c chars.c ft_convert_base.c ft_putchar.c \
 	  ft_putstr.c ft_strlen.c ft_memdel.c ft_strncat.c ft_strnew.c ft_memset.c \
-	  ft_putnbr.c ft_strdel.c ft_strdup.c ft_putendl.c
+	  ft_putnbr.c ft_strdel.c ft_strdup.c ft_putendl.c modificators.c \
+	  ft_strchr.c ft_atoi_printf.c
 
 OBJ = $(addprefix $(OBJFOLD),$(patsubst %.c, %.o, $(SRC)))
 

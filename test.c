@@ -13,7 +13,7 @@
 
 #include <stdio.h>
 #include "ft_printf.h"
-#include <locale.h>
+//#include <locale.h>
 //#include <wchar.h>
 
 char *push_char(char *mas, char ch, int max)
@@ -45,7 +45,7 @@ void movep(char **a)
 int main(void) {
 
     int res;
-    setlocale(LC_ALL, "");
+    //setlocale(LC_ALL, "");
     //c = '¡';
     //ft_putchar_u();
     //ft_putstr_u("¡™£¢∞§¶•ªº–≠œ∑´†¥¨ˆπ“‘ÅÍÎÏ©ÓÔ˚Ò…Æ«Ω≈ç√∫˜≤≥çå");
@@ -72,8 +72,9 @@ int main(void) {
     res = ft_printf("%X", var);
     printf("\nres = %d\n", res);*/
 
-    res = ft_printf("%0+5d", 42);
+    res = printf("ﮠ");
 
+    ft_putchar("ﮠ");
     printf("\nres = %d", res);
 
     return (0);

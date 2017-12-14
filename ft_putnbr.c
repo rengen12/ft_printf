@@ -29,14 +29,14 @@ size_t	ft_putnbr(ssize_t nb, t_fs *fs)
 	if (nb < 0)
         n = -nb;
     else
-        n = nb;
+		n = nb;
 	if (!fs->nf && !fs->plus && fs->space)
 		i += ft_putchar(' ');
 	else if (!fs->nf && fs->plus)
-        i += ft_putchar('+');
+		i += ft_putchar('+');
     else if (fs->nf)
-        i += ft_putchar('-');
-    i += padding_afsign(fs, ft_wordlen(nb, fs));
+		i += ft_putchar('-');
+    i += padding_afsign(fs, ft_wordlen(nb));
 	i += ft_putnbr_rec(n, 0);
 	return (i);
 }

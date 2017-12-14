@@ -21,7 +21,7 @@
 
 typedef struct s_fs
 {
-    /*charecter*/
+    /*character*/
     char ch;
     int nf;
 
@@ -64,6 +64,11 @@ void	ft_strdel(char **as);
 char	*ft_strdup(const char *s);
 void    ft_putendl(char const *s);
 size_t  padding_afsign(t_fs *fs, int wordlen);
-int     ft_wordlen(ssize_t var, t_fs *fs);
+int     ft_wordlen(ssize_t var);
+void    usemodifu(t_fs *fs, size_t *valu);
+void    usemodifs(t_fs *fs, ssize_t *vals);
+size_t	ft_strlen_u(char *s);
+int		ft_atoi_printf(const char **nptr);
+char	*ft_strchr(const char *s, int c);
 
 #endif

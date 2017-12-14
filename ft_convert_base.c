@@ -26,8 +26,8 @@ char			*ft_convert_base(size_t nb, char *base_to, t_fs *fs)
 	int				mem;
 
     l = ft_strlen(base_to);
-    if ((!nb && fs->ch != 'p') && (l == 16 || (l == 8 && !fs->sh)))
-        return (NULL);
+    if (!nb && fs->ch != 'p' && ((l == 16 || l == 8) && !fs->sh))
+		return (NULL);
 	mem = 34;
     if (fs->ch == 'b')
         mem = 66;

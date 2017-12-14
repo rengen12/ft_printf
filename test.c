@@ -13,7 +13,7 @@
 
 #include <stdio.h>
 #include "ft_printf.h"
-//#include <locale.h>
+#include <locale.h>
 //#include <wchar.h>
 
 char *push_char(char *mas, char ch, int max)
@@ -72,10 +72,10 @@ int main(void) {
     res = ft_printf("%X", var);
     printf("\nres = %d\n", res);*/
 
-    res = printf("ﮠ");
+    res = printf("h%jd", 2);
 
-    ft_putchar("ﮠ");
+    //ft_putchar("aaa");
     printf("\nres = %d", res);
-
+    //printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", "filename", "str");
     return (0);
 }

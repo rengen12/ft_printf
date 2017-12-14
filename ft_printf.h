@@ -19,6 +19,33 @@
 # include <limits.h>
 # include <inttypes.h>
 
+#define EOC          "\x1b[0m"
+
+#define BLACK        "\x1b[30m"
+#define RED          "\x1b[31m"
+#define GREEN        "\x1b[32m"
+#define YELLOW       "\x1b[33m"
+#define BLUE         "\x1b[34m"
+#define MAGENTA      "\x1b[35m"
+#define CYAN         "\x1b[36m"
+#define WHITE        "\x1b[37m"
+
+#define BK_BLACK     "\x1b[40m"
+#define BK_RED       "\x1b[41m"
+#define BK_GREEN     "\x1b[42m"
+#define BK_YELLOW    "\x1b[43m"
+#define BK_BLUE      "\x1b[44m"
+#define BK_MAGENTA   "\x1b[45m"
+#define BK_CYAN      "\x1b[46m"
+#define BK_WHITE     "\x1b[47m"
+
+#define BOLD         "\x1b[1m"
+#define ITALIC       "\x1b[3m"
+#define UNDERLINE    "\x1b[4m"
+#define BLINK        "\x1b[5m"
+#define INVERTED     "\x1b[7m"
+#define INVISIBLE    "\x1b[8m"
+
 typedef struct s_fs
 {
     /*character*/

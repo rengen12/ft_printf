@@ -69,16 +69,35 @@ size_t padding_after(t_fs *fs, int wordlen)
 size_t print_ordsymb(const char **s)
 {
 	size_t i;
+	const char *start;
+	int 		sign_p;
 
 	i = 0;
+	sign_p = 0;
+	start = *s;
 	while (**s)
 	{
 		if (**s == '%')
-			if (*++*s != '%')
-				break;
-		ft_putchar(*(*s)++);
-		i++;
+		{
+			/*if (*++*s != '%')
+			{*/
+			if (*(*s)++ == '%')
+			{
+				sign_p = 1;
+			}
+			break;
+			/*}
+			else
+			{
+				i += *s - start;
+				write(1, start, *s - start);
+				i += ft_putchar('%');
+			}*/
+		}
+		(*s)++;
 	}
+	i += *s - start - sign_p;
+	write(1, start, *s - start - sign_p);
 	return (i);
 }
 

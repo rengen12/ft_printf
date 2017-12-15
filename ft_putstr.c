@@ -19,7 +19,7 @@ size_t ft_putstr(char const *s, t_fs *fs)
 	if (!s)
 		return (0);
 	i = ft_strlen(s);
-	if (fs->precision != 1 && (size_t)fs->precision < i && fs->ch == 's')
+	if (fs->prec_exist && (size_t)fs->precision < i && fs->ch == 's')
 		i = fs->precision;
 	write(1, s, i);
 	return (i);

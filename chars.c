@@ -77,8 +77,32 @@ int     ft_putstr_u(char *s, t_fs *fs)
         c += ((int)((unsigned char)s[i * 4 + 3])) << 24;
         ret += ft_putchar_u(c);
         i++;
-        if (fs->precision != 1 && (size_t)fs->precision <= i && fs->ch == 'S')
-            return (ret);
+		(void)fs;
+        //if (fs->prec_exist && (size_t)fs->precision <= ret && fs->ch == 'S')
+          //  return (ret);
     }
     return (ret);
+}
+
+int     ft_putnstr_u(char *s, t_fs *fs)
+{
+	size_t  i;
+	int     c;
+	size_t  ret;
+
+	if (!s)
+		return (0);
+	i = 0;
+	ret = 0;
+	while ((s[i * 4] || s[i * 4 + 1] || s[i * 4 + 2] || s[i * 4 + 3]) && ret < fs->precision)
+	{
+		c = 0;
+		c += (unsigned char)s[i * 4];
+		c += ((int)((unsigned char)s[i * 4 + 1])) << 8;
+		c += ((int)((unsigned char)s[i * 4 + 2])) << 16;
+		c += ((int)((unsigned char)s[i * 4 + 3])) << 24;
+		ret += ft_putchar_u(c);
+		i++;
+	}
+	return (ret);
 }

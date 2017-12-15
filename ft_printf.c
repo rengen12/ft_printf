@@ -8,42 +8,20 @@ size_t padding(t_fs *fs, int wordlen)
 	if ((fs->zero && fs->prec_exist) || (fs->zero && fs->minus))
 		fs->zero = 0;
 	else if (fs->zero)
-		fs->precision = ((fs->plus) || (fs->nf && !fs->plus)) ? fs->width - 1 : fs->width;
+		fs->precision = ((fs->plus) || (fs->nf && !fs->plus) || fs->space) ? fs->width - 1 : fs->width;
 	while (fs->width > wordlen + (fs->nf || fs->plus) + fs->space && !fs->minus && !fs->zero &&
 		   fs->precision + (fs->nf || fs->plus) + fs->space < fs->width)
 	{
 		i += ft_putchar(' ');
 		fs->width--;
 	}
-	if (fs->ch != 'f' && fs->ch != 'd' && fs->ch != 'i' /*&& fs->ch != '%'*/)
-		while (fs->precision > wordlen &&
-			   (((fs->ch == 'c' || fs->ch == 'C') && fs->zero) || (fs->ch != 'c' && fs->ch != 'C')))
+	if ((fs->ch != 'f' && fs->ch != 'd' && fs->ch != '%') || (fs->ch == '%' && fs->zero))
+		while (fs->precision > wordlen && (((fs->ch == 'c' || fs->ch == 'C') && \
+				fs->zero) || (fs->ch != 'c' && fs->ch != 'C')))
 		{
 			i += ft_putchar('0');
 			fs->precision--;
 		}
-	return (i);
-}
-
-size_t padding_str(t_fs *fs, int wordlen)
-{
-	size_t i;
-
-	i = 0;
-	if ((fs->zero && fs->precision != 1) || (fs->zero && fs->minus))
-		fs->zero = 0;
-	else if (fs->zero)
-		fs->precision = fs->width;
-	while (fs->width > wordlen && !fs->minus && !fs->zero)
-	{
-		i += ft_putchar(' ');
-		fs->width--;
-	}
-	while (fs->precision > wordlen && fs->zero)
-	{
-		i += ft_putchar('0');
-		fs->precision--;
-	}
 	return (i);
 }
 
@@ -184,13 +162,12 @@ size_t print_unsig(t_fs *fs, va_list ap)
 	char *str;
 	size_t var;
 
-	systemstr = NULL;
 	i = 0;
 	handle_star(fs, ap);
 	var = va_arg(ap, size_t);
 	usemodifu(fs, &var);
 	i += handle_sharp(var, fs);
-	if (fs->ch == 'u')
+	if (fs->ch == 'u' && (systemstr = NULL) == NULL)
 		systemstr = "0123456789";
 	if (fs->ch == 'X')
 		systemstr = "0123456789ABCDEF";
@@ -213,18 +190,49 @@ size_t print_float(t_fs *fs, va_list ap)
 	long double var;
 
 	i = 0;
-	var = va_arg(ap, long double);
-	i += ft_putnbr((int) var, fs);
+	if (fs->l)
+		var = va_arg(ap, long double);//dont work with big num
+	else
+		var = va_arg(ap, double);
+	if (var < 0)
+	{
+		var *= -1;
+		fs->nf = 1;
+	}
+	i += ft_putnbr((size_t)var, fs);//rework for big num
+	fs->nf = 0;
 	if (fs->precision == -1)
 		fs->precision = 6;
 	if (fs->precision > 0)
 		i += ft_putchar('.');
 	while (fs->precision-- > 0)
 	{
-		var -= (int)var;
+		var -= (size_t)var;
 		var += 0.000000000001;
 		var *= 10;
-		i += ft_putnbr((int)var, fs);
+		i += ft_putnbr((size_t)var, fs);
+	}
+	return (i);
+}
+
+size_t padding_str(t_fs *fs, int wordlen)
+{
+	size_t i;
+
+	i = 0;
+	if ((fs->zero && fs->precision != 1) || (fs->zero && fs->minus))
+		fs->zero = 0;
+	else if (fs->zero)
+		fs->precision = fs->width;
+	while (fs->width > wordlen && !fs->minus && !fs->zero)
+	{
+		i += ft_putchar(' ');
+		fs->width--;
+	}
+	while (fs->precision > wordlen && fs->zero)
+	{
+		i += ft_putchar('0');
+		fs->precision--;
 	}
 	return (i);
 }
@@ -241,14 +249,16 @@ size_t print_string(t_fs *fs, va_list ap)
 		l = ft_strlen_u(str);
 	else
 		l = ft_strlen(str);
-	l = (l > (size_t) fs->precision && fs->precision != 1) ? (size_t) fs->precision : l;
+	//l = (l > (size_t)fs->precision && fs->prec_exist) ? (size_t)fs->precision : l;
+	fs->width = (fs->width > 0) ? fs->width + l : fs->width;
+
 	i += padding_str(fs, l);
 	if (!str)
 		i += ft_putstr("(null)", fs);
 	else if (fs->ch == 's' && fs->l == 0)
 		i += ft_putstr(str, fs);
 	else if (fs->ch == 'S' || (fs->ch == 's' && fs->l))
-		i += ft_putstr_u(str, fs);
+		i += ft_putnstr_u(str, fs);
 	return (i);
 }
 
@@ -258,14 +268,18 @@ size_t print_char(t_fs *fs, va_list ap)
 	int		var;
 
 	i = 0;
-	var = va_arg(ap, int);
 	i += padding(fs, 1);
-	if (fs->ch == 'c' && fs->l == 0)
-		i += ft_putchar((char) var);
-	else if (fs->ch == 'C' || (fs->ch == 'c' && fs->l))
-		i += ft_putchar_u(var);
-	else if (fs->ch == '%')
+	if (fs->ch == '%')
 		i += ft_putchar('%');
+	else
+		var = va_arg(ap, int);
+	if(fs->ch != '%')
+	{
+		if (fs->ch == 'c' && fs->l == 0)
+			i += ft_putchar((char) var);
+		else if (fs->ch == 'C' || (fs->ch == 'c' && fs->l))
+			i += ft_putchar_u(var);
+	}
 	return (i);
 }
 
@@ -273,7 +287,7 @@ size_t print_str_fs(t_fs *fs, va_list ap)
 {
 	size_t i;
 
-	if (ft_strchr("oxXubdsScCif%pf", fs->ch) && (i = 0) == 0)
+	if ((i = 0) == 0 && ft_strchr("oxXubdsScCif%pf", fs->ch))
 	{
 		if (fs->ch == 'f')
 			i += print_float(fs, ap);
@@ -281,7 +295,7 @@ size_t print_str_fs(t_fs *fs, va_list ap)
 			fs->precision = 1;
 		if (ft_strchr("oxXubp", fs->ch))
 			i += print_unsig(fs, ap);
-		else if (fs->ch == 'd' || fs->ch == 'i')
+		else if (fs->ch == 'd')
 			i += print_num(fs, ap);
 		else if (fs->ch == 's' || fs->ch == 'S')
 			i += print_string(fs, ap);
@@ -316,10 +330,8 @@ void handle_modif(t_fs *fs, char ch)
 {
 	if (ch == 'h')
 		fs->h++;
-	else if (ch == 'l')
+	else if (ch == 'l' || ch == 'L')
 		fs->l++;
-	else if (ch == 'L')
-		fs->bl++;
 	else if (ch == 'z' || ch == 'Z')
 		fs->z++;
 	else if (ch == 'j')
@@ -329,10 +341,10 @@ void handle_modif(t_fs *fs, char ch)
 void read_conv_mod(t_fs *fs, const char **s)
 {
 	fs->ch = *(*s)++;
-	if (fs->ch == 'D')
+	if (fs->ch == 'D' || fs->ch == 'i')
 	{
+		fs->l = (fs->ch == 'D') ? 1 : fs->l;
 		fs->ch = 'd';
-		fs->l = 1;
 	}
 	else if (fs->ch == 'U')
 	{
@@ -344,14 +356,11 @@ void read_conv_mod(t_fs *fs, const char **s)
 		fs->ch = 'o';
 		fs->l = 1;
 	}
-	else if (fs->ch == 'F' || fs->ch == 'L')
+	else
 	{
-		fs->ch = 'f';
-		if (**s == 'L')
-			fs->l = 1;
+		fs->ch = (char) ((fs->ch == 'F') ? 'f' : fs->ch);
+		fs->sh = (fs->ch == 'p') ? 1 : fs->sh;
 	}
-	if (fs->ch == 'p')
-		fs->sh = 1;
 }
 
 void	handle_str_point(const char **s, t_fs *fs)
@@ -410,7 +419,6 @@ void init_flags(t_fs *fs)
 	fs->l = 0;
 	fs->j = 0;
 	fs->z = 0;
-	fs->bl = 0;
 	fs->prec_exist = 0;
 }
 

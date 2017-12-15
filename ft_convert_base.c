@@ -22,15 +22,15 @@ void		parse_convert_base(size_t nb, char *bt, size_t c, char *r)
 char			*ft_convert_base(size_t nb, char *base_to, t_fs *fs)
 {
 	char			*r;
-	int				l;
+	size_t			l;
 	int				mem;
 
     l = ft_strlen(base_to);
-    if (!nb && fs->ch != 'p' && ((l == 16 || l == 8) && !fs->sh))
+    if (!l || (!nb && fs->ch != 'p' && (l == 16 || (l == 8 && !fs->sh))))
 		return (NULL);
-	mem = 34;
+	mem = 23;
     if (fs->ch == 'b')
-        mem = 66;
+        mem = 64;
     r = ft_strnew(mem);
     if (!fs->zero)
     {
@@ -41,6 +41,7 @@ char			*ft_convert_base(size_t nb, char *base_to, t_fs *fs)
         else if (nb && (fs->ch == 'o' || fs->ch == 'O') && fs->sh)
             ft_strncat(r, "0", 1);
     }
-	parse_convert_base(nb, base_to, l, &(*r));
+	if (fs->precision > 0 || (fs->sh && fs->ch == 'o'))
+		parse_convert_base(nb, base_to, l, &(*r));
 	return (r);
 }

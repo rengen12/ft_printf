@@ -44,8 +44,6 @@ void usemodifs(t_fs *fs, ssize_t *vals)
 			*vals = (long int) *vals;
 		else
 			*vals = (long long int) *vals;
-	else if (fs->bl)
-		*vals = (long double) *vals;
 	else if (fs->j && *vals)
 		*vals = (intmax_t) *vals;
 	else if (fs->z)

@@ -45,7 +45,7 @@ void movep(char **a)
 int main(void) {
 
     int res;
-    //setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "");
     //c = '¡';
     //ft_putchar_u();
     //ft_putstr_u("¡™£¢∞§¶•ªº–≠œ∑´†¥¨ˆπ“‘ÅÍÎÏ©ÓÔ˚Ò…Æ«Ω≈ç√∫˜≤≥çå");
@@ -71,8 +71,8 @@ int main(void) {
     /*int var = -42;
     res = ft_printf("%X", var);
     printf("\nres = %d\n", res);*/
-
-    res = printf("h%jd", 2);
+	double dd = 9007199254740993.0;
+    res = printf("%.4S", L"我是一只猫。");
 
     //ft_putchar("aaa");
     printf("\nres = %d", res);

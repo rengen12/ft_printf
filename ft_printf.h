@@ -70,7 +70,6 @@ typedef struct s_fs
     int l;
     int j;
     int z;
-    int bl;
 
 }           t_fs;
 
@@ -97,5 +96,6 @@ void    usemodifs(t_fs *fs, ssize_t *vals);
 size_t	ft_strlen_u(char *s);
 int		ft_atoi_printf(const char **nptr);
 char	*ft_strchr(const char *s, int c);
+int     ft_putnstr_u(char *s, t_fs *fs);
 
 #endif

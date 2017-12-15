@@ -124,6 +124,7 @@ size_t print_num(t_fs *fs, va_list ap)
 	i = 0;
 	//handle_star(fs, ap);
 	var = va_arg(ap, ssize_t);
+	//var = va_arg(ap, ssize_t);//lel
 	usemodifs(fs, &var);
 	if (var < 0)
 		fs->nf = 1;
@@ -369,7 +370,7 @@ void	handle_str_point(va_list ap, const char **s, t_fs *fs)
 	if (**s == '*')
 	{
 		fs->precision = va_arg(ap, int);
-		fs->precision = (fs->precision < 0) ? 0 : fs->precision;
+		fs->precision = (fs->precision < 0 && fs->zero) ? fs->width : fs->precision;
 		(*s)++;
 	}
 	else

@@ -72,7 +72,7 @@ int main(void) {
     res = ft_printf("%X", var);
     printf("\nres = %d\n", res);*/
 	double dd = 9007199254740993.0;
-    res = printf("{%05.*d}", 0, 42);
+    res = ft_printf("{%05.*d}", -10, 42);
 
     //ft_putchar("aaa");
     printf("\nres = %d", res);

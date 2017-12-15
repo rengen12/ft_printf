@@ -84,7 +84,28 @@ int     ft_putstr_u(char *s, t_fs *fs)
     return (ret);
 }
 
-int     ft_putnstr_u(char *s, t_fs *fs)
+size_t charlen(char *s)
+{
+	int     c;
+
+	c = 0;
+	c += (unsigned char)s[0];
+	c += ((int)((unsigned char)s[1])) << 8;
+	c += ((int)((unsigned char)s[2])) << 16;
+	c += ((int)((unsigned char)s[3])) << 24;
+	if (c <= 127)
+		return (1);
+	else if (c <= 2047)
+		return (2);
+	else if (c <= 65535)
+		return (3);
+	else if (c <= 2097151)
+		return (4);
+	else
+		return (0);
+}
+
+int     ft_putnstr_u(char *s, size_t len)
 {
 	size_t  i;
 	int     c;
@@ -94,8 +115,10 @@ int     ft_putnstr_u(char *s, t_fs *fs)
 		return (0);
 	i = 0;
 	ret = 0;
-	while ((s[i * 4] || s[i * 4 + 1] || s[i * 4 + 2] || s[i * 4 + 3]) && ret < fs->precision)
+	while ((s[i * 4] || s[i * 4 + 1] || s[i * 4 + 2] || s[i * 4 + 3]) && ret < len)
 	{
+		//if ((ret + charlen(s + i * 4)) > (size_t)fs->precision)
+			//return (ret);
 		c = 0;
 		c += (unsigned char)s[i * 4];
 		c += ((int)((unsigned char)s[i * 4 + 1])) << 8;

@@ -19,6 +19,8 @@
 # include <limits.h>
 # include <inttypes.h>
 
+#define ABS(a) ((a < 0) ? (-a) : (a))
+
 #define EOC          "\x1b[0m"
 
 #define BLACK        "\x1b[30m"
@@ -62,8 +64,8 @@ typedef struct s_fs
     int width;
     int precision;
     int prec_exist;
-    int starw;
-    int starp;
+    /*int starw;
+    int starp;*/
 
     /*modificators*/
     int h;
@@ -93,9 +95,9 @@ size_t  padding_afsign(t_fs *fs, int wordlen);
 int     ft_wordlen(ssize_t var);
 void    usemodifu(t_fs *fs, size_t *valu);
 void    usemodifs(t_fs *fs, ssize_t *vals);
-size_t	ft_strlen_u(char *s);
+size_t	ft_strlen_u(char *s, t_fs *fs);
 int		ft_atoi_printf(const char **nptr);
 char	*ft_strchr(const char *s, int c);
-int     ft_putnstr_u(char *s, t_fs *fs);
+int     ft_putnstr_u(char *s, size_t len);
 
 #endif

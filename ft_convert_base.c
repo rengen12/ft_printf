@@ -19,29 +19,45 @@ void		parse_convert_base(size_t nb, char *bt, size_t c, char *r)
 	ft_strncat(r, &bt[nb % c], 1);
 }
 
-char			*ft_convert_base(size_t nb, char *base_to, t_fs *fs)
+char		*add_pre(size_t nb, char *cnvrtd, t_fs *fs)
+{
+	char 	*pre;
+	size_t 	cnvl;
+
+	cnvl = ft_strlen(cnvrtd);
+	pre = ft_strnew(2 + fs->precision + cnvl);
+	if (!fs->zero && pre)
+	{
+		if ((nb && fs->ch == 'x' && fs->sh) || fs->ch == 'p')
+			ft_strncat(pre, "0x", 2);
+		else if (nb && fs->ch == 'X' && fs->sh)
+			ft_strncat(pre, "0X", 2);
+		else if (nb && (fs->ch == 'o' || fs->ch == 'O') && fs->sh)
+			ft_strncat(pre, "0", 1);
+	}
+	cnvl = ft_strlen(cnvrtd);
+	while ((size_t)fs->precision-- > cnvl)
+		ft_strncat(pre, "0", 1);
+	ft_strncat(pre, cnvrtd, cnvl);
+	ft_strdel(&cnvrtd);
+	return (pre);
+}
+
+char		*ft_convert_base(size_t nb, char *base_to, t_fs *fs)
 {
 	char			*r;
+
 	size_t			l;
 	int				mem;
 
     l = ft_strlen(base_to);
     if (!l || (!nb && fs->ch != 'p' && (l == 16 || (l == 8 && !fs->sh))))
 		return (NULL);
-	mem = 23;
+	mem = 21;
     if (fs->ch == 'b')
-        mem = 64;
+        mem = 62;
     r = ft_strnew(mem);
-    if (!fs->zero)
-    {
-        if ((nb && fs->ch == 'x' && fs->sh) || fs->ch == 'p')
-            ft_strncat(r, "0x", 2);
-        else if (nb && fs->ch == 'X' && fs->sh)
-            ft_strncat(r, "0X", 2);
-        else if (nb && (fs->ch == 'o' || fs->ch == 'O') && fs->sh)
-            ft_strncat(r, "0", 1);
-    }
-	if (fs->precision > 0 || (fs->sh && fs->ch == 'o'))
+	if (r && (fs->precision > 0 || (fs->sh && fs->ch == 'o')))
 		parse_convert_base(nb, base_to, l, &(*r));
-	return (r);
+	return (add_pre(nb, r, fs));
 }

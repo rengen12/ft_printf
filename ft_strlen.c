@@ -27,30 +27,42 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-size_t ft_strlen_u(char *s)
+static size_t charlen(int c)
 {
-	size_t i;
-	int num;
+
+	if (c <= 127)
+		return (1);
+	else if (c <= 2047)
+		return (2);
+	else if (c <= 65535)
+		return (3);
+	else if (c <= 2097151)
+		return (4);
+	else
+		return (0);
+}
+
+size_t ft_strlen_u(char *s, t_fs *fs)
+{
+	size_t	i;
+	int		num;
+	size_t	chlen;
 
 	i = 0;
 	if (s)
 		while (*s || *(s + 1) || *(s + 2) || *(s + 3))
 		{
 			num = 0;
-			num += (unsigned char) *s;
-			num += ((int) ((unsigned char) *(s + 1))) << 8;
-			num += ((int) ((unsigned char) *(s + 2))) << 16;
-			num += ((int) ((unsigned char) *(s + 3))) << 24;
-			if (num <= 127)
-				i += 1;
-			else if (num <= 2047)
-				i += 2;
-			else if (num <= 65535)
-				i += 3;
-			else if (num <= 2097151)
-				i += 4;
-			else
-				break;
+			num += (unsigned char)*s;
+			num += ((int) ((unsigned char)*(s + 1))) << 8;
+			num += ((int) ((unsigned char)*(s + 2))) << 16;
+			num += ((int) ((unsigned char)*(s + 3))) << 24;
+			chlen = charlen(num);
+			if (fs->prec_exist && i + chlen > (size_t)fs->precision)
+				return (i);
+			if (!chlen)
+				break ;
+			i += chlen;
 			s += 4;
 		}
 	return (i);

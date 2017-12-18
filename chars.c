@@ -58,7 +58,7 @@ int     ft_putchar_u(int c)
     return (0);
 }
 
-int     ft_putstr_u(char *s, t_fs *fs)
+size_t    ft_putstr_u(char *s)
 {
     size_t  i;
     int     c;
@@ -77,9 +77,6 @@ int     ft_putstr_u(char *s, t_fs *fs)
         c += ((int)((unsigned char)s[i * 4 + 3])) << 24;
         ret += ft_putchar_u(c);
         i++;
-		(void)fs;
-        //if (fs->prec_exist && (size_t)fs->precision <= ret && fs->ch == 'S')
-          //  return (ret);
     }
     return (ret);
 }
@@ -105,7 +102,7 @@ size_t charlen(char *s)
 		return (0);
 }
 
-int     ft_putnstr_u(char *s, size_t len)
+size_t     ft_putnstr_u(char *s, size_t len)
 {
 	size_t  i;
 	int     c;
@@ -117,8 +114,6 @@ int     ft_putnstr_u(char *s, size_t len)
 	ret = 0;
 	while ((s[i * 4] || s[i * 4 + 1] || s[i * 4 + 2] || s[i * 4 + 3]) && ret < len)
 	{
-		//if ((ret + charlen(s + i * 4)) > (size_t)fs->precision)
-			//return (ret);
 		c = 0;
 		c += (unsigned char)s[i * 4];
 		c += ((int)((unsigned char)s[i * 4 + 1])) << 8;

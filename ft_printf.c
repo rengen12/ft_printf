@@ -55,24 +55,16 @@ size_t print_ordsymb(const char **s)
 	start = *s;
 	while (**s)
 	{
+		if (**s == '{')
+			parse_color(s);
 		if (**s == '%')
 		{
-			/*if (*++*s != '%')
-			{*/
 			if (*(*s)++ == '%')
-			{
 				sign_p = 1;
-			}
 			break;
-			/*}
-			else
-			{
-				i += *s - start;
-				write(1, start, *s - start);
-				i += ft_putchar('%');
-			}*/
 		}
-		(*s)++;
+		if (**s)
+			(*s)++;
 	}
 	i += *s - start - sign_p;
 	write(1, start, *s - start - sign_p);

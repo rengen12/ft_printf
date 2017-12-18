@@ -23,30 +23,30 @@
 
 #define EOC          "\x1b[0m"
 
-#define BLACK        "\x1b[30m"
-#define RED          "\x1b[31m"
-#define GREEN        "\x1b[32m"
-#define YELLOW       "\x1b[33m"
-#define BLUE         "\x1b[34m"
-#define MAGENTA      "\x1b[35m"
-#define CYAN         "\x1b[36m"
-#define WHITE        "\x1b[37m"
+#define BLACK        "\x1b[30m" //1
+#define RED          "\x1b[31m" //2
+#define GREEN        "\x1b[32m" //2
+#define YELLOW       "\x1b[33m" //2
+#define BLUE         "\x1b[34m" //1
+#define MAGENTA      "\x1b[35m" //3
+#define CYAN         "\x1b[36m" //3
+#define WHITE        "\x1b[37m" //3
 
-#define BK_BLACK     "\x1b[40m"
-#define BK_RED       "\x1b[41m"
-#define BK_GREEN     "\x1b[42m"
-#define BK_YELLOW    "\x1b[43m"
-#define BK_BLUE      "\x1b[44m"
-#define BK_MAGENTA   "\x1b[45m"
-#define BK_CYAN      "\x1b[46m"
-#define BK_WHITE     "\x1b[47m"
+#define BLACK_BG     "\x1b[40m" //1
+#define RED_BG   	 "\x1b[41m" //2
+#define GREEN_BG     "\x1b[42m" //2
+#define YELLOW_BG    "\x1b[43m"
+#define BLUE_BG      "\x1b[44m" //1
+#define MAGENTA_BG   "\x1b[45m"
+#define CYAN_BG      "\x1b[46m"
+#define WHITE_BG     "\x1b[47m"
 
-#define BOLD         "\x1b[1m"
-#define ITALIC       "\x1b[3m"
-#define UNDERLINE    "\x1b[4m"
-#define BLINK        "\x1b[5m"
-#define INVERTED     "\x1b[7m"
-#define INVISIBLE    "\x1b[8m"
+#define BOLD         "\x1b[1m" //1
+#define ITALIC       "\x1b[3m" //1
+#define UNDERLINE    "\x1b[4m" //2
+#define BLINK        "\x1b[5m" //1
+#define INVERTED     "\x1b[7m" //1
+#define INVISIBLE    "\x1b[8m" //1
 
 typedef struct s_fs
 {
@@ -77,7 +77,7 @@ typedef struct s_fs
 
 int     ft_printf (const char *format, ...);
 int     ft_putchar_u(int c);
-int     ft_putstr_u(char *s, t_fs *fs);
+size_t     ft_putstr_u(char *s);
 char	*ft_itoa(size_t n);
 char	*ft_convert_base(size_t nb, char *base_to, t_fs *fs);
 size_t	ft_putchar(char c);
@@ -98,6 +98,7 @@ void    usemodifs(t_fs *fs, ssize_t *vals);
 size_t	ft_strlen_u(char *s, t_fs *fs);
 int		ft_atoi_printf(const char **nptr);
 char	*ft_strchr(const char *s, int c);
-int     ft_putnstr_u(char *s, size_t len);
-
+size_t  ft_putnstr_u(char *s, size_t len);
+int		ft_strcmp(const char *s1, const char *s2);
+void 	parse_color(char const **s);
 #endif

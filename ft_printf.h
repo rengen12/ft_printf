@@ -60,6 +60,7 @@ typedef struct s_fs
     int minus;
     int plus;
     int space;
+	int apo;
 
     int width;
     int precision;

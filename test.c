@@ -57,7 +57,7 @@ int		main(void)
 {
 	int res;
 
-	res = printf("{%05.S}", L"42 c est cool");
+	res = ft_printf("{%'d}", 42);
 	//printf("\nres = %d", res);
 	//printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", "filename", "str");
 	return (0);

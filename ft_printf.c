@@ -275,7 +275,7 @@ size_t print_char(t_fs *fs, va_list ap)
 	if (fs->ch == '%')
 		i += ft_putchar('%');
 	else
-		var = va_arg(ap, int);
+		var = va_arg(ap, char);
 	if(fs->ch != '%')
 	{
 		if (fs->ch == 'c' /*&& fs->l == 0*/)

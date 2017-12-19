@@ -36,6 +36,8 @@ char		*add_pre(size_t nb, char *cnvrtd, t_fs *fs)
 			ft_strncat(pre, "0", 1);
 	}
 	cnvl = ft_strlen(cnvrtd);
+	if (fs->ch == 'o' && fs->sh)
+		cnvl++;
 	while ((size_t)fs->precision-- > cnvl)
 		ft_strncat(pre, "0", 1);
 	ft_strncat(pre, cnvrtd, cnvl);

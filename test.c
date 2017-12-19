@@ -43,13 +43,22 @@ void movep(char **a)
     a++;
 }
 */
+/**
+ *
+ * L and unlim double
+ *
+ * a g e
+ * ' $
+ * cleaning
+ * ilon mask
+ */
 
 int		main(void)
 {
 	int res;
 
-	res = ft_printf("{red}aasg%ddgs11da{magenta}asgdsd{eoc}111", 55);
-	printf("\nres = %d", res);
+	res = printf("{%05.S}", L"42 c est cool");
+	//printf("\nres = %d", res);
 	//printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", "filename", "str");
 	return (0);
 }

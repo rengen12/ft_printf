@@ -268,7 +268,7 @@ size_t print_string(t_fs *fs, va_list ap)
 size_t print_char(t_fs *fs, va_list ap)
 {
 	size_t	i;
-	int		var;
+	char		var;
 
 	i = 0;
 	i += padding(fs, 1);

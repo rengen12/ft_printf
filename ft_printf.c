@@ -268,18 +268,21 @@ size_t print_string(t_fs *fs, va_list ap)
 size_t print_char(t_fs *fs, va_list ap)
 {
 	size_t	i;
-	char		var;
+	int		var;
+	char 	varchar;
 
 	i = 0;
 	i += padding(fs, 1);
 	if (fs->ch == '%')
 		i += ft_putchar('%');
+	else if (fs->ch == 'C')
+		var = va_arg(ap, int);
 	else
-		var = va_arg(ap, char);
+		varchar = va_arg(ap, char);
 	if(fs->ch != '%')
 	{
 		if (fs->ch == 'c' /*&& fs->l == 0*/)
-			i += ft_putchar((unsigned char)var);
+			i += ft_putchar(varchar);
 		else if (fs->ch == 'C' /*|| (fs->ch == 'c' && fs->l)*/)
 			i += ft_putchar_u(var);
 	}

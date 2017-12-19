@@ -279,7 +279,7 @@ size_t print_char(t_fs *fs, va_list ap)
 	if(fs->ch != '%')
 	{
 		if (fs->ch == 'c' /*&& fs->l == 0*/)
-			i += ft_putchar((char) var);
+			i += ft_putchar((unsigned char)var);
 		else if (fs->ch == 'C' /*|| (fs->ch == 'c' && fs->l)*/)
 			i += ft_putchar_u(var);
 	}

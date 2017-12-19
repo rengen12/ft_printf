@@ -46,24 +46,34 @@ size_t padding_after(t_fs *fs, int wordlen)
 
 size_t print_ordsymb(const char **s)
 {
-	size_t i;
-	const char *start;
+	size_t		i;
+	const char 	*start;
 	int 		sign_p;
 
 	i = 0;
 	sign_p = 0;
-	start = *s;
+	start = (char *)*s;
 	while (**s)
 	{
-		if (**s == '{')
+		if (**s == '{' && start == *s)
+		{
 			parse_color(s);
+			start = *s;
+		}
+		else if (**s == '{')
+		{
+			i += *s - start;
+			write(1, start, *s - start);
+			start = *s;
+			continue ;
+		}
 		if (**s == '%')
 		{
 			if (*(*s)++ == '%')
 				sign_p = 1;
-			break;
+			break ;
 		}
-		if (**s)
+		else if (**s)
 			(*s)++;
 	}
 	i += *s - start - sign_p;
@@ -409,8 +419,6 @@ void init_flags(t_fs *fs)
 	fs->space = 0;
 	fs->width = 0;
 	fs->precision = -1;
-	/*fs->starw = 0;
-	fs->starp = 0;*/
 	fs->h = 0;
 	fs->l = 0;
 	fs->j = 0;

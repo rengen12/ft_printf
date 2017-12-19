@@ -48,7 +48,7 @@ int		main(void)
 {
 	int res;
 
-	res = ft_printf("{red}aa%dsgdgsda{eoc}asgdsd{eoc}111", 5);
+	res = ft_printf("{red}aasg%ddgs11da{magenta}asgdsd{eoc}111", 55);
 	printf("\nres = %d", res);
 	//printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", "filename", "str");
 	return (0);

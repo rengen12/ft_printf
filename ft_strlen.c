@@ -44,7 +44,6 @@ size_t	ft_strlen(const char *s)
 
 static size_t charlen(int c)
 {
-
 	if (c <= 127)
 		return (1);
 	else if (c <= 2047)
@@ -53,6 +52,10 @@ static size_t charlen(int c)
 		return (3);
 	else if (c <= 2097151)
 		return (4);
+	//else if (c <= 67108863)
+		//return (5);
+	//else if (c <= 2147483647)
+		//return (6);
 	else
 		return (0);
 }

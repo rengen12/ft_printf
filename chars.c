@@ -57,9 +57,9 @@ int     ft_putchar_u(size_t c)
     else if (c <= 2097151)
         return (handle_umas(a, (((c & 63) | ((c & 4032) << 2) | \
                 ((c & 258048) << 4) | ((c & 1835008) << 6)) | v4), 4));
-	else if (c <= 67108863)
-		return (handle_umas(a, (((c & 63) | ((c & 4032) << 2) | \
-                ((c & 258048) << 4) | ((c & 16515072)  << 6) | ((c & 50331648)  << 8)) | v5), 5));
+	//else if (c <= 67108863)
+		//return (handle_umas(a, (((c & 63) | ((c & 4032) << 2) | \
+                //((c & 258048) << 4) | ((c & 16515072)  << 6) | ((c & 50331648)  << 8)) | v5), 5));
     return (0);
 }
 
@@ -101,8 +101,8 @@ size_t charlen(char *s)
 		return (2);
 	else if (c <= 65535)
 		return (3);
-	else if (c <= 2097151)
-		return (4);
+	//else if (c <= 2097151)
+		//return (4);
 	else
 		return (0);
 }

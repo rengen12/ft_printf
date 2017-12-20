@@ -56,11 +56,32 @@ void movep(char **a)
 int		main(void)
 {
 	int res;
-	//setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "rus");
 	//long double ld = DBL_MAX;
 	//res = ft_printf("%LF\n ", ld);
-	 res = ft_printf("{%C}", L'•');
-	//printf("\nres = %d", res);
+	/*res = ft_printf("%C", L'ø');
+	printf("\nres = %d\n", res);
+	res = printf("%C", L'ø');
+	printf("\nres = %d\n", res);*/
+	char *a = "ø";
+	char *b = L'ø';
+
+	size_t a1 = (size_t)*a;
+	size_t b1 = (size_t)b;
+
+	int i = 32000;
+	while (i < 33000) {
+		res = printf("%c", i);
+		printf("\nres = %d\n", res);
+		res = ft_printf("%C", i);
+		printf("\nres = %d\n", res);
+		printf("i = %d\n\n", i);
+		i++;
+	}
+	//res = ft_printf("%C", 3064); //цукенг
+	//printf("\nres = %d\n", res);
+
+	//write(1, b, ft_strlen(b));
 	//printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", "filename", "str");
 	return (0);
 }

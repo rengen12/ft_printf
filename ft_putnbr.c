@@ -20,7 +20,7 @@ static size_t ft_putnbr_rec(size_t n, size_t i)
 	return (i);
 }
 
-size_t	ft_putnbr(ssize_t nb, t_fs *fs)
+size_t	ft_putnbr_prntf(ssize_t nb, t_fs *fs)
 {
 	size_t  i;
     size_t  n;

@@ -12,6 +12,21 @@
 
 #include "ft_printf.h"
 
+int ft_wordlen(ssize_t var)
+{
+	int i;
+
+	i = 0;
+	while (var)
+	{
+		var /= 10;
+		i++;
+	}
+	if (!i)
+		i = 1;
+	return (i);
+}
+
 size_t	ft_strlen(const char *s)
 {
 	size_t		i;

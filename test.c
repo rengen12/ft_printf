@@ -56,8 +56,8 @@ void movep(char **a)
 int		main(void)
 {
 	int res;
-
-	res = ft_printf("{%'d}", 42);
+	//setlocale(LC_ALL, "rus");
+	res = ft_printf("{%C}", L"в");
 	//printf("\nres = %d", res);
 	//printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", "filename", "str");
 	return (0);

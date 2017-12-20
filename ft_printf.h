@@ -78,7 +78,7 @@ typedef struct s_fs
 
 int     ft_printf (const char *format, ...);
 int     ft_putchar_u(int c);
-size_t     ft_putstr_u(char *s);
+size_t	ft_putstr_u(char *s);
 char	*ft_itoa(size_t n);
 char	*ft_convert_base(size_t nb, char *base_to, t_fs *fs);
 size_t	ft_putchar(char c);
@@ -88,10 +88,8 @@ void	ft_memdel(void **ap);
 char	*ft_strnew(size_t size);
 char	*ft_strncat(char *dest, const char *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
-size_t	ft_putnbr(ssize_t n, t_fs *fs);
+size_t	ft_putnbr_prntf(ssize_t n, t_fs *fs);
 void	ft_strdel(char **as);
-char	*ft_strdup(const char *s);
-void    ft_putendl(char const *s);
 size_t  padding_afsign(t_fs *fs, int wordlen);
 int     ft_wordlen(ssize_t var);
 void    usemodifu(t_fs *fs, size_t *valu);
@@ -102,4 +100,18 @@ char	*ft_strchr(const char *s, int c);
 size_t  ft_putnstr_u(char *s, size_t len);
 int		ft_strcmp(const char *s1, const char *s2);
 void 	parse_color(char const **s);
+size_t	handle_sharp(size_t nb, t_fs *fs);
+size_t	print_str_fs(t_fs *fs, va_list ap);
+size_t	print_ordsymb(const char **s);
+void	read_conv_mod(t_fs *fs, const char **s);
+size_t	handle_str_fs(va_list ap, const char **s, t_fs *fs);
+size_t	padding(t_fs *fs, int wordlen);
+size_t	padding_after(t_fs *fs, int wordlen);
+size_t	padding_str(t_fs *fs, int wordlen);
+size_t	print_num(t_fs *fs, va_list ap);
+size_t	print_unsig(t_fs *fs, va_list ap);
+size_t	print_float(t_fs *fs, va_list ap);
+size_t	print_char(t_fs *fs, va_list ap);
+size_t	print_string(t_fs *fs, va_list ap);
+
 #endif

@@ -43,6 +43,7 @@ size_t print_char(t_fs *fs, va_list ap)
 	char	*var;
 
 	i = 0;
+	var = 0;
 	i += padding(fs, 1);
 	if (fs->ch == '%')
 		i += ft_putchar('%');
@@ -53,7 +54,7 @@ size_t print_char(t_fs *fs, va_list ap)
 		if (fs->ch == 'c' && fs->l == 0)
 			i += ft_putchar(var);
 		else if (fs->ch == 'C' || (fs->ch == 'c' && fs->l))
-			i += ft_putnstr_u(var, 4);
+			i += ft_putnstr_u(var, ft_strlen_u(var, fs));
 	}
 	return (i);
 }

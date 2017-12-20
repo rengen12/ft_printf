@@ -31,7 +31,7 @@ int     handle_umas(size_t *a, unsigned long long c, int len)
     }
     i = 0;
     while (i < MB_LEN_MAX)
-        write(1, &a[i++], MB_LEN_MAX);
+        write(1, &a[i++], 1);
     return (i);
 }
 

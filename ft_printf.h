@@ -77,7 +77,7 @@ typedef struct s_fs
 }           t_fs;
 
 int     ft_printf (const char *format, ...);
-int     ft_putchar_u(int c);
+int     ft_putchar_u(size_t c);
 size_t	ft_putstr_u(char *s);
 char	*ft_itoa(size_t n);
 char	*ft_convert_base(size_t nb, char *base_to, t_fs *fs);

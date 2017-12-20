@@ -56,9 +56,10 @@ void movep(char **a)
 int		main(void)
 {
 	int res;
-	setlocale(LC_ALL, "1251");
-	res = printf("{%c}", 'в');
-	res = printf("{%zd}", MB_CUR_MAX);
+	//setlocale(LC_ALL, "");
+	//long double ld = DBL_MAX;
+	//res = ft_printf("%LF\n ", ld);
+	 res = ft_printf("{%C}", L'•');
 	//printf("\nres = %d", res);
 	//printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", "filename", "str");
 	return (0);

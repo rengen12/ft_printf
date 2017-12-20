@@ -12,16 +12,16 @@
 
 #include "ft_printf.h"
 
-int     handle_umas(unsigned int *a, unsigned int c, int len)
+int     handle_umas(size_t *a, unsigned long long c, int len)
 {
-    int             i;
-    unsigned int    mask;
-    int             offst;
+    int       i;
+    size_t    mask;
+    int       offst;
 
     i = 0;
     offst = 0;
     mask = 255;
-    while (i < 4)
+    while (i < 5)
         a[i++] = 0;
     i = len;
     while (i--)
@@ -35,16 +35,18 @@ int     handle_umas(unsigned int *a, unsigned int c, int len)
     return (len);
 }
 
-int     ft_putchar_u(int c)
+int     ft_putchar_u(size_t c)
 {
-    unsigned int v2;
-    unsigned int v3;
-    unsigned int v4;
-    unsigned int a[4];
+    size_t v2;
+	size_t v3;
+	size_t v4;
+	size_t v5;
+	size_t a[5];
 
     v2 = 49280;
     v3 = 14712960;
     v4 = 4034953344;
+	v5 = 1067307794560;
     if (c <= 127)
         return (handle_umas(a, c, 1));
     else if (c <= 2047)
@@ -55,6 +57,9 @@ int     ft_putchar_u(int c)
     else if (c <= 2097151)
         return (handle_umas(a, (((c & 63) | ((c & 4032) << 2) | \
                 ((c & 258048) << 4) | ((c & 1835008) << 6)) | v4), 4));
+	else if (c <= 67108863)
+		return (handle_umas(a, (((c & 63) | ((c & 4032) << 2) | \
+                ((c & 258048) << 4) | ((c & 16515072)  << 6) | ((c & 50331648)  << 8)) | v5), 5));
     return (0);
 }
 

@@ -40,17 +40,15 @@ size_t print_string(t_fs *fs, va_list ap)
 size_t print_char(t_fs *fs, va_list ap)
 {
 	size_t	i;
-	int		var;
-	int maxchars = MB_CUR_MAX;
+	size_t		var;
 
 	i = 0;
 	var = 0;
-	maxchars++;
 	i += padding(fs, 1);
 	if (fs->ch == '%')
 		i += ft_putchar('%');
 	else
-		var = va_arg(ap, int);
+		var = va_arg(ap, size_t);
 	if(fs->ch != '%')
 	{
 		if (fs->ch == 'c' && fs->l == 0)

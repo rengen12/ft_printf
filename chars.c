@@ -30,9 +30,9 @@ int     handle_umas(size_t *a, unsigned long long c, int len)
         mask <<= 8;
     }
     i = 0;
-    while (i < len)
-        write(1, &a[i++], 1);
-    return (len);
+    while (i < MB_CUR_MAX)
+        write(1, &a[i++], MB_CUR_MAX);
+    return (i);
 }
 
 int     ft_putchar_u(size_t c)

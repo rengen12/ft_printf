@@ -30,7 +30,7 @@ int     handle_umas(size_t *a, unsigned long long c, int len)
         mask <<= 8;
     }
     i = 0;
-    while (i < len && i < MB_CUR_MAX)
+    while (i < len /*&& i < MB_CUR_MAX*/)
         write(1, &a[i++], 1);
     return (i);
 }

@@ -41,9 +41,11 @@ size_t print_char(t_fs *fs, va_list ap)
 {
 	size_t	i;
 	int		var;
+	int maxchars = MB_CUR_MAX;
 
 	i = 0;
 	var = 0;
+	maxchars++;
 	i += padding(fs, 1);
 	if (fs->ch == '%')
 		i += ft_putchar('%');

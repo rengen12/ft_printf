@@ -40,21 +40,20 @@ size_t print_string(t_fs *fs, va_list ap)
 size_t print_char(t_fs *fs, va_list ap)
 {
 	size_t	i;
-	int		var;
-	void	*vvar;
+	char	*var;
 
 	i = 0;
 	i += padding(fs, 1);
 	if (fs->ch == '%')
 		i += ft_putchar('%');
 	else
-		vvar = va_arg(ap, void *);
+		var = va_arg(ap, char *);
 	if(fs->ch != '%')
 	{
 		if (fs->ch == 'c' && fs->l == 0)
-			i += ft_putchar((char) var);
+			i += ft_putchar(*var);
 		else if (fs->ch == 'C' || (fs->ch == 'c' && fs->l))
-			i += ft_putnstr_u(vvar, 4);
+			i += ft_putnstr_u(var, 4);
 	}
 	return (i);
 }

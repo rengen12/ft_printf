@@ -49,10 +49,7 @@ size_t print_str_fs(t_fs *fs, va_list ap)
 		else if (fs->ch == 'd')
 			i += print_num(fs, ap);
 		else if (fs->ch == 'c' || fs->ch == 'C' || fs->ch == '%')
-		{
-			ft_putnbr_prntf(MB_CUR_MAX, fs);
 			i += print_char(fs, ap);
-		}
 		i += padding_after(fs, i);
 	}
 	else

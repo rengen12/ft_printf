@@ -40,13 +40,13 @@ int     ft_putchar_u(size_t c)
     size_t v2;
 	size_t v3;
 	size_t v4;
-	size_t v5;
+	//size_t v5;
 	size_t a[5];
 
     v2 = 49280;
     v3 = 14712960;
     v4 = 4034953344;
-	v5 = 1067307794560;
+	//v5 = 1067307794560;
     if (c <= 255)
         return (handle_umas(a, c, 1));
     else if (c <= 2047)
@@ -57,9 +57,9 @@ int     ft_putchar_u(size_t c)
     else if (c <= 2097151)
         return (handle_umas(a, (((c & 63) | ((c & 4032) << 2) | \
                 ((c & 258048) << 4) | ((c & 1835008) << 6)) | v4), 4));
-	//else if (c <= 67108863)
-		//return (handle_umas(a, (((c & 63) | ((c & 4032) << 2) | \
-                //((c & 258048) << 4) | ((c & 16515072)  << 6) | ((c & 50331648)  << 8)) | v5), 5));
+	/*else if (c <= 67108863)
+		return (handle_umas(a, (((c & 63) | ((c & 4032) << 2) | \
+                ((c & 258048) << 4) | ((c & 16515072)  << 6) | ((c & 50331648)  << 8)) | v5), 5));*/
     return (0);
 }
 

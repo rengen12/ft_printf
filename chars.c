@@ -101,8 +101,8 @@ size_t charlen(char *s)
 		return (2);
 	else if (c <= 65535)
 		return (3);
-	//else if (c <= 2097151)
-		//return (4);
+	else if (c <= 2097151)
+		return (4);
 	else
 		return (0);
 }

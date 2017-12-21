@@ -53,10 +53,24 @@ void movep(char **a)
  * ilon mask
  */
 
+int 	char_size(size_t ch)
+{
+	int 	i;
+
+	i = 0;
+	while (ch)
+	{
+		ch >>= 1;
+		i++;
+	}
+	return (i);
+}
+
 int		main(void)
 {
 	int res;
-	setlocale(LC_ALL, "rus");
+	//char* l = setlocale(LC_ALL, "");
+
 	//long double ld = DBL_MAX;
 	//res = ft_printf("%LF\n ", ld);
 	/*res = ft_printf("%C", L'ø');
@@ -69,17 +83,20 @@ int		main(void)
 	size_t a1 = (size_t)*a;
 	size_t b1 = (size_t)b;
 
-	int i = 32000;
-	while (i < 33000) {
-		res = printf("%c", i);
+	/*int i = 0;
+	while (i < 300) {
+		res = printf("%C", i);
 		printf("\nres = %d\n", res);
 		res = ft_printf("%C", i);
 		printf("\nres = %d\n", res);
 		printf("i = %d\n\n", i);
 		i++;
-	}
-	//res = ft_printf("%C", 3064); //цукенг
+	}*/
+
+	printf("%d", char_size(255));
+	//res = ft_printf("%C %d", 945, MB_CUR_MAX); //цукенг
 	//printf("\nres = %d\n", res);
+
 
 	//write(1, b, ft_strlen(b));
 	//printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", "filename", "str");

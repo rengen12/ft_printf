@@ -93,7 +93,7 @@ size_t print_float(t_fs *fs, va_list ap)
 	while (fs->prec-- > 0)
 	{
 		var -= (size_t)var;
-		var += 0.000000000001;
+		//var += 0.000000000001;
 		var *= 10;
 		if ((fs->prec == 0) && ((size_t)(var * 10) % 10) >= 5)
 			var++;

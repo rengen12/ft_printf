@@ -14,9 +14,9 @@
 
 size_t print_string(t_fs *fs, va_list ap)
 {
-	size_t i;
-	char *str;
-	size_t l;
+	size_t	i;
+	char	*str;
+	size_t	l;
 
 	i = 0;
 	str = va_arg(ap, char *);

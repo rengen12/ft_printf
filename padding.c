@@ -17,7 +17,8 @@ size_t padding(t_fs *fs, int wordlen)
 	size_t i;
 
 	i = 0;
-	if (((fs->zero && fs->prec_exist) && ft_strchr("oxXubdsSifpf", fs->ch)) || (fs->zero && fs->minus))
+	if ((fs->zero && fs->prec_exist && ft_strchr("oxXubdsSifpf", fs->ch)) || \
+			(fs->zero && fs->minus))
 		fs->zero = 0;
 	else if (fs->zero)
 		fs->precision = ((fs->plus) || (fs->nf && !fs->plus) || fs->space) ? fs->width - 1 : fs->width;

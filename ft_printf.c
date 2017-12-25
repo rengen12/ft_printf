@@ -20,7 +20,7 @@ void read_conv_mod(t_fs *fs, const char **s)
 	}
 	else
 	{
-		fs->ch = (char) ((fs->ch == 'F') ? 'f' : fs->ch);
+		fs->ch = (char)((fs->ch == 'F') ? 'f' : fs->ch);
 		fs->sh = (fs->ch == 'p') ? 1 : fs->sh;
 	}
 }
@@ -63,9 +63,9 @@ size_t handstrform(va_list ap, const char *frmt, t_fs *fs)
 
 int ft_printf(const char *format, ...)
 {
-	size_t i;
-	va_list ap;
-	t_fs *fs;
+	size_t	i;
+	va_list	ap;
+	t_fs	*fs;
 
 	if (!format)
 		return (0);

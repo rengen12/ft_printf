@@ -14,7 +14,7 @@
 
 size_t print_ordsymb(const char **s)
 {
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	while (**s)

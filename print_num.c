@@ -14,12 +14,11 @@
 
 size_t print_num(t_fs *fs, va_list ap)
 {
-	ssize_t var;
-	size_t i;
+	ssize_t	var;
+	size_t	i;
 
 	i = 0;
 	var = va_arg(ap, ssize_t);
-	//var = va_arg(ap, ssize_t);//lel
 	usemodifs(fs, &var);
 	if (var < 0)
 		fs->nf = 1;
@@ -35,22 +34,22 @@ size_t print_num(t_fs *fs, va_list ap)
 
 size_t print_unsig(t_fs *fs, va_list ap)
 {
-	size_t i;
-	char *systemstr;
-	char *str;
-	size_t var;
+	size_t	i;
+	char	*systemstr;
+	char	*str;
+	size_t	var;
 
 	i = 0;
 	var = va_arg(ap, size_t);
 	usemodifu(fs, &var);
 	i += handle_sharp(var, fs);
-	if (fs->ch == 'u' && (systemstr = NULL) == NULL)
+	if ((systemstr = NULL) == NULL && fs->ch == 'u')
 		systemstr = "0123456789";
-	if (fs->ch == 'X')
+	else if (fs->ch == 'X')
 		systemstr = "0123456789ABCDEF";
 	else if (fs->ch == 'x' || fs->ch == 'p')
 		systemstr = "0123456789abcdef";
-	else if (fs->ch == 'O' || fs->ch == 'o')
+	else if (fs->ch == 'o')
 		systemstr = "01234567";
 	else if (fs->ch == 'b')
 		systemstr = "01";

@@ -93,10 +93,11 @@ int		main(void)
 		i++;
 	}*/
 
-	printf("%d", char_size(255));
+	//res = printf("%e", 3.65);
+	res = ft_printf("%x", 3.65);
 	//res = ft_printf("%C %d", 945, MB_CUR_MAX); //цукенг
-	//printf("\nres = %d\n", res);
-
+	printf("\nres = %d\n", res);
+	//ft_printf("{red}");
 
 	//write(1, b, ft_strlen(b));
 	//printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", "filename", "str");

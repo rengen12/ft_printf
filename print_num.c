@@ -80,7 +80,7 @@ size_t print_float(t_fs *fs, va_list ap)
 	if (fs->prec == -1)
 		fs->prec = 6;
 	if (fs->ch == 'e' || fs->ch == 'E')
-		while ((size_t)var > 10)
+		while ((size_t)var >= 10)
 		{
 			i_e++;
 			var /= 10;

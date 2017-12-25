@@ -85,7 +85,7 @@ size_t print_float(t_fs *fs, va_list ap)
 			i_e++;
 			var /= 10;
 		}
-	i += padding(fs, (ft_wordlen((size_t)var) + (fs->prec > 0) + fs->prec));
+	i += padding(fs, ft_wordlen((size_t)var) + (fs->prec > 0) + fs->prec + ((fs->ch == 'e' || fs->ch == 'E') ? 4 : 0));
 	i += ft_putnbr_prntf((size_t)var, fs);
 	fs->nf = 0;
 	if (fs->prec > 0)

@@ -35,7 +35,7 @@ size_t padding(t_fs *fs, int wordlen)
 		i += ft_putchar(' ');
 		fs->width--;
 	}
-	if (!ft_strchr("fd%", fs->ch) || (fs->ch == '%' && fs->zero))
+	if (!ft_strchr("feEd%", fs->ch) || (fs->ch == '%' && fs->zero))
 		while (fs->prec > wordlen && (((fs->ch == 'c' || fs->ch == 'C') \
 				&& fs->zero) || (fs->ch != 'c' && fs->ch != 'C')))
 		{

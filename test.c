@@ -95,8 +95,8 @@ int		main(void)
 
 	//res = printf("%e", 3.65);
 	long double ld = 32424.235;
-	res1 = ft_printf("%e\n", 32424.235);
-	res2 = printf("%e\n", 32424.235);
+	res1 = ft_printf("%12.4e\n", 420.0);
+	res2 = printf("%12.4e\n", 420.0);
 	ft_printf("my res = %d ", res1);
 	ft_printf("unix res = %d\n\n", res2);
 	//ft_printf("{red}");

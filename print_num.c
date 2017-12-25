@@ -95,6 +95,8 @@ size_t print_float(t_fs *fs, va_list ap)
 		var -= (size_t)var;
 		var += 0.000000000001;
 		var *= 10;
+		if ((fs->prec == 0) && ((size_t)(var * 10) % 10) >= 5)
+			var++;
 		i += ft_putnbr_prntf((size_t)var, fs);
 	}
 	if (fs->ch == 'e' || fs->ch == 'E')

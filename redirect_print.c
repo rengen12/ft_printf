@@ -27,7 +27,8 @@ size_t print_ordsymb(const char **s)
 				(*s)++;
 			break;
 		}
-		i += ft_putchar(*(*s)++);
+		if (**s)
+			i += ft_putchar(*(*s)++);
 	}
 	return (i);
 }
@@ -36,7 +37,7 @@ size_t print_str_fs(t_fs *fs, va_list ap)
 {
 	size_t i;
 
-	if ((i = 0) == 0 && ft_strchr("oxXubdsScCif%pf", fs->ch))
+	if ((i = 0) == 0 && ft_strchr("oxXubdsScCifpf", fs->ch)) //remove %
 	{
 		if (fs->ch == 'f')
 			i += print_float(fs, ap);
@@ -48,7 +49,7 @@ size_t print_str_fs(t_fs *fs, va_list ap)
 			i += print_unsig(fs, ap);
 		else if (fs->ch == 'd')
 			i += print_num(fs, ap);
-		else if (fs->ch == 'c' || fs->ch == 'C' || fs->ch == '%')
+		else if (fs->ch == 'c' || fs->ch == 'C'/* || fs->ch == '%'*/)
 			i += print_char(fs, ap);
 		i += padding_after(fs, i);
 	}

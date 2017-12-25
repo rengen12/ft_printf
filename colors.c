@@ -116,5 +116,4 @@ void 	parse_color(char const **s)
 	}
 	else
 		(*s)--;
-
 }

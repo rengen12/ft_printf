@@ -77,11 +77,11 @@ int		main(void)
 	printf("\nres = %d\n", res);
 	res = printf("%C", L'ø');
 	printf("\nres = %d\n", res);*/
-	char *a = "ø";
+	/*char *a = "ø";
 	char *b = L'ø';
 
 	size_t a1 = (size_t)*a;
-	size_t b1 = (size_t)b;
+	size_t b1 = (size_t)b;*/
 
 	/*int i = 0;
 	while (i < 300) {
@@ -94,7 +94,7 @@ int		main(void)
 	}*/
 
 	//res = printf("%e", 3.65);
-	res = ft_printf("%x", 3.65);
+	res = ft_printf("%10f", 3.65);
 	//res = ft_printf("%C %d", 945, MB_CUR_MAX); //цукенг
 	printf("\nres = %d\n", res);
 	//ft_printf("{red}");

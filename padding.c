@@ -12,23 +12,30 @@
 
 #include "ft_printf.h"
 
+void calc_pad(t_fs *fs)
+{
+	if ((fs->zero && fs->prec_exist && ft_strchr("oxXubdfpeE", fs->ch)) || \
+			(fs->zero && fs->minus))
+		fs->zero = 0;
+	else if (fs->zero)
+		fs->precision = ((fs->plus) || (fs->nf && !fs->plus) || fs->space) ? \
+						fs->width - 1 : fs->width;
+}
+
 size_t padding(t_fs *fs, int wordlen)
 {
 	size_t i;
 
 	i = 0;
-	if ((fs->zero && fs->prec_exist && ft_strchr("oxXubdsSifpf", fs->ch)) || \
-			(fs->zero && fs->minus))
-		fs->zero = 0;
-	else if (fs->zero)
-		fs->precision = ((fs->plus) || (fs->nf && !fs->plus) || fs->space) ? fs->width - 1 : fs->width;
-	while (fs->width > wordlen + (fs->nf || fs->plus) + fs->space && !fs->minus && !fs->zero &&
+	calc_pad(fs);
+	wordlen += (fs->nf || fs->plus) + fs->space;
+	while (fs->width >  wordlen && !fs->minus && !fs->zero &&
 		   fs->precision + (fs->nf || fs->plus) + fs->space < fs->width)
 	{
 		i += ft_putchar(' ');
 		fs->width--;
 	}
-	if ((fs->ch != 'f' && fs->ch != 'd' && fs->ch != '%') || (fs->ch == '%' && fs->zero))
+	if (!ft_strchr("fd%", fs->ch) || (fs->ch == '%' && fs->zero))
 		while (fs->precision > wordlen && (((fs->ch == 'c' || fs->ch == 'C') && \
 				fs->zero) || (fs->ch != 'c' && fs->ch != 'C')))
 		{

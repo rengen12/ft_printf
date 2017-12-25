@@ -76,7 +76,7 @@ size_t ft_strlen_u(char *s, t_fs *fs)
 			num += ((int) ((unsigned char)*(s + 2))) << 16;
 			num += ((int) ((unsigned char)*(s + 3))) << 24;
 			chlen = charlen(num);
-			if (fs->prec_exist && i + chlen > (size_t)fs->precision)
+			if (fs->prec_exist && i + chlen > (size_t)fs->prec)
 				return (i);
 			if (!chlen)
 				break ;

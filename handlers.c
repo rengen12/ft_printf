@@ -62,14 +62,14 @@ void	handle_str_point(va_list ap, const char **s, t_fs *fs)
 	(*s)++;
 	if (**s == '*')
 	{
-		fs->precision = va_arg(ap, int);
-		fs->precision = (fs->precision < 0 && fs->zero) ? fs->width : fs->precision;
+		fs->prec = va_arg(ap, int);
+		fs->prec = (fs->prec < 0 && fs->zero) ? fs->width : fs->prec;
 		(*s)++;
 	}
 	else
 	{
-		fs->precision = ft_atoi_printf(s);
-		fs->precision = (fs->precision > 0) ? fs->precision : 0;
+		fs->prec = ft_atoi_printf(s);
+		fs->prec = (fs->prec > 0) ? fs->prec : 0;
 	}
 	fs->prec_exist = 1;
 }

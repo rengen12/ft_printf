@@ -25,7 +25,7 @@ char		*add_pre(size_t nb, char *cnvrtd, t_fs *fs)
 	size_t 	cnvl;
 
 	cnvl = ft_strlen(cnvrtd);
-	pre = ft_strnew(2 + fs->precision + cnvl);
+	pre = ft_strnew(2 + fs->prec + cnvl);
 	if (!fs->zero && pre)
 	{
 		if ((nb && fs->ch == 'x' && fs->sh) || fs->ch == 'p')
@@ -37,7 +37,7 @@ char		*add_pre(size_t nb, char *cnvrtd, t_fs *fs)
 	}
 	if (fs->ch == 'o' && fs->sh)
 		cnvl++;
-	while ((size_t)fs->precision-- > cnvl)
+	while ((size_t)fs->prec-- > cnvl)
 		ft_strncat(pre, "0", 1);
 	ft_strncat(pre, cnvrtd, cnvl);
 	ft_strdel(&cnvrtd);
@@ -56,7 +56,7 @@ char		*ft_convert_base(size_t nb, char *base_to, t_fs *fs)
 		return (NULL);
 	mem = (fs->ch == 'b') ? 62 : 21;
     r = ft_strnew(mem);
-	if (r && (fs->precision > 0 || (fs->sh && fs->ch == 'o')))
+	if (r && (fs->prec > 0 || (fs->sh && fs->ch == 'o')))
 		parse_convert_base(nb, base_to, l, &(*r));
 	return (add_pre(nb, r, fs));
 }

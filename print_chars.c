@@ -26,7 +26,7 @@ size_t print_string(t_fs *fs, va_list ap)
 		l = ft_strlen(str);
 	if (!str)
 		l = 6;
-	l = (l > (size_t)fs->precision && fs->prec_exist) ? (size_t)fs->precision : l;
+	l = (l > (size_t)fs->prec && fs->prec_exist) ? (size_t)fs->prec : l;
 	i += padding_str(fs, l);
 	if (!str)
 		i += ft_putstr("(null)", fs);

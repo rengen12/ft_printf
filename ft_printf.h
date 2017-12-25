@@ -63,7 +63,7 @@ typedef struct s_fs
 	int apo;
 
     int width;
-    int precision;
+    int prec;
     int prec_exist;
     /*int starw;
     int starp;*/

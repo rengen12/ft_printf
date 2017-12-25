@@ -22,7 +22,7 @@ size_t print_num(t_fs *fs, va_list ap)
 	usemodifs(fs, &var);
 	if (var < 0)
 		fs->nf = 1;
-	if (!fs->precision && !var)
+	if (!fs->prec && !var)
 		i += padding(fs, 0);
 	else
 	{
@@ -62,10 +62,12 @@ size_t print_unsig(t_fs *fs, va_list ap)
 
 size_t print_float(t_fs *fs, va_list ap)
 {
-	size_t i;
+	size_t		i;
 	long double var;
+	size_t 		i_e;
 
 	i = 0;
+	i_e = 0;
 	if (fs->l)
 		var = va_arg(ap, long double);//dont work with big num
 	else
@@ -75,18 +77,37 @@ size_t print_float(t_fs *fs, va_list ap)
 		var *= -1;
 		fs->nf = 1;
 	}
-	i += ft_putnbr_prntf((size_t)var, fs);//rework for big num
+	if (fs->prec == -1)
+		fs->prec = 6;
+	if (fs->ch == 'e' || fs->ch == 'E')
+		while ((size_t)var > 10)
+		{
+			i_e++;
+			var /= 10;
+		}
+	i += padding(fs, (ft_wordlen((size_t)var) + (fs->prec > 0) + fs->prec));
+	i += ft_putnbr_prntf((size_t)var, fs);
 	fs->nf = 0;
-	if (fs->precision == -1)
-		fs->precision = 6;
-	if (fs->precision > 0)
+	if (fs->prec > 0)
 		i += ft_putchar('.');
-	while (fs->precision-- > 0)
+	while (fs->prec-- > 0)
 	{
 		var -= (size_t)var;
 		var += 0.000000000001;
 		var *= 10;
 		i += ft_putnbr_prntf((size_t)var, fs);
+	}
+	if (fs->ch == 'e' || fs->ch == 'E')
+	{
+		i += ft_putchar(fs->ch);
+		i += ft_putchar('+');
+		if (i_e >= 10)
+			i += ft_putnbr_prntf(i_e, fs);
+		else
+		{
+			i += ft_putnbr_prntf(0, fs);
+			i += ft_putnbr_prntf(i_e, fs);
+		}
 	}
 	return (i);
 }

@@ -68,7 +68,7 @@ int 	char_size(size_t ch)
 
 int		main(void)
 {
-	int res;
+	int res1, res2;
 	//char* l = setlocale(LC_ALL, "");
 
 	//long double ld = DBL_MAX;
@@ -94,9 +94,11 @@ int		main(void)
 	}*/
 
 	//res = printf("%e", 3.65);
-	res = ft_printf("%10f", 3.65);
-	//res = ft_printf("%C %d", 945, MB_CUR_MAX); //цукенг
-	printf("\nres = %d\n", res);
+	long double ld = 32424.235;
+	res1 = ft_printf("%e\n", 32424.235);
+	res2 = printf("%e\n", 32424.235);
+	ft_printf("my res = %d ", res1);
+	ft_printf("unix res = %d\n\n", res2);
 	//ft_printf("{red}");
 
 	//write(1, b, ft_strlen(b));

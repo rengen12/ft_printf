@@ -37,14 +37,14 @@ size_t print_str_fs(t_fs *fs, va_list ap)
 {
 	size_t i;
 
-	if ((i = 0) == 0 && ft_strchr("oxXubdsScCifpf", fs->ch)) //remove %
+	if ((i = 0) == 0 && ft_strchr("oxXubdsScCifpfEe", fs->ch)) //remove %
 	{
-		if (fs->ch == 'f')
+		if (fs->ch == 'f' || fs->ch == 'E' || fs->ch == 'e')
 			i += print_float(fs, ap);
 		else if (fs->ch == 's' || fs->ch == 'S')
 			i += print_string(fs, ap);
-		else if (fs->precision == -1)
-			fs->precision = 1;
+		else if (fs->prec == -1)
+			fs->prec = 1;
 		if (ft_strchr("oxXubp", fs->ch))
 			i += print_unsig(fs, ap);
 		else if (fs->ch == 'd')

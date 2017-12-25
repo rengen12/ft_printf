@@ -35,7 +35,7 @@ void init_flags(t_fs *fs)
 	fs->plus = 0;
 	fs->space = 0;
 	fs->width = 0;
-	fs->precision = -1;
+	fs->prec = -1;
 	fs->apo = 0;
 	fs->h = 0;
 	fs->l = 0;

@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   padding.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amichak <amichak@marvin@42.fr>             +#+  +:+       +#+        */
+/*   By: amichak <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 12:39:00 by amichak           #+#    #+#             */
-/*   Updated: 2017/12/20 12:39:00 by amichak          ###   ########.fr       */
+/*   Created: 2017/12/26 20:15:00 by amichak           #+#    #+#             */
+/*   Updated: 2017/12/26 20:15:00 by amichak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "handle_printf.h"
 
-void calc_pad(t_fs *fs)
+void	calc_pad(t_fs *fs)
 {
 	if ((fs->zero && fs->prec_exist && ft_strchr("oxXubdfpeE", fs->ch)) || \
-			(fs->zero && fs->minus))
+		(fs->zero && fs->minus))
 		fs->zero = 0;
 	else if (fs->zero)
 		fs->prec = ((fs->plus) || (fs->nf && !fs->plus) || fs->space) ? \
-						fs->width - 1 : fs->width;
+					fs->width - 1 : fs->width;
 }
 
-size_t padding(t_fs *fs, int wordlen)
+size_t	padding(t_fs *fs, int wordlen)
 {
 	size_t i;
 
 	i = 0;
 	calc_pad(fs);
 	while (fs->width > wordlen + (fs->nf || fs->plus || fs->space) && \
-		   !fs->minus && !fs->zero && fs->prec + (fs->nf || \
+			!fs->minus && !fs->zero && fs->prec + (fs->nf || \
 			fs->plus || fs->space) < fs->width)
 	{
 		i += ft_putchar(' ');
@@ -45,7 +45,7 @@ size_t padding(t_fs *fs, int wordlen)
 	return (i);
 }
 
-size_t padding_after(t_fs *fs, int wordlen)
+size_t	padding_after(t_fs *fs, int wordlen)
 {
 	size_t i;
 
@@ -58,7 +58,7 @@ size_t padding_after(t_fs *fs, int wordlen)
 	return (i);
 }
 
-size_t padding_afsign(t_fs *fs, int wordlen)
+size_t	padding_afsign(t_fs *fs, int wordlen)
 {
 	size_t i;
 
@@ -71,7 +71,7 @@ size_t padding_afsign(t_fs *fs, int wordlen)
 	return (i);
 }
 
-size_t padding_str(t_fs *fs, int wordlen)
+size_t	padding_str(t_fs *fs, int wordlen)
 {
 	size_t i;
 

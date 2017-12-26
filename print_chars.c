@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_chars.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amichak <amichak@marvin@42.fr>             +#+  +:+       +#+        */
+/*   By: amichak <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 12:38:00 by amichak           #+#    #+#             */
-/*   Updated: 2017/12/20 12:38:00 by amichak          ###   ########.fr       */
+/*   Created: 2017/12/26 20:12:00 by amichak           #+#    #+#             */
+/*   Updated: 2017/12/26 20:12:00 by amichak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "handle_printf.h"
 
-size_t print_string(t_fs *fs, va_list ap)
+size_t	print_string(t_fs *fs, va_list ap)
 {
 	size_t	i;
 	char	*str;
@@ -37,10 +37,10 @@ size_t print_string(t_fs *fs, va_list ap)
 	return (i);
 }
 
-size_t print_char(t_fs *fs, va_list ap)
+size_t	print_char(t_fs *fs, va_list ap)
 {
 	size_t	i;
-	size_t		var;
+	int		var;
 
 	i = 0;
 	var = 0;
@@ -48,8 +48,8 @@ size_t print_char(t_fs *fs, va_list ap)
 	if (fs->ch == '%')
 		i += ft_putchar('%');
 	else
-		var = va_arg(ap, size_t);
-	if(fs->ch != '%')
+		var = va_arg(ap, int);
+	if (fs->ch != '%')
 	{
 		if (fs->ch == 'c' && fs->l == 0)
 			i += ft_putchar((char)var);

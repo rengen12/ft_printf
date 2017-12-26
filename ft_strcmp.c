@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "handle_printf.h"
 
 int		ft_strcmp(const char *s1, const char *s2)
 {

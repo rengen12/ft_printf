@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "handle_printf.h"
 
-size_t ft_putstr(char const *s, t_fs *fs)
+size_t	ft_putstr(char const *s, t_fs *fs)
 {
-	size_t i;
+	size_t	i;
 
 	if (!s)
 		return (0);

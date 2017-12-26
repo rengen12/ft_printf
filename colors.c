@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amichak <amichak@marvin@42.fr>             +#+  +:+       +#+        */
+/*   By: amichak <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/19 00:36:00 by amichak           #+#    #+#             */
-/*   Updated: 2017/12/19 00:36:00 by amichak          ###   ########.fr       */
+/*   Created: 2017/12/26 20:28:00 by amichak           #+#    #+#             */
+/*   Updated: 2017/12/26 20:28:00 by amichak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "handle_printf.h"
 
 int		ft_putstr_col_code(char const *s)
 {
@@ -105,7 +105,7 @@ int		parse_col_bi(char const *t)
 	return (0);
 }
 
-void 	parse_color(char const **s)
+void	parse_color(char const **s)
 {
 	(*s)++;
 	if (parse_col_ergy(*s) || parse_col_mcwu(*s) || parse_col_bi(*s))

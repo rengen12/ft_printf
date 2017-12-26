@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   redirect_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amichak <amichak@marvin@42.fr>             +#+  +:+       +#+        */
+/*   By: amichak <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 12:47:00 by amichak           #+#    #+#             */
-/*   Updated: 2017/12/20 12:47:00 by amichak          ###   ########.fr       */
+/*   Created: 2017/12/26 19:57:00 by amichak           #+#    #+#             */
+/*   Updated: 2017/12/26 19:57:00 by amichak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "handle_printf.h"
 
-size_t print_ordsymb(const char **s)
+size_t	print_ordsymb(const char **s)
 {
 	size_t	i;
 
@@ -25,7 +25,7 @@ size_t print_ordsymb(const char **s)
 		{
 			if (**s == '%')
 				(*s)++;
-			break;
+			break ;
 		}
 		if (**s)
 			i += ft_putchar(*(*s)++);
@@ -33,11 +33,11 @@ size_t print_ordsymb(const char **s)
 	return (i);
 }
 
-size_t print_str_fs(t_fs *fs, va_list ap)
+size_t	print_str_fs(t_fs *fs, va_list ap)
 {
 	size_t i;
 
-	if ((i = 0) == 0 && ft_strchr("oxXubdsScCifpfEe", fs->ch)) //remove %
+	if ((i = 0) == 0 && ft_strchr("oxXubdsScCifpfEe", fs->ch))
 	{
 		if (fs->ch == 'f' || fs->ch == 'E' || fs->ch == 'e')
 			i += print_float(fs, ap);
@@ -49,7 +49,7 @@ size_t print_str_fs(t_fs *fs, va_list ap)
 			i += print_unsig(fs, ap);
 		else if (fs->ch == 'd')
 			i += print_num(fs, ap);
-		else if (fs->ch == 'c' || fs->ch == 'C'/* || fs->ch == '%'*/)
+		else if (fs->ch == 'c' || fs->ch == 'C')
 			i += print_char(fs, ap);
 		i += padding_after(fs, i);
 	}

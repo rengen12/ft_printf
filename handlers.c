@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   handlers.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amichak <amichak@marvin@42.fr>             +#+  +:+       +#+        */
+/*   By: amichak <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 12:29:00 by amichak           #+#    #+#             */
-/*   Updated: 2017/12/20 12:29:00 by amichak          ###   ########.fr       */
+/*   Created: 2017/12/26 19:01:00 by amichak           #+#    #+#             */
+/*   Updated: 2017/12/26 19:01:00 by amichak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "handle_printf.h"
 
-size_t handle_sharp(size_t nb, t_fs *fs)
+size_t	handle_sharp(size_t nb, t_fs *fs)
 {
 	size_t i;
 
@@ -29,7 +29,7 @@ size_t handle_sharp(size_t nb, t_fs *fs)
 	return (i);
 }
 
-void handle_flags(t_fs *fs, char ch)
+void	handle_flags(t_fs *fs, char ch)
 {
 	if (ch == '-')
 		fs->minus = 1;
@@ -41,11 +41,9 @@ void handle_flags(t_fs *fs, char ch)
 		fs->space = 1;
 	else if (ch == '0')
 		fs->zero = 1;
-	else if (ch == '\'')
-		fs->apo = 1;
 }
 
-void handle_modif(t_fs *fs, char ch)
+void	handle_modif(t_fs *fs, char ch)
 {
 	if (ch == 'h')
 		fs->h++;
@@ -74,9 +72,10 @@ void	handle_str_point(va_list ap, const char **s, t_fs *fs)
 	fs->prec_exist = 1;
 }
 
-size_t handle_str_fs(va_list ap, const char **s, t_fs *fs)
+size_t	handle_str_fs(va_list ap, const char **s, t_fs *fs)
 {
-	while (**s == '-' || **s == '+' || **s == '#' || **s == ' ' || **s == '0' || **s == '\'')
+	while (**s == '-' || **s == '+' || **s == '#' || **s == ' ' || \
+			**s == '0' || **s == '\'')
 		handle_flags(fs, *(*s)++);
 	while ((**s >= '0' && **s <= '9') || **s == '*')
 		if (**s == '*')
@@ -93,7 +92,8 @@ size_t handle_str_fs(va_list ap, const char **s, t_fs *fs)
 		handle_str_point(ap, s, fs);
 	while (**s == 'h' || **s == 'l' || **s == 'L' || **s == 'j' || **s == 'z')
 		handle_modif(fs, *(*s)++);
-	while (**s == '-' || **s == '+' || **s == '#' || **s == ' ' || **s == '0' || **s == '\'')
+	while (**s == '-' || **s == '+' || **s == '#' || **s == ' ' || **s == '0' \
+			|| **s == '\'')
 		handle_flags(fs, *(*s)++);
 	if (!**s)
 		return (0);

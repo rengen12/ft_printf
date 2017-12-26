@@ -95,10 +95,19 @@ int		main(void)
 
 	//res = printf("%e", 3.65);
 	long double ld = 32424.235;
-	res1 = ft_printf("%12.4e\n", 420.0);
-	res2 = printf("%12.4e\n", 420.0);
-	ft_printf("my res = %d ", res1);
-	ft_printf("unix res = %d\n\n", res2);
+	res1 = ft_printf("%e", 454545.3);
+	/*res2 = printf("%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C \
+%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C\
+%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C\n",
+				  ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-',
+				  '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';',
+				  '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+				  'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+				  'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e',
+				  'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+				  't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}');*/
+	//ft_printf("my res = %d ", res1);
+	//ft_printf("unix res = %d\n\n", res2);
 	//ft_printf("{red}");
 
 	//write(1, b, ft_strlen(b));

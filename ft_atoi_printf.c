@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "handle_printf.h"
 
 int ft_atoi_printf(const char **nptr)
 {
@@ -24,7 +24,7 @@ int ft_atoi_printf(const char **nptr)
 		r = r * 10 + (*(*nptr)++ - '0');
 		i++;
 	}
-	//if (r > 9223372036854775807)
-		//return (0);
+	if (r > 9223372036854775807)
+		return (0);
 	return ((int)r);
 }

@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "handle_printf.h"
 
-int ft_wordlen(ssize_t var)
+int				ft_wordlen(ssize_t var)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (var)
@@ -27,9 +27,9 @@ int ft_wordlen(ssize_t var)
 	return (i);
 }
 
-size_t	ft_strlen(const char *s)
+size_t			ft_strlen(const char *s)
 {
-	size_t		i;
+	size_t	i;
 
 	if (!s)
 		return (0);
@@ -42,7 +42,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-static size_t charlen(int c)
+static size_t	charlen(int c)
 {
 	if (c <= 127)
 		return (1);
@@ -52,18 +52,14 @@ static size_t charlen(int c)
 		return (3);
 	else if (c <= 2097151)
 		return (4);
-	//else if (c <= 67108863)
-		//return (5);
-	//else if (c <= 2147483647)
-		//return (6);
 	else
 		return (0);
 }
 
-size_t ft_strlen_u(char *s, t_fs *fs)
+size_t			ft_strlen_u(char *s, t_fs *fs)
 {
-	size_t	i;
 	int		num;
+	size_t	i;
 	size_t	chlen;
 
 	i = 0;
@@ -72,9 +68,9 @@ size_t ft_strlen_u(char *s, t_fs *fs)
 		{
 			num = 0;
 			num += (unsigned char)*s;
-			num += ((int) ((unsigned char)*(s + 1))) << 8;
-			num += ((int) ((unsigned char)*(s + 2))) << 16;
-			num += ((int) ((unsigned char)*(s + 3))) << 24;
+			num += ((int)((unsigned char)*(s + 1))) << 8;
+			num += ((int)((unsigned char)*(s + 2))) << 16;
+			num += ((int)((unsigned char)*(s + 3))) << 24;
 			chlen = charlen(num);
 			if (fs->prec_exist && i + chlen > (size_t)fs->prec)
 				return (i);

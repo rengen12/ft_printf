@@ -105,7 +105,7 @@ static int		parse_col_bi(char const *t)
 	return (0);
 }
 
-void	parse_color(char const **s)
+void			parse_color(char const **s)
 {
 	(*s)++;
 	if (parse_col_ergy(*s) || parse_col_mcwu(*s) || parse_col_bi(*s))

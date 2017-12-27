@@ -33,7 +33,7 @@ static size_t	print_sym_e(t_fs *fs, size_t i_e)
 }
 
 static size_t	prepare_float(t_fs *fs, long double *var, va_list ap, \
-							   size_t *i_e)
+	size_t *i_e)
 {
 	size_t	i;
 

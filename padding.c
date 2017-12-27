@@ -71,7 +71,7 @@ size_t		padding_afsign(t_fs *fs, int wordlen)
 	return (i);
 }
 
-size_t	padding_str(t_fs *fs, int wordlen)
+size_t		padding_str(t_fs *fs, int wordlen)
 {
 	size_t i;
 

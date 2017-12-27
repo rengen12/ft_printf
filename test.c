@@ -95,7 +95,11 @@ int		main(void)
 
 	//res = printf("%e", 3.65);
 	long double ld = 32424.235;
-	res1 = ft_printf("%e", 454545.3);
+	res1 = ft_printf("%LE", ld);
+	ft_printf("\nmy res = %d\n", res1);
+	res1 = ft_printf("%C", L'й');
+	ft_printf("\nmy res = %d\n", res1);
+
 	/*res2 = printf("%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C \
 %C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C\
 %C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C\n",

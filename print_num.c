@@ -53,7 +53,7 @@ size_t	print_unsig(t_fs *fs, va_list ap)
 		systemstr = "01234567";
 	else if (fs->ch == 'b')
 		systemstr = "01";
-	str = ft_convert_base(var, systemstr, fs);
+	str = ft_convert_base_printf(var, systemstr, fs);
 	i += padding(fs, ft_strlen(str) + i);
 	i += ft_putstr(str, fs);
 	ft_strdel(&str);

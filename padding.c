@@ -12,7 +12,7 @@
 
 #include "handle_printf.h"
 
-void	calc_pad(t_fs *fs)
+static void	calc_pad(t_fs *fs)
 {
 	if ((fs->zero && fs->prec_exist && ft_strchr("oxXubdfpeE", fs->ch)) || \
 		(fs->zero && fs->minus))
@@ -22,7 +22,7 @@ void	calc_pad(t_fs *fs)
 					fs->width - 1 : fs->width;
 }
 
-size_t	padding(t_fs *fs, int wordlen)
+size_t		padding(t_fs *fs, int wordlen)
 {
 	size_t i;
 
@@ -45,7 +45,7 @@ size_t	padding(t_fs *fs, int wordlen)
 	return (i);
 }
 
-size_t	padding_after(t_fs *fs, int wordlen)
+size_t		padding_after(t_fs *fs, int wordlen)
 {
 	size_t i;
 
@@ -58,7 +58,7 @@ size_t	padding_after(t_fs *fs, int wordlen)
 	return (i);
 }
 
-size_t	padding_afsign(t_fs *fs, int wordlen)
+size_t		padding_afsign(t_fs *fs, int wordlen)
 {
 	size_t i;
 

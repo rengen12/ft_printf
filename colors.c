@@ -12,7 +12,7 @@
 
 #include "handle_printf.h"
 
-int		ft_putstr_col_code(char const *s)
+static int		ft_putstr_col_code(char const *s)
 {
 	if (!s)
 		return (0);
@@ -20,7 +20,7 @@ int		ft_putstr_col_code(char const *s)
 	return (1);
 }
 
-int		parse_col_mcwu(char const *t)
+static int		parse_col_mcwu(char const *t)
 {
 	if (!ft_strcmp(t, "magenta"))
 	{
@@ -48,7 +48,7 @@ int		parse_col_mcwu(char const *t)
 	return (0);
 }
 
-int		parse_col_ergy(char const *t)
+static int		parse_col_ergy(char const *t)
 {
 	if (!ft_strcmp(t, "eoc}"))
 		return (ft_putstr_col_code(EOC));
@@ -76,7 +76,7 @@ int		parse_col_ergy(char const *t)
 	return (0);
 }
 
-int		parse_col_bi(char const *t)
+static int		parse_col_bi(char const *t)
 {
 	if (!ft_strcmp(t, "blue"))
 	{

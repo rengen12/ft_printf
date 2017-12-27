@@ -12,17 +12,17 @@
 
 #include "handle_printf.h"
 
-void		parse_convert_base(size_t nb, char *bt, size_t c, char *r)
+static void	parse_convert_base(size_t nb, char *bt, size_t c, char *r)
 {
 	if (nb >= c)
 		parse_convert_base(nb / c, bt, c, r);
 	ft_strncat(r, &bt[nb % c], 1);
 }
 
-char		*add_pre(size_t nb, char *cnvrtd, t_fs *fs)
+static char	*add_pre(size_t nb, char *cnvrtd, t_fs *fs)
 {
-	char 	*pre;
-	size_t 	cnvl;
+	char	*pre;
+	size_t	cnvl;
 
 	cnvl = ft_strlen(cnvrtd);
 	pre = ft_strnew(2 + fs->prec + cnvl);
@@ -44,18 +44,17 @@ char		*add_pre(size_t nb, char *cnvrtd, t_fs *fs)
 	return (pre);
 }
 
-char		*ft_convert_base(size_t nb, char *base_to, t_fs *fs)
+char		*ft_convert_base_printf(size_t nb, char *base_to, t_fs *fs)
 {
-	char			*r;
+	char	*r;
+	size_t	l;
+	int		mem;
 
-	size_t			l;
-	int				mem;
-
-    l = ft_strlen(base_to);
-    if (!l || (!nb && fs->ch != 'p' && (l == 16 || (l == 8 && !fs->sh))))
+	l = ft_strlen(base_to);
+	if (!l || (!nb && fs->ch != 'p' && (l == 16 || (l == 8 && !fs->sh))))
 		return (NULL);
 	mem = (fs->ch == 'b') ? 62 : 21;
-    r = ft_strnew(mem);
+	r = ft_strnew(mem);
 	if (r && (fs->prec > 0 || (fs->sh && fs->ch == 'o')))
 		parse_convert_base(nb, base_to, l, &(*r));
 	return (add_pre(nb, r, fs));

@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 #include "handle_printf.h"
 
-void	read_conv_mod(t_fs *fs, const char **s)
+void			read_conv_mod(t_fs *fs, const char **s)
 {
 	fs->ch = *(*s)++;
 	if (fs->ch == 'D' || fs->ch == 'i')
@@ -38,7 +38,7 @@ void	read_conv_mod(t_fs *fs, const char **s)
 	}
 }
 
-void	init_flags(t_fs *fs)
+static void		init_flags(t_fs *fs)
 {
 	fs->ch = 0;
 	fs->nf = 0;
@@ -56,7 +56,7 @@ void	init_flags(t_fs *fs)
 	fs->prec_exist = 0;
 }
 
-size_t	handstrform(va_list ap, const char *frmt, t_fs *fs)
+static size_t	handstrform(va_list ap, const char *frmt, t_fs *fs)
 {
 	size_t i;
 
@@ -73,7 +73,7 @@ size_t	handstrform(va_list ap, const char *frmt, t_fs *fs)
 	return (i);
 }
 
-int		ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
 	size_t	i;
 	va_list	ap;

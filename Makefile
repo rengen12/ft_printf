@@ -15,7 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 HEADER = -I ./
 OBJFOLD = ./obj/
-SRC = ft_printf.c chars.c ft_convert_base.c ft_putchar.c \
+SRC = ft_printf.c chars.c ft_convert_base_printf.c ft_putchar.c \
 	  ft_putstr.c ft_strlen.c ft_memdel.c ft_strncat.c ft_strnew.c ft_memset.c \
 	  ft_putnbr.c ft_strdel.c modificators.c \
 	  ft_strchr.c ft_atoi_printf.c colors.c ft_strcmp.c handlers.c \

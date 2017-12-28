@@ -69,7 +69,7 @@ int 	char_size(size_t ch)
 int		main(void)
 {
 	int res1, res2;
-	//char* l = setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "");
 
 	//long double ld = DBL_MAX;
 	//res = ft_printf("%LF\n ", ld);
@@ -94,8 +94,10 @@ int		main(void)
 	}*/
 
 	//res = printf("%e", 3.65);
-	long double ld = 32424.235;
-	res1 = ft_printf("%LE", ld);
+	//long double ld = 32424.235;
+	res1 = ft_printf("%S", L"¡™£¢∞§¶•ªºœ∑´´†¥¨ˆˆπ");
+	ft_printf("\nmy res = %d\n", res1);
+	printf("%S", L"¡™£¢∞§¶•ªºœ∑´´†¥¨ˆˆπ");
 	ft_printf("\nmy res = %d\n", res1);
 	res1 = ft_printf("%C", L'й');
 	ft_printf("\nmy res = %d\n", res1);

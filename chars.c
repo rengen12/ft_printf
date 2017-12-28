@@ -45,7 +45,9 @@ int				ft_putchar_u(size_t c)
 	v2 = 49280;
 	v3 = 14712960;
 	v4 = 4034953344;
-	if (c <= 255)
+	if (c <= 127 && MB_CUR_MAX > 1)
+		return (handle_umas(a, c, 1));
+	else if (c <= 255 && MB_CUR_MAX == 1)
 		return (handle_umas(a, c, 1));
 	else if (c <= 2047)
 		return (handle_umas(a, (((c & 63) | ((c & 1984) << 2)) | v2), 2));

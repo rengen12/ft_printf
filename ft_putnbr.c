@@ -30,13 +30,16 @@ size_t			ft_putnbr_prntf(ssize_t nb, t_fs *fs)
 		n = -nb;
 	else
 		n = nb;
-	if (!fs->nf && !fs->plus && fs->space)
-		i += ft_putchar(' ');
-	else if (!fs->nf && fs->plus)
-		i += ft_putchar('+');
-	else if (fs->nf)
-		i += ft_putchar('-');
-	i += padding_afsign(fs, ft_wordlen(nb));
+	if (fs)
+	{
+		if (!fs->nf && !fs->plus && fs->space)
+			i += ft_putchar(' ');
+		else if (!fs->nf && fs->plus)
+			i += ft_putchar('+');
+		else if (fs->nf)
+			i += ft_putchar('-');
+		i += padding_afsign(fs, ft_wordlen(nb));
+	}
 	i += ft_putnbr_rec(n, 0);
 	return (i);
 }

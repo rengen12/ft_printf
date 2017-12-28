@@ -75,7 +75,7 @@ void	handle_str_point(va_list ap, const char **s, t_fs *fs)
 size_t	handle_str_fs(va_list ap, const char **s, t_fs *fs)
 {
 	while (**s == '-' || **s == '+' || **s == '#' || **s == ' ' || \
-			**s == '0' || **s == '\'')
+			**s == '0')
 		handle_flags(fs, *(*s)++);
 	while ((**s >= '0' && **s <= '9') || **s == '*')
 		if (**s == '*')

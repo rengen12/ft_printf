@@ -10,17 +10,20 @@
 #                                                                              #
 # **************************************************************************** #
 
+.PHONY:				all clean fclean re $(NAME)
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
-HEADER = -I ./includes/
-SRC = $(wildcard ft_printf.c chars.c ft_convert_base_printf.c ft_putchar.c \
+HEADER = -I ./
+OBJFOLD = ./obj/
+SRC = ft_printf.c chars.c ft_convert_base_printf.c ft_putchar.c \
 	  ft_putstr.c ft_strlen.c ft_memdel.c ft_strncat.c ft_strnew.c ft_memset.c \
 	  ft_putnbr.c ft_strdel.c modificators.c ft_strchr.c ft_atoi_printf.c \
 	  colors.c ft_strcmp.c handlers.c padding.c print_chars.c print_num.c \
-	  redirect_print.c print_float.c)
+	  redirect_print.c print_float.c
 
-OBJ = $(patsubst %.c, %.o, $(SRC))
+OBJ = $(addprefix $(OBJFOLD),$(patsubst %.c, %.o, $(SRC)))
 
 all:				$(NAME)
 
@@ -29,16 +32,14 @@ $(NAME):			$(OBJ)
 	@ranlib $(NAME)
 	@echo "ft_printf: done"
 	
-$(OBJFOLD)%.o: %.c
+$(OBJFOLD)%.o: 		%.c
 	@mkdir -p $(OBJFOLD)
 	$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
 clean:
-	@rm -f ./*.o
+	@rm -rf $(OBJFOLD)
 
 fclean:				clean
-	@rm -rf $(NAME)
+	@rm -f $(NAME)
 
 re:					fclean all
-
-.PHONY:				all clean fclean re

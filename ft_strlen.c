@@ -44,7 +44,9 @@ size_t			ft_strlen(const char *s)
 
 static size_t	charlen(int c)
 {
-	if (c <= 127)
+	if (c <= 127 && MB_CUR_MAX > 1)
+		return (1);
+	else if (c <= 255 && MB_CUR_MAX == 1)
 		return (1);
 	else if (c <= 2047)
 		return (2);
